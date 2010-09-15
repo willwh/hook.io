@@ -1,2 +1,2 @@
-var server = require('./hookio');
+var server = require('./lib/hookio');
 server.init();
