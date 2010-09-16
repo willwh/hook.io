@@ -31,4 +31,4 @@ monitor.callback = function(){
   
 };
 
-eyes.inspect(monitor);
+//eyes.inspect(monitor);
