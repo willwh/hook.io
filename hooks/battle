@@ -1,6 +1,5 @@
 #! /usr/bin/env node
-var Hook = require('../lib/hookio').Hook,
-    cliff = require('cliff');
+var Hook = require('../lib/hookio').Hook;
 
 var battle = new Hook({ 
   name: "battle"
@@ -34,9 +33,9 @@ battle.on('out', function(name, data){
 
 battle.on('in', function(event, event2, data){
   console.log('generic input :', event, event2, data);
-  console.log(cliff.inspect(data));
+  //console.log(cliff.inspect(data));
 });
 
 battle.on('in.*', function(event, event2, data){
-  console.log(event.yellow, cliff.inspect(data));
+  //console.log(event.yellow, cliff.inspect(data));
 });
