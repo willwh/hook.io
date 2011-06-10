@@ -1,0 +1,54 @@
+#! /usr/bin/env node
+var Hook = require('../lib/hookio').Hook;
+
+var enemy = new Hook({name: 'enemy'});
+
+enemy.connect({
+  port: 5000,
+  host: "localhost"
+});
+
+enemy.on('ready', function(){
+  
+  enemy.hp = 3;
+
+   enemy.emit('out.appears', {'name' : 'Barco'});
+
+   enemy.on('in.gunner.shoot', function (event) {
+     if (enemy.hp > 1) {
+       enemy.hp--;
+       enemy.emit('out.hit');
+       console.log('I have '.green  + enemy.hp.toString().red + ' hp remaining.'.green);
+     }
+     else {
+       console.log('Enemy has bled to death.'.red);
+
+       // Add a 5 second delay to simulate I/O for the enemy
+       // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
+       setInterval(function(){
+         enemy.emit('out.died');
+         enemy.kill();
+       }, 1000)
+     }
+   });
+
+   enemy.on('in.airsupport.airStrike', function (event) {
+     console.log('Enemy blown to bits!'.red);
+     enemy.kill();
+   });
+
+   // Add a 5 second delay to simulate I/O for the enemy
+   // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
+   setInterval(function(){
+     enemy.emit('out.appears', {'name' : 'Barco'});
+   }, 5000)
+
+
+   enemy.kill = function () {
+     enemy.conn.end();
+     process.exit();
+   }
+  
+  
+});
+

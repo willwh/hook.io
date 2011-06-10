@@ -1,0 +1,81 @@
+#! /usr/hooks/env node
+var Hook = require('../lib/hookio').Hook,
+    colors  = require('colors'),
+    play    = require('play');
+
+var sfx = new Hook( {
+  name: 'sfx',
+  port: 5000 
+});
+
+sfx.connect({
+  port: 5000,
+  host: "localhost"
+});
+
+
+sfx.on('ready', function(){
+
+  sfx.on('in.enemy.appears', function(event, enemy) {
+    
+    play.sound('./hooks/wavs/iamenemy.wav');
+    
+  });
+
+  sfx.on('in.gunner.shoot', function(event, enemy) {
+    
+    play.sound('./hooks/wavs/gunnershoot.mp3');
+    
+  });
+
+  sfx.on('in.scout.spottedEnemy', function(event, enemy) {
+    
+    play.sound('./hooks/wavs/comingforus.wav');
+    
+  });
+  
+  sfx.on('in.gunner.outOfAmmo', function(event, value1, value2) {
+
+    play.sound('./hooks/wavs/gunnerneedsammo.wav');
+
+  });
+
+  sfx.on('in.radio.callAirSupport', function(event, value1, value2) {
+
+    play.sound('./hooks/wavs/airstrike.mp3');
+
+  });
+
+  sfx.on('in.enemy.died', function(event, value1, value2) {
+
+    play.sound('./hooks/wavs/imdead.wav');
+
+  });
+
+  sfx.on('in.enemy.hit', function(event, value1, value2) {
+
+    play.sound('./hooks/wavs/ow.wav');
+
+  });
+
+  sfx.on('in.ammo_guy.reload', function(event, value1, value2) {
+
+    play.sound('./hooks/wavs/reloaded.wav');
+
+  });
+
+  sfx.on('in.gunner.kill', function(event, value1, value2) {
+
+    //play.sound('./hooks/wavs/killed.wav');
+
+  });
+
+  /*
+  sfx.on('in.enemy.appears', function(event, enemy) {
+    
+    play.sound('./hooks/wavs/iamenemy.wav');
+    
+  });
+  */
+  
+});

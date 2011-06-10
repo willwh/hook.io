@@ -1,0 +1,62 @@
+#! /usr/bin/env node
+
+
+var Hook = require('../lib/hookio').Hook;
+
+var gunner = new Hook({name: 'gunner'});
+
+gunner.connect({
+  port: 5000,
+  host: "localhost"
+});
+
+
+gunner.ammo = 5;
+
+
+gunner.on('ready', function(){
+  
+  console.log('Gunner has connected!'.green);
+
+  gunner.on('in.scout.spottedEnemy', function(event, value1, value2) {
+    console.log('Enemy has been spotted!'.yellow);
+    
+    if(gunner.ammo <= 0){
+
+      // Add a 2 second delay to simulate I/O for the gunner
+      // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
+      setTimeout(function(){
+        console.log('Out of ammo!!! I need a reload'.magenta);
+        gunner.emit("out.outOfAmmo");
+      }, 2000);
+    }
+    else {
+      // Add a 2 second delay to simulate I/O for the gunner
+      // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
+      setTimeout(function(){
+
+        console.log('Shooting THE FUCK out of enemy, sir!'.red);
+        console.log('I got '.yellow + gunner.ammo + ' bullets left!'.yellow);
+        gunner.emit("out.shoot");
+        gunner.ammo--;
+        
+      }, 2000);
+
+    }
+    
+  });
+
+  gunner.on('in.ammo_guy.reload', function(event, event2, bullets) {
+    console.log('I got me ' + bullets + ' more bullets!'.green);
+    gunner.ammo = Number(bullets);
+  });
+
+
+  gunner.on('in.enemy.died', function(bullets) {
+    gunner.emit('out.kill', 'Barco');
+    console.log('Mission accomplished');
+  });
+  
+  
+});
+

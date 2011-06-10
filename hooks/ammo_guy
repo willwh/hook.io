@@ -1,0 +1,27 @@
+#! /usr/bin/env node
+var Hook = require('../lib/hookio').Hook;
+
+var ammo_guy = new Hook({name: 'ammo_guy'});
+
+ammo_guy.connect({
+  port: 5000,
+  host: "localhost"
+});
+
+ammo_guy.on('ready', function(){
+  
+  console.log('ammo_guy has connected!'.green);
+
+  // Add a 2 second delay to simulate I/O for the ammo_guy
+  // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
+  setTimeout(function(){
+
+    ammo_guy.on('in.gunner.outOfAmmo', function(event, value1, value2) {
+      console.log('I have been requested to go re-load some ammo!'.yellow);
+      ammo_guy.emit('out.reload', 5);
+    });
+
+  }, 2000);
+  
+  
+});
