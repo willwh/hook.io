@@ -28,6 +28,7 @@
  - Improve API for using forever to spawn modules
  - Add ability to dynamically increment and assign ports
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
+ - Build simple brower-side hook demo
  
 ## Try out a contrived demo 
 
