@@ -29,6 +29,7 @@
  - Add a config.json per hook using nconf
  - Add ability to pass in argv data
  - Add ability to dynamically increment and assign ports
+ - Create better system for automatically loading upstreams
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  
 # Available Hooks ( more coming soon )
@@ -39,6 +40,7 @@
   - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
   - [hook.io-irc](http://github.com/marak/hook.io-irc)
   - [hook.io-insult](http://github.com/marak/hook.io-insult)
+  - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
   - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
 
  
