@@ -35,29 +35,29 @@ We will create a "battle" ( an i/o hook with a downstream ) that can have severa
     
 ## Start up the battle
 
-    node hook/battle
+    node hooks/battle
     
 *Starts up a hook process with a downstream server. Now the battle has started and is waiting for some actors.*
 
 
 ## Connect actors to the battle
 
-    node hook/scout
-    node hook/gunner
-    node hook/ammo_guy
+    node hooks/scout
+    node hooks/gunner
+    node hooks/ammo_guy
 
 *Starts up three hook processes with upstream connections to the battle. Each actor is responible for a specific task in the battle.*
 
 ## Introduce an enemy to the battle!
 
-    node hook/enemy
+    node hooks/enemy
    
 *Starts up an enemy hook process which causes a chain reaction of events from other actors causing the enemy to be shot to death.*
 
 
 ## Create a sound effects hook
 
-    node hook/sfx
+    node hooks/sfx
    
 *Starts up a sound effects hook which listens for messages from all the actors and plays funny sounds effects!*
 
