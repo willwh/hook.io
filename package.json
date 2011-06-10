@@ -1,0 +1,22 @@
+{
+  "author": "Marak Squires <marak.squires@gmail.com>",
+  "name": "hook.io",
+  "version": "0.4.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Marak/hook.io.git"
+  },
+  "main": "./lib/hookio",
+  "engines": {
+    "node": "0.4.x"
+  },
+  "dependencies": {
+    "dnode": "0.7.x",
+    "prompt": ">=0.1.0",
+    "play": ">=0.4.0",
+    "forever": "0.5.x"
+  },
+  "devDependencies": {
+    "vows": "*"
+  }
+}
