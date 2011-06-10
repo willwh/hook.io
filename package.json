@@ -14,7 +14,8 @@
     "dnode": "0.7.x",
     "prompt": ">=0.1.0",
     "play": ">=0.3.0",
-    "forever": "0.5.x"
+    "forever": "0.5.x",
+    "colors": "*"
   },
   "devDependencies": {
     "vows": "*"
