@@ -1,5 +1,3 @@
-# (UNRELEASED, WORK IN PROGRESS)
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -20,5 +18,6 @@ Rebuilt entire project for the third time in two years.
 - Spawning and Daemonizing of processes is handled with Forever
 - Message publishing has a one-one API with EventEmitter class 
 - Message Publishing and Subscribing done through node's native EventEmitter API
-- EventEmitter API is extended for namespaces using EventEmitter2
+- EventEmitter API is extended with namespaces using EventEmitter2
 - Hooks can now have many upstreams and many downstreams
+- Super simple API for insane functionality
