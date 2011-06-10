@@ -15,9 +15,9 @@
 - Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications
 - Every hook is an isolated and separate node.js process ( that can be running anywhere )
 - Every hook can have multiple upstreams ( outgoing client connections ) and multiple downstreams ( listening servers ) to other hooks
+- Bi-direction communication on both upstream and downstream connections
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
-- Bi-direction communication on both upstreams and downstreams
 - Spawning and Daemonizing of processes handled with [Forever](https://github.com/indexzero/forever)
 - Easily connect / disconnect hooks "hot" without affecting other services
 
