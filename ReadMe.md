@@ -26,6 +26,7 @@
  - Create better demos
  - Release more hooks
  - Create Flow Chart explaining architecture
+ - Add a config.json per hook using nconf
  - Add ability to pass in argv data
  - Add ability to dynamically increment and assign ports
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
