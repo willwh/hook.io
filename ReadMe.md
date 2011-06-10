@@ -11,7 +11,7 @@
 
 # Current Status :
 
-Rebuilt entire project for the third time in two years.
+**Rebuilt entire project for the third time in two years.**
 
 - All hooks are now separated into node.js processes
 - Interprocess Communication is facilitated through dnode
@@ -22,7 +22,14 @@ Rebuilt entire project for the third time in two years.
 - Hooks can now have many upstreams and many downstreams
 - Super simple API for insane functionality
 
+**TODO**
 
+ - Create better demos
+ - Create basic hooks for: Twitter, IRC, Logging, HTTP servers
+ - Improve API for using forever to spawn modules
+ - Add ability to dynamically increment and assign ports
+ - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
+ 
 ## Try out a contrived demo 
 
 We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with upstreams ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of i/o hook. More involved demos will be coming shortly. 
