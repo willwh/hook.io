@@ -37,6 +37,7 @@
   - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
   - [hook.io-irc](http://github.com/marak/hook.io-irc)
   - [hook.io-insult](http://github.com/marak/hook.io-insult)
+  - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
 
  
 ## Try out a contrived demo 
