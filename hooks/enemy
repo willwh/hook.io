@@ -32,23 +32,16 @@ enemy.on('ready', function(){
      }
    });
 
-   enemy.on('in.airsupport.airStrike', function (event) {
-     console.log('Enemy blown to bits!'.red);
-     enemy.kill();
-   });
-
    // Add a 5 second delay to simulate I/O for the enemy
    // NOTE: This setTimeout is for simulating I/O, don't use setTimeout
    setInterval(function(){
      enemy.emit('out.appears', {'name' : 'Barco'});
    }, 5000)
 
-
    enemy.kill = function () {
      enemy.conn.end();
      process.exit();
    }
-  
   
 });
 
