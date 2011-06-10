@@ -12,7 +12,7 @@
 
 # Features :
 
-- Designed to build: large, decoupled, distributed, fault tolerant, and i/o heavy applications
+- Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications
 - Every hook is an isolated and separate node.js process ( that can be running anywhere )
 - Every hook can have multiple upstreams ( outgoing client connections ) and multiple downstreams ( listening servers ) to other hooks
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
