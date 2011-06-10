@@ -1,4 +1,4 @@
-#! /usr/hooks/env node
+#! /usr/bin/env node
 var Hook = require('../lib/hookio').Hook,
     colors  = require('colors'),
     play    = require('play');
