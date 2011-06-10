@@ -14,11 +14,11 @@
 **Rebuilt entire project for the third time in two years.**
 
 - All hooks are now separated into node.js processes
+- Hooks can now have many upstreams ( outgoing client connections ) and many downstreams ( listening servers )
 - Interprocess Communication is facilitated through [dnode](http://github.com/SubStack/dnode)
 - Spawning and Daemonizing of processes is handled with [Forever](https://github.com/indexzero/forever)
 - Message Publishing and Subscribing done through node's native EventEmitter API
 - EventEmitter API is extended with namespaces using [EventEmitter2](https://github.com/hij1nx/EventEmitter2)
-- Hooks can now have many upstreams and many downstreams
 - Super simple API for insane functionality
 
 **TODO**
@@ -32,7 +32,7 @@
  
 ## Try out a contrived demo 
 
-We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with upstreams ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of i/o hook. More involved demos will be coming shortly. 
+We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with upstreams ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of an input output hook. More involved demos will be coming shortly. 
 
 ## Install hook.io
 
