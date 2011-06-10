@@ -14,11 +14,10 @@
 **Rebuilt entire project for the third time in two years.**
 
 - All hooks are now separated into node.js processes
-- Interprocess Communication is facilitated through dnode
-- Spawning and Daemonizing of processes is handled with Forever
-- Message publishing has a one-one API with EventEmitter class 
+- Interprocess Communication is facilitated through [dnode](http://github.com/SubStack/dnode)
+- Spawning and Daemonizing of processes is handled with [Forever](https://github.com/indexzero/forever)
 - Message Publishing and Subscribing done through node's native EventEmitter API
-- EventEmitter API is extended with namespaces using EventEmitter2
+- EventEmitter API is extended with namespaces using [EventEmitter2](https://github.com/hij1nx/EventEmitter2)
 - Hooks can now have many upstreams and many downstreams
 - Super simple API for insane functionality
 
@@ -73,4 +72,4 @@ We will create a "battle" ( an i/o hook with a downstream ) that can have severa
     
 ## Contributors ( through code and advice )
 
-AvianFlu, Chapel, Substack, Dominic Tarr, Charlie Robbins, h1jinx
+AvianFlu, Chapel, Substack, Dominic Tarr, Charlie Robbins, h1jinx, Tim Smart
