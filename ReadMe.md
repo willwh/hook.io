@@ -1,3 +1,4 @@
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -9,26 +10,29 @@
     
 # v0.4.0
 
-# Current Status :
+# Features :
 
-**Rebuilt entire project for the third time in two years.**
-
-- All hooks are now separated into node.js processes
-- Hooks can now have many upstreams ( outgoing client connections ) and many downstreams ( listening servers )
-- Interprocess Communication is facilitated through [dnode](http://github.com/SubStack/dnode)
-- Spawning and Daemonizing of processes is handled with [Forever](https://github.com/indexzero/forever)
-- Message Publishing and Subscribing done through node's native EventEmitter API
-- EventEmitter API is extended with namespaces using [EventEmitter2](https://github.com/hij1nx/EventEmitter2)
-- Super simple API for insane functionality
+- Designed to build: large, decoupled, distributed, fault tolerant, and i/o heavy applications
+- Every hook is an isolated and separate node.js process ( that can be running anywhere )
+- Every hook can have multiple upstreams ( outgoing client connections ) and multiple downstreams ( listening servers ) to other hooks
+- Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
+- Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
+- Bi-direction communication on both upstreams and downstreams
+- Spawning and Daemonizing of processes handled with [Forever](https://github.com/indexzero/forever)
+- Easily connect / disconnect hooks "hot" without affecting other services
 
 **TODO**
 
  - Create better demos
+ - Release more hooks
+ - Create Flow Chart explaining architecture
+ - Add ability to pass in argv data
  - Add ability to dynamically increment and assign ports
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  
 # Available Hooks ( more coming soon )
 
+  - [hook.io-server](http://github.com/marak/hook.io-server)
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
   - [hook.io-logger](http://github.com/marak/hook.io-logger)
   - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
