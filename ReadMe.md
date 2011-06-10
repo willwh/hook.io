@@ -30,6 +30,11 @@
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  - Build simple brower-side hook demo
  
+# Available Hooks ( more coming soon )
+
+  - [hook.io-repl](http://github.com/marak/hook.io-repl)
+  - [hook.io-logger](http://github.com/marak/hook.io-logger)
+ 
 ## Try out a contrived demo 
 
 We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with upstreams ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of an input output hook. More involved demos will be coming shortly. 
