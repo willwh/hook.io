@@ -3,10 +3,7 @@ var Hook = require('../lib/hookio').Hook;
 
 var ammo_guy = new Hook({name: 'ammo_guy'});
 
-ammo_guy.connect({
-  port: 5000,
-  host: "localhost"
-});
+ammo_guy.connect();
 
 ammo_guy.on('ready', function(){
   

@@ -3,10 +3,7 @@ var Hook = require('../lib/hookio').Hook;
 
 var scout = new Hook({name: 'scout'});
 
-scout.connect({
-  port: 5000,
-  host: "localhost"
-});
+scout.connect();
 
 scout.on('ready', function(){
 

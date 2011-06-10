@@ -3,16 +3,9 @@ var Hook = require('../lib/hookio').Hook,
     colors  = require('colors'),
     play    = require('play');
 
-var sfx = new Hook( {
-  name: 'sfx',
-  port: 5000 
-});
+var sfx = new Hook( { name: 'sfx' });
 
-sfx.connect({
-  port: 5000,
-  host: "localhost"
-});
-
+sfx.connect();
 
 sfx.on('ready', function(){
 

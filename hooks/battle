@@ -1,24 +1,22 @@
 #! /usr/bin/env node
-var Hook = require('../lib/hookio').Hook;
+var Hook    = require('../lib/hookio').Hook;
 
 var battle = new Hook({ 
   name: "battle"
 });
 
-battle.listen({
-  port: 5000,
-  host: "localhost"
-});
+battle.listen();
 
-console.log('Barracks has started!'.green);
-console.log('Waiting for soliders...'.yellow);
+console.log('The battle has started!'.green);
+console.log('Waiting for actors to connect...'.yellow);
 
 /*
+
 // Connect a single hook to current hook
 battle.spawn('gunner');
 
 // Connect multiple hooks to current hook
-battle.spawn(['sfx', 'scout', 'ammo_guy']);
+battle.spawn(['sfx', 'scout', 'ammo_guy', 'enemy']);
 
 // Connect current hook to another hook
 battle.connect({
@@ -37,5 +35,5 @@ battle.on('in', function(event, event2, data){
 });
 
 battle.on('in.*', function(event, event2, data){
-  //console.log(event.yellow, cliff.inspect(data));
+  console.log(event.yellow, event2, JSON.stringify(data));
 });

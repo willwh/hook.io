@@ -3,10 +3,7 @@ var Hook = require('../lib/hookio').Hook;
 
 var enemy = new Hook({name: 'enemy'});
 
-enemy.connect({
-  port: 5000,
-  host: "localhost"
-});
+enemy.connect();
 
 enemy.on('ready', function(){
   
