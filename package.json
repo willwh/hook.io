@@ -11,12 +11,12 @@
     "node": "0.4.x"
   },
   "dependencies": {
-    "dnode": "0.7.x",
-    "prompt": ">=0.1.0",
+    "dnode": "0.6.x",
     "play": ">=0.3.0",
     "forever": "0.5.x",
     "colors": "*"
   },
+  "browserify" : { "base" : "./lib", "main" : "./lib/hookio.js" },
   "devDependencies": {
     "vows": "*"
   }
