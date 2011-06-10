@@ -20,6 +20,7 @@
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
 - Spawning and Daemonizing of processes handled with [Forever](https://github.com/indexzero/forever)
 - Easily connect / disconnect hooks "hot" without affecting other services
+- Core library currently checking in at about ~120 lines of code :-)
 
 **TODO**
 
