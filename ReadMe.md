@@ -24,11 +24,8 @@
 **TODO**
 
  - Create better demos
- - Create basic hooks for: Twitter, IRC, Logging, HTTP servers
- - Improve API for using forever to spawn modules
  - Add ability to dynamically increment and assign ports
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
- - Build simple brower-side hook demo
  
 # Available Hooks ( more coming soon )
 
