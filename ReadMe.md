@@ -5,8 +5,8 @@
     |  |  |  | |  `--'  | |  `--'  | |  .  \    __   |  | |  `--'  | 
     |__|  |__|  \______/   \______/  |__|\__\  (__)  |__|  \______/  
 
-    the node.js hook i/o platform
-
+    a hook input/output framework written in node.js 
+    
 # v0.4.0
 
 # Current Status :
