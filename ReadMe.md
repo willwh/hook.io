@@ -34,6 +34,10 @@
 
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
   - [hook.io-logger](http://github.com/marak/hook.io-logger)
+  - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
+  - [hook.io-irc](http://github.com/marak/hook.io-irc)
+  - [hook.io-insult](http://github.com/marak/hook.io-insult)
+
  
 ## Try out a contrived demo 
 
