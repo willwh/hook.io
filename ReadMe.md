@@ -76,34 +76,43 @@
  
  myhook.on('ready', function(){
    
-   // listen for messages on myhook's "upstream"
-   // these are messages which are sent to the hook from its parent
-   // "upstream" messages are always rebroadcasted to all siblings
-   myhook.on('up.*', function(name, event, data){
+   // listen for messages on myhook's input stream
+   // these are messages which are sent to the hook from its inputs
+   // input messages are always rebroadcasted to all siblings
+   myhook.on('inputs.*', function(name, event, data){
 
      // whenever we get a message from a hook, let's echo back withs its name and event
-     myhook.emit('up.echo', name + event);
+     // this message is broadcasted to all 
+     myhook.emit('inputs.echo', name + event);
 
    });
 
+   myhook.on('inputs.hello', function(name, event, data){
+     myhook.emit('inputs.chello', data);
+   });
 
-   // we can also listen for a specific message on myhook's "upstream"
-   // we will chose to re-broadcast this specific message to myhook's children
-   myhook.on('up.yell', function(name, event, data){
+   // we can also listen for a specific message on myhook's input stream
+   // we will chose to re-broadcast this specific message to myhook's output stream
+   myhook.on('inputs.yell', function(name, event, data){
 
-     // emit to myhook's children ( if there happen to be any )
-     myhook.emit('down.echo', name + event);
+     // emit to myhook's outputs ( if there happen to be any )
+     myhook.emit('outputs.echo', name + event);
 
    });
 
-   // listen for messages on myhook's "downstream"
-   // these are messages which are sent to the hook's children
-   myhook.on('down.*', function(name, event, data){
+   // listen for messages on myhook's output stream
+   // these are messages which are being sent out from the hook,
+   // in most cases you shouldn't care about this at all
+   myhook.on('output.*', function(name, event, data){
        console.log(name, ' ', event, ' ', data);
    });
    
  });
 ```
+## Hook.io's default i/o strategy 
+
+1. Broadcast all 
+ 
  
 ## Try out a contrived demo 
 
