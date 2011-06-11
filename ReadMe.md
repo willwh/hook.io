@@ -22,7 +22,7 @@
 
 # Features :
 
-- Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications
+- Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
 - Spawning and Daemonizing of processes handled with [Forever](https://github.com/indexzero/forever)
@@ -38,8 +38,8 @@
 -  `inputs` &nbsp; =&nbsp; clients &nbsp;&nbsp;( who *take* messages *in* )
 
  - `inputs` and `outputs` are independent channels and are both bi-directional
- - `hook` `inputs` are **ALWAYS** re-broadcasted to all immediate `inputs` ( siblings )
- - a `hook` **CANNOT** hear their own `outputs` as an `inputs` ( no circular messages )
+ - `hook` `inputs` **ALWAYS** re-broadcast to all immediate `inputs` ( siblings )
+ - a `hook` **CANNOT** hear it's own `inputs` ( no circular messages )
  - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
  - a `hook` **MAY** auto-detect if it should be an `input` or an `output` on startup
  - a `hook` **MAY** auto-detect which port it should listen on or connect to
