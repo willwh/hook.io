@@ -3,6 +3,7 @@
 
 
 
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -44,17 +45,17 @@
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  
 
-## (current) i/o strategy
+## i/o strategy
 
  - A `hook` is a node.js process
  - A `hook` can have many `outputs` *( servers )* and `inputs` *( outgoing client connections )* to other hooks
-- This previous line is **NOT** a typo
+- The previous line is **NOT** a typo
 - `outputs` =&nbsp; servers ( who *push* messages *out* )
--  `inputs` &nbsp; =&nbsp; clients ( who *take* messages *in* )
+-  `inputs` &nbsp; =&nbsp; clients &nbsp;&nbsp;( who *take* messages *in* )
 
  - `inputs` and `outputs` are independent channels and are both bi-directional
+ - `hook` `inputs` are **ALWAYS** re-broadcasted to all immediate `inputs` ( siblings )
  - a `hook` **CANNOT** hear their own `outputs` as an `inputs` ( no circular messages )
- - `hook` `inputs` are **ALWAYS** re-broadcasted to hook all siblings
  - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
  - a `hook` can auto-detect if it should be an `input` or an `output` on startup
  - a `hook` can auto-detect which port it should listen on or connect to
