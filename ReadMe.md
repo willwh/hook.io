@@ -29,21 +29,6 @@
 - Easily connect / disconnect hooks "hot" without affecting other services
 - Core library currently checking in at about ~120 lines of code :-)
 
-**TODO**
-
- - Create .start() method with auto role detection
- - Add ability to dynamically increment and assign ports for servers
- - Think about sibling event namespacing
-   -  is allowing for the emitting and listening of the same event name on `inputs` a good idea?
- - Create better demos
- - Release more hooks
- - Create Flow Chart explaining architecture
- - Add a config.json per hook using nconf
- - Add ability to pass in argv data
- - Create better system for automatically loading inputs via forever
- - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
- 
-
 ## i/o strategy
 
  - A `hook` is a node.js process
@@ -58,6 +43,23 @@
  - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
  - a `hook` can auto-detect if it should be an `input` or an `output` on startup
  - a `hook` can auto-detect which port it should listen on or connect to
+ 
+
+
+**TODO**
+
+  - Create .start() method with auto role detection
+  - Add ability to dynamically increment and assign ports for servers
+  - Think about sibling event namespacing
+    -  is allowing for the emitting and listening of the same event name on `inputs` a good idea?
+  - Create better demos
+  - Release more hooks
+  - Create Flow Chart explaining architecture
+  - Add a config.json per hook using nconf
+  - Add ability to pass in argv data
+  - Create better system for automatically loading inputs via forever
+  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
+ 
  
  
 # Available Hooks ( more coming soon )
