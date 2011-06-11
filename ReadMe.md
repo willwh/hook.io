@@ -4,6 +4,7 @@
 
 
 
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -29,7 +30,7 @@
 - Easily connect / disconnect hooks "hot" without affecting other services
 - Core library currently checking in at about ~120 lines of code :-)
 
-## i/o strategy
+## What is a hook? 
 
  - A `hook` is a node.js process
  - A `hook` can have many `outputs` *( servers )* and `inputs` *( outgoing client connections )* to other hooks
@@ -44,6 +45,7 @@
  - a `hook` **MAY** auto-detect if it should be an `input` or an `output` on startup
  - a `hook` **MAY** auto-detect which port it should listen on or connect to
  
+**( RFC and IDST pending )**
 
 
 # Available Hooks ( more coming soon )
