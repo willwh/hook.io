@@ -41,8 +41,8 @@
  - `hook` `inputs` are **ALWAYS** re-broadcasted to all immediate `inputs` ( siblings )
  - a `hook` **CANNOT** hear their own `outputs` as an `inputs` ( no circular messages )
  - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
- - a `hook` can auto-detect if it should be an `input` or an `output` on startup
- - a `hook` can auto-detect which port it should listen on or connect to
+ - a `hook` **MAY** auto-detect if it should be an `input` or an `output` on startup
+ - a `hook` **MAY** auto-detect which port it should listen on or connect to
  
 
 
