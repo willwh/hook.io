@@ -109,9 +109,15 @@
    
  });
 ```
-## Hook.io's default i/o strategy 
+## i/o strategy
 
-1. Broadcast all 
+1. Each hook is a node.js process
+2. Hooks can have many hook servers and many outgoing client connections to other hooks
+3. Every channel of communication is bidirectional
+4. hooks cannot hear their own input ( circular messages )
+5. hook output is ALWAYS rebroadcasted to all siblings
+6. hooks can auto-detect if they should be a server or a client on startup
+7  hooks can auto-detect which port they should listen on 
  
  
 ## Try out a contrived demo 
