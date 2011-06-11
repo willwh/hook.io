@@ -1,6 +1,7 @@
 
 
 
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -13,6 +14,9 @@
 # v0.4.0
 
 ## Choose from an extensive library of tiny, independent, autonomous "hooks" that emit and receive messages to seamlessly compose robust i/o scenarios
+
+## Current Status: Working, but unreleased. Polishing up the API, docs, and demos now. Publishing to npm soon.
+
 
 # Features :
 
