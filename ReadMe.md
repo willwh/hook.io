@@ -79,11 +79,10 @@
    
    // listen for messages on myhook's input stream
    // these are messages which are sent to the hook from its inputs
-   // input messages are always rebroadcasted to all siblings
    myhook.on('inputs.*', function(name, event, data){
 
      // whenever we get a message from a hook, let's echo back withs its name and event
-     // this message is broadcasted to all 
+     // input messages are always rebroadcasted to all siblings
      myhook.emit('inputs.echo', name + event);
 
    });
