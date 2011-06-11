@@ -46,22 +46,6 @@
  
 
 
-**TODO**
-
-  - Create .start() method with auto role detection
-  - Add ability to dynamically increment and assign ports for servers
-  - Think about sibling event namespacing
-    -  is allowing for the emitting and listening of the same event name on `inputs` a good idea?
-  - Create better demos
-  - Release more hooks
-  - Create Flow Chart explaining architecture
-  - Add a config.json per hook using nconf
-  - Add ability to pass in argv data
-  - Create better system for automatically loading inputs via forever
-  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
- 
- 
- 
 # Available Hooks ( more coming soon )
 
 **Core** 
@@ -85,6 +69,22 @@
 **Humor**
 
   - [hook.io-insult](http://github.com/marak/hook.io-insult)
+
+## TODO
+
+  - Create .start() method with auto role detection
+  - Add ability to dynamically increment and assign ports for servers
+  - Think about sibling event namespacing
+    -  is allowing for the emitting and listening of the same event name on `inputs` a good idea?
+  - Create better demos
+  - Release more hooks
+  - Create Flow Chart explaining architecture
+  - Add a config.json per hook using nconf
+  - Add ability to pass in argv data
+  - Create better system for automatically loading inputs via forever
+  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
+
+
 
 
 ## Basic Hook Syntax
