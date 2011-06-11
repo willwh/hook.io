@@ -12,7 +12,7 @@
     
 # v0.4.0
 
-## Choose from an extensive library of tiny, independent, autonomous "hooks" that emit and receive events to seamlessly compose robust i/o scenarios
+## Choose from an extensive library of tiny, independent, autonomous "hooks" that emit and receive messages to seamlessly compose robust i/o scenarios
 
 # Features :
 
