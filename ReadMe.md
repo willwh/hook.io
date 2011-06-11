@@ -48,23 +48,24 @@
 
 # Available Hooks ( more coming soon )
 
-**Core** 
+**Core**
 
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
-  - [hook.io-logger](http://github.com/marak/hook.io-logger)
-  - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
-  - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
 
 **Web**
   
   - [hook.io-irc](http://github.com/marak/hook.io-irc)
   - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
+  - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
+  - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
+
 
 **Utility**
 
   - [hook.io-asyncify](http://github.com/marak/hook.io-asyncify)
-  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom)
   - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein)
+  - [hook.io-logger](http://github.com/marak/hook.io-logger)
+  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom)
   
 **Humor**
 
