@@ -45,7 +45,6 @@
 
 **Core** 
 
-  - [hook.io-asyncify](http://github.com/marak/hook.io-asyncify)
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
   - [hook.io-logger](http://github.com/marak/hook.io-logger)
   - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
@@ -58,9 +57,9 @@
 
 **Utility**
 
+  - [hook.io-asyncify](http://github.com/marak/hook.io-asyncify)
   - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom)
   - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein)
-
   
 **Humor**
 
@@ -69,42 +68,42 @@
 
 ## Basic Hook Syntax
 
- ``` js
-     var Hook = require('hook.io').Hook;
-     var myhook = new Hook( { name: "myhook"} );
-     
-     myhook.start();
-     
-     myhook.on('ready', function(){
-       
-       // listen for messages on myhook's "upstream"
-       // these are messages which are sent to the hook from its parent
-       // "upstream" messages are always rebroadcasted to all siblings
-       myhook.on('up.*', function(name, event, data){
+``` js
+ var Hook = require('hook.io').Hook;
+ var myhook = new Hook( { name: "myhook"} );
+ 
+ myhook.start();
+ 
+ myhook.on('ready', function(){
+   
+   // listen for messages on myhook's "upstream"
+   // these are messages which are sent to the hook from its parent
+   // "upstream" messages are always rebroadcasted to all siblings
+   myhook.on('up.*', function(name, event, data){
 
-         // whenever we get a message from a hook, let's echo back withs its name and event
-         myhook.emit('up.echo', name + event);
+     // whenever we get a message from a hook, let's echo back withs its name and event
+     myhook.emit('up.echo', name + event);
 
-       });
+   });
 
 
-       // we can also listen for a specific message on myhook's "upstream"
-       // we will chose to re-broadcast this specific message to myhook's children
-       myhook.on('up.*', function(name, event, data){
+   // we can also listen for a specific message on myhook's "upstream"
+   // we will chose to re-broadcast this specific message to myhook's children
+   myhook.on('up.*', function(name, event, data){
 
-         // emit to myhook's children ( if there happen to be any )
-         myhook.emit('down.echo', name + event);
+     // emit to myhook's children ( if there happen to be any )
+     myhook.emit('down.echo', name + event);
 
-       });
+   });
 
-       // listen for messages on myhook's "downstream"
-       // these are messages which are sent to the hook's children
-       myhook.on('down.*', function(name, event, data){
-           console.log(name, ' ', event, ' ', data);
-       });
-       
-     });
-
+   // listen for messages on myhook's "downstream"
+   // these are messages which are sent to the hook's children
+   myhook.on('down.*', function(name, event, data){
+       console.log(name, ' ', event, ' ', data);
+   });
+   
+ });
+```
  
 ## Try out a contrived demo 
 
