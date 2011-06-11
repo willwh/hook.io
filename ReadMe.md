@@ -34,8 +34,7 @@
  - Create .start() method with auto role detection
  - Add ability to dynamically increment and assign ports for servers
  - Think about sibling event namespacing
-   - "in" and "out" terminology is confusing
-   -  is allows duplicate event names on in/out is smart?
+   -  is allowing for the emitting and listening of the same event name on `inputs` a good idea?
  - Create better demos
  - Release more hooks
  - Create Flow Chart explaining architecture
