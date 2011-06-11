@@ -33,7 +33,7 @@
 ## What is a hook? 
 
  - A `hook` is a node.js process
- - A `hook` can have many `outputs` *( servers )* and `inputs` *( outgoing client connections )* to other hooks
+ - A `hook` can have many `outputs` *( servers )* and `inputs` *( client connections )* to other hooks
 - The previous line is **NOT** a typo
 - `outputs` =&nbsp; servers ( who *push* messages *out* )
 -  `inputs` &nbsp; =&nbsp; clients &nbsp;&nbsp;( who *take* messages *in* )
