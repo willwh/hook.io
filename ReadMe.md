@@ -89,7 +89,7 @@
 
    // we can also listen for a specific message on myhook's "upstream"
    // we will chose to re-broadcast this specific message to myhook's children
-   myhook.on('up.*', function(name, event, data){
+   myhook.on('up.yell', function(name, event, data){
 
      // emit to myhook's children ( if there happen to be any )
      myhook.emit('down.echo', name + event);
