@@ -14,6 +14,7 @@
     "dnode": "0.6.x",
     "play": ">=0.3.0",
     "forever": "0.5.x",
+    "eventemitter2": "0.1.x",
     "colors": "*"
   },
   "browserify" : { "base" : "./lib", "main" : "./lib/hookio.js" },
