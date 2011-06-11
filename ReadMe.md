@@ -40,7 +40,7 @@
 
  - `inputs` and `outputs` are independent channels and are both bi-directional
  - `hook` `inputs` **ALWAYS** re-broadcast to all immediate `inputs` ( siblings )
- - a `hook` **CANNOT** hear it's own `inputs` ( no circular messages )
+ - a `hook` **CANNOT** hear messages emitted from it's own `input` ( no circular messages )
  - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
  - a `hook` **MAY** auto-detect if it should be an `input` or an `output` on startup
  - a `hook` **MAY** auto-detect which port it should listen on or connect to
