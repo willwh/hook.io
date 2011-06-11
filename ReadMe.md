@@ -2,6 +2,7 @@
 
 
 
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -41,6 +42,23 @@
  - Add ability to pass in argv data
  - Create better system for automatically loading inputs via forever
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
+ 
+
+## (current) i/o strategy
+
+ - A `hook` is a node.js process
+ - A `hook` can have many `outputs` *( servers )* and `inputs` *( outgoing client connections )* to other hooks
+- This previous line is **NOT** a typo
+- `outputs` =&nbsp; servers ( who *push* messages *out* )
+-  `inputs` &nbsp; =&nbsp; clients ( who *take* messages *in* )
+
+ - `inputs` and `outputs` are independent channels and are both bi-directional
+ - a `hook` **CANNOT** hear their own `outputs` as an `inputs` ( no circular messages )
+ - `hook` `inputs` are **ALWAYS** re-broadcasted to hook all siblings
+ - `hook` `inputs` **MAY** be re-broadcasted to all immediate `outputs` ( children )
+ - a `hook` can auto-detect if it should be an `input` or an `output` on startup
+ - a `hook` can auto-detect which port it should listen on or connect to
+ 
  
 # Available Hooks ( more coming soon )
 
@@ -109,16 +127,6 @@
    
  });
 ```
-## i/o strategy
-
-1. Each hook is a node.js process
-2. Hooks can have many hook servers and many outgoing client connections to other hooks
-3. Every channel of communication is bidirectional
-4. hooks cannot hear their own input ( circular messages )
-5. hook output is ALWAYS re-broadcasted to all siblings
-6. hooks can auto-detect if they should be a server or a client on startup
-7.  hooks can auto-detect which port they should listen on 
- 
  
 ## Try out a contrived demo 
 
