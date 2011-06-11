@@ -1,4 +1,5 @@
 
+
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -6,9 +7,11 @@
     |  |  |  | |  `--'  | |  `--'  | |  .  \    __   |  | |  `--'  | 
     |__|  |__|  \______/   \______/  |__|\__\  (__)  |__|  \______/  
 
-    a hook input/output framework written in node.js 
+    a full featured i/o framework for node.js
     
 # v0.4.0
+
+## Choose from an extensive library of tiny, independent, autonomous "hooks" that emit and receive events to seamlessly compose robust i/o scenarios
 
 # Features :
 
@@ -24,25 +27,44 @@
 
 **TODO**
 
+ - Create .start() method with auto role detection
+ - Add ability to dynamically increment and assign ports for servers
+ - Think about sibling event namespacing
+   - "in" and "out" terminology is confusing
+   -  is allows duplicate event names on in/out is smart?
  - Create better demos
  - Release more hooks
  - Create Flow Chart explaining architecture
  - Add a config.json per hook using nconf
  - Add ability to pass in argv data
- - Add ability to dynamically increment and assign ports
- - Create better system for automatically loading upstreams
+ - Create better system for automatically loading upstreams via forever
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  
 # Available Hooks ( more coming soon )
 
-  - [hook.io-server](http://github.com/marak/hook.io-server)
+**Core** 
+
+  - [hook.io-asyncify](http://github.com/marak/hook.io-asyncify)
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
   - [hook.io-logger](http://github.com/marak/hook.io-logger)
-  - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
-  - [hook.io-irc](http://github.com/marak/hook.io-irc)
-  - [hook.io-insult](http://github.com/marak/hook.io-insult)
   - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
   - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
+
+**Web**
+  
+  - [hook.io-irc](http://github.com/marak/hook.io-irc)
+  - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
+
+**Utility**
+
+  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom)
+  - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein)
+
+  
+**Humor**
+
+  - [hook.io-insult](http://github.com/marak/hook.io-insult)
+
 
  
 ## Try out a contrived demo 
