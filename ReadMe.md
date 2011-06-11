@@ -18,7 +18,7 @@
 
 - Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications
 - Every hook is an isolated and separate node.js process ( that can be running anywhere )
-- Every hook can have multiple upstreams ( outgoing client connections ) and multiple downstreams ( listening servers ) to other hooks
+- Every hook can have multiple inputs ( outgoing client connections ) and multiple outputs ( listening servers ) to other hooks
 - Bi-direction communication on both upstream and downstream connections
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
@@ -38,7 +38,7 @@
  - Create Flow Chart explaining architecture
  - Add a config.json per hook using nconf
  - Add ability to pass in argv data
- - Create better system for automatically loading upstreams via forever
+ - Create better system for automatically loading inputs via forever
  - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
  
 # Available Hooks ( more coming soon )
@@ -122,7 +122,7 @@
  
 ## Try out a contrived demo 
 
-We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with upstreams ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of an input output hook. More involved demos will be coming shortly. 
+We will create a "battle" ( an i/o hook with a downstream ) that can have several actors ( i/o hooks with inputs ). These actors will then work together in the battle with hilarious results. This demo begins to showcase the power of an input output hook. More involved demos will be coming shortly. 
 
 ## Install hook.io
 
