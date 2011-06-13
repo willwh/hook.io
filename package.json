@@ -13,6 +13,7 @@
   "dependencies": {
     "dnode": "0.6.x",
     "eventemitter2": "0.1.1",
+    "optimist": "0.2.x",
     "colors": "0.5.x",
     "hook.io-repl": "0.1.x",
     "hook.io-helloworld": "0.1.x"
