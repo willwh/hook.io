@@ -3,7 +3,6 @@
 
 
 
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -15,14 +14,16 @@
     
 # v0.4.0
 
-## Choose from an extensive library of tiny, independent, autonomous "hooks" that emit and receive messages to seamlessly compose robust i/o scenarios
+## hook.io is a distributed node.js EventEmitter that works cross process / cross machine / cross environment.
+
+## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
 
 # Features :
 
-- Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
+- Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
 - Create hooks on ANY device that supports JavaScript ( cross-browser support via [socket.io](http://socket.io) )
 - Throw any block of sync or async code on a new process with a callback
-- Can easily scale any tcp based messaging infrastructure ( such as clustering socket.io chat rooms in memory ) 
+- Easily scale any tcp based messaging infrastructure ( such as clustering socket.io chat rooms in memory ) 
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
 - Spawning and Daemonizing of processes handled with [Forever](https://github.com/indexzero/forever)
