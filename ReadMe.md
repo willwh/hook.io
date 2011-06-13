@@ -22,6 +22,7 @@
 
 - Designed to build: large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
 - Create hooks on ANY device that supports JavaScript ( cross-browser support via [socket.io](http://socket.io) )
+- Throw any block of sync or async code on a new process with a callback
 - Can easily scale any tcp based messaging infrastructure ( such as clustering socket.io chat rooms in memory ) 
 - Interprocess Message Publishing and Subscribing done through [EventEmitter2](https://github.com/hij1nx/EventEmitter2) and [dnode](http://github.com/SubStack/dnode)
 - Messaging API inherits and mimics Node's native EventEmitter API ( with the help of EventEmitter2 )
