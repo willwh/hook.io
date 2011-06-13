@@ -94,7 +94,7 @@ Both the helloworld and logger hooks act as dual-sided hooks by default. The ord
 
 
 ## Basic Hello World Syntax
-[http://github.com/avianflu/hook.io-helloworld]
+[[http://github.com/avianflu/hook.io-helloworld]]
 
 
 ``` js
@@ -132,7 +132,8 @@ Both the helloworld and logger hooks act as dual-sided hooks by default. The ord
 ```
 
 ## Basic HTTP post / receive Webhook server
-[http://github.com/marak/hook.io-webhook]
+[[http://github.com/marak/hook.io-webhook]]
+
 ``` js
 
 var Hook = require('hook.io').Hook,
