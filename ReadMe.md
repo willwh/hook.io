@@ -4,7 +4,6 @@
 
 
 
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -79,7 +78,7 @@ Spawn up as many as you want. The first one becomes an `output` ( server ), the 
 
 If you want to start logging all these messages simply install `hookio-logger` with:
 
-    npm install hook.io-helloworld -g
+    npm install hook.io-logger -g
     
 
 Now run:
