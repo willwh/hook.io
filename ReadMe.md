@@ -33,7 +33,7 @@
 
 **Core**
 
-  - [hook.io-helloworld](http://github.com/marak/hook.io-repl)
+  - [hook.io-helloworld](http://github.com/avianflu/hook.io-helloworld)
   - [hook.io-repl](http://github.com/marak/hook.io-repl)
 
 **Web**
@@ -62,7 +62,6 @@
   - Release more hooks
   - Create Flow Chart explaining architecture
   - Add a config.json per hook using nconf
-  - Add ability to pass in argv data
   - Create better system for automatically loading inputs via forever
   - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
 
