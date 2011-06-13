@@ -13,7 +13,9 @@
   "dependencies": {
     "dnode": "0.6.x",
     "eventemitter2": "0.1.1",
-    "colors": "0.5.x"
+    "colors": "0.5.x",
+    "hook.io-repl": "0.1.x",
+    "hook.io-helloworld": "0.1.x"
   },
   "browserify" : { "base" : "./lib", "main" : "./lib/hookio.js" },
   "devDependencies": {
