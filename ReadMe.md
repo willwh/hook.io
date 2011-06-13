@@ -2,7 +2,6 @@
 
 
 
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -14,7 +13,7 @@
     
 # v0.4.0
 
-## hook.io is a distributed node.js EventEmitter that works cross process / cross machine / cross environment.
+## hook.io is a distributed node.js EventEmitter that works cross-process / cross-platform / cross-browser.
 
 ## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
 
