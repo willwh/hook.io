@@ -93,35 +93,76 @@ You will now start logging all these messages.
 Both the helloworld and logger hooks act as dual-sided hooks by default. The order you run `hookio-logger` and `hookio-helloworld` does not matter.  They can work as both clients or servers ( inputs or outputs ) and will interface seamlessly using hook.io's default settings.
 
 
-## Basic Hook Syntax
+## Basic Hello World Syntax
+[http://github.com/avianflu/hook.io-helloworld]
+
 
 ``` js
- #!/usr/bin/env node
+#!/usr/bin/env node
 
- var Hook = require('hook.io').Hook;
- var myhook = new Hook( { name: "helloworld"} );
+  var Hook = require('hook.io').Hook;
+  var myhook = new Hook( { name: "helloworld"} );
 
- myhook.start();
+  myhook.start();
 
-   myhook.on('ready', function(){
+  myhook.on('i.*', function(event, event2, data){
+    console.log('I am currently getting data on my inputs from: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
+  });
 
-   myhook.on('i.*', function(event, event2, data){
-    console.log('I am currently getting data my inputs from: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
-   });
+  myhook.on('o.*', function(event, data){
+    console.log('I am currently sending data to my ouputs on: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
+  });
 
-   myhook.on('o.*', function(event, data){
-      console.log('I am currently sending data to my ouputs on: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
-   });
+  myhook.on('ready', function(){
 
-   //
-   // Add some startup commands here
-   //
+    //
+    // Add some startup commands here
+    //
+    console.log('Now that I am ready, I will emit to my outputs on an interval'.yellow);
+    myhook.emit('o.hello', 'Hello, I am ' + self.name);
 
-   console.log('Now that I am ready, I will emit to my outputs'.yellow);
-   myhook.emit('o.hello', 'Hello, I am ' + self.name);
+    // This is just to simulate I/O, don't use timers...
+    setInterval(function(){
+      myhook.emit('o.hello', 'Hello, I am ' + self.name);
+    }, 5000);
 
- });
+  });
+
  
+```
+
+## Basic HTTP post / receive Webhook server
+[http://github.com/marak/hook.io-webhook]
+``` js
+
+var Hook = require('hook.io').Hook,
+    http = require('http');
+
+var webhook = new Hook( { name: 'webhook' });
+
+webhook.listen();
+
+http.createServer(function(req, res){
+  
+  var body = '';
+  
+  req.on('data', function(data){
+    body += data;
+  });
+  
+  req.on('end', function(){
+    webhook.emit('o.request', {
+     request: {
+       url: req.url
+     },
+     body: body 
+    })
+    res.end();
+  });
+  
+}).listen(9000);
+
+console.log('http webhook server started on port '.green + '9000'.yellow);
 ```
 
 ## Demo coming soon...
