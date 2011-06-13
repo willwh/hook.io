@@ -13,7 +13,7 @@
   "dependencies": {
     "dnode": "0.6.x",
     "eventemitter2": "0.1.1",
-    "colors": "*"
+    "colors": "0.5.x"
   },
   "browserify" : { "base" : "./lib", "main" : "./lib/hookio.js" },
   "devDependencies": {
