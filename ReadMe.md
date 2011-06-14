@@ -33,24 +33,23 @@
 
 **Core**
 
-  - [hook.io-helloworld](http://github.com/avianflu/hook.io-helloworld)
-  - [hook.io-repl](http://github.com/marak/hook.io-repl)
+  - [hook.io-helloworld](http://github.com/avianflu/hook.io-helloworld) - Hello World hook
+  - [hook.io-repl](http://github.com/marak/hook.io-repl) - hook node.js repl
 
 **Web**
   
-  - [hook.io-irc](http://github.com/marak/hook.io-irc)
-  - [hook.io-twitter](http://github.com/marak/hook.io-twitter)
-  - [hook.io-webhook](http://github.com/marak/hook.io-webhook)
-  - [hook.io-webserver](http://github.com/marak/hook.io-webserver)
+  - [hook.io-irc](http://github.com/marak/hook.io-irc) - Unreleased
+  - [hook.io-twitter](http://github.com/marak/hook.io-twitter) - Unreleased
+  - [hook.io-webhook](http://github.com/marak/hook.io-webhook) - A simple http post / receive hook
+  - [hook.io-webserver](http://github.com/marak/hook.io-webserver) - Unreleased
 
 
 **Utility**
 
-  - [hook.io-asyncify](http://github.com/marak/hook.io-asyncify)
-  - [hook.io-coffeescript](http://github.com/coffeemate/hook.io-coffeescript)
-  - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein)
-  - [hook.io-logger](http://github.com/marak/hook.io-logger)
-  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom)
+  - [hook.io-coffeescript](http://github.com/coffeemate/hook.io-coffeescript) - Unreleased
+  - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein) - Unreleased
+  - [hook.io-logger](http://github.com/marak/hook.io-logger) - a simple hook logger
+  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom) - Unreleased
   
 **Humor**
 
