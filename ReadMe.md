@@ -1,6 +1,5 @@
 
 
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -56,12 +55,22 @@
 
   - [hook.io-insult](http://github.com/marak/hook.io-insult)
 
+## Tests
+
+Tests are good.
+
+    cd test/
+    sh siblings.sh
+    sh worker.sh
+    sh nconf.sh
+
+'hook.io` is currently self tested, it would be too hard to not do this. I will take patches to improve testing.
+
 ## TODO
 
   - Create better demos
   - Release more hooks
   - Create Flow Chart explaining architecture
-  - Add a config.json per hook using nconf
   - Create better system for automatically loading inputs via forever
   - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
 
