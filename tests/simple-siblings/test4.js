@@ -1,4 +1,4 @@
-// tests the ability to send a basic message to a hook out
+// tests the ability to send a basic message to a hook output
 // with a duplicate hook name
 
 try {

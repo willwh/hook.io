@@ -16,7 +16,7 @@ try {
       console.log('fail '.red, expect, data);
     }
     else {
-      console.log('pass '.green, expect);
+      console.log('pass '.green, expect, ' from: ' + source + ' via: ' + event);
     }
   });
   
