@@ -8,6 +8,8 @@ try {
   
   hook.on('i.test.o.test', function(event, data){
     console.log('pass '.green + 'got message back from simple-message-to-output');
+    
+    hook.emit('i.reply', 'basic-output-reply')
   });
   
   console.log('pass '.green + 'basic-output server started');

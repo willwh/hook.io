@@ -14,6 +14,12 @@ try {
     console.log('pass '.green + 'simple-message-to-output sent');
   });
   
+  hook.on('i.*', function(event, data){
+
+    console.log('pass '.green + event);
+    
+  });
+  
 }
 catch(err){
   console.log('fail '.red + err);
