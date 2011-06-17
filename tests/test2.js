@@ -1,15 +1,22 @@
-// b.js
-
-/* ...*/
 var Hook = require('hook.io').Hook;
 
-var hook = new Hook({ name: 'simple-message-to-output' });
+var colors = require('colors');
+
+var hook = new Hook({ name: 'simple-input-message-subscriber' });
 
 hook.connect();
 
-hook.on('ready', function(){
 
-  hook.emit('o.test', 'simple-message-to-output-test');
+hook.on('i.test.o.test', function(source, event, data) {
+
+  console.log('event, data');
+  var expect = 'simple-message-to-output-test';
   
-});
+  if(data !== expect){
+    console.log('fail'.red, expect, data);
+  }
+  else {
+    console.log('pass'.green, expect);
+  }
 
+});

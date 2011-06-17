@@ -6,20 +6,5 @@ var hook = new Hook({ name: 'basic-output' });
 
 hook.listen();
 
-hook.on('i.test', function(event, data) {
-
-  var expect = 'simple-message-to-output-test';
-  
-  if(data !== expect){
-    console.log('fail', expect, data);
-  }
-  else {
-    console.log('pass', expect);
-  }
-
-  hook.emit('o.test', 'simple-message-to-output-test');
-
-});
-
 
 console.log('basic-output');

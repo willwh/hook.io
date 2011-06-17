@@ -1,12 +1,13 @@
+
 var Hook = require('hook.io').Hook;
 
-var hook = new Hook({ name: 'simple-input-message-subscriber' });
+var hook = new Hook({ name: 'simple-message-to-output' });
 
-hook.connect();
+hook.start();
 
-hook.on('i.*', function(event, data){
-  
-  console.log(event, data);
+hook.on('ready', function(){
+
+  hook.emit('o.test', 'simple-message-to-output-test');
   
 });
 
