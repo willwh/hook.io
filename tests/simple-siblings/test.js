@@ -1,5 +1,5 @@
-// Test the ability to start up a hook with output that other hooks can connect to and that 
-// receive and rebroadcast messages
+// Test the ability to start up an output hook that other hooks can connect to
+// this output will receive and rebroadcast messages to all its children ( which are siblings to each other )
 
 try {
   var Hook = require('hook.io').Hook;

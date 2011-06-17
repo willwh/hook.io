@@ -1,4 +1,5 @@
-// tests the ability listen for basic messages from a hook output (server)
+// Tests the ability to start up a hook input listen for basic messages from siblings 
+// this input will wait for messages from its siblings
 
 try {
   var Hook = require('hook.io').Hook;

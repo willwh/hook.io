@@ -1,4 +1,5 @@
-// tests the ability to send a basic message to a hook out
+// Tests the ability to start up a hook input and broadcast a basic message to it's siblings 
+// this input will broadcast a message on ready
 
 try {
   
