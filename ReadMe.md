@@ -58,6 +58,8 @@ Tests are good.
 
     cd test/
     node runner
+    
+<img src="https://github.com/Marak/hook.io/raw/master/screenshots/testrunner.png"></img>    
 
 'hook.io` is currently self tested, it would be too hard to not do this. I will take patches to improve testing.
 
