@@ -57,9 +57,7 @@
 Tests are good.
 
     cd test/
-    sh siblings.sh
-    sh worker.sh
-    sh nconf.sh
+    node runner
 
 'hook.io` is currently self tested, it would be too hard to not do this. I will take patches to improve testing.
 

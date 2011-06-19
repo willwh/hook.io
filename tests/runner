@@ -1,0 +1,33 @@
+//var optimist = require('optimist');
+
+
+
+var fs    = require('fs');
+   // async = require('async');
+    
+    
+var tests = fs.readdirSync('./siblings');
+
+console.log(tests);
+var spawn = require('child_process').spawn;
+var r = [];
+
+tests.forEach(function(t){
+  var arg = ('siblings/' + [t]);
+  r[t]    = spawn('node', [arg]);
+
+  r[t].stdout.on('data', function (data) {
+    console.log(data.toString());
+  });
+
+  r[t].stderr.on('data', function (data) {
+//    console.log(data.toString());
+  });
+
+  r[t].on('exit', function (code) {
+    console.log('child process exited with code ' + code);
+  });
+  
+  
+});
+
