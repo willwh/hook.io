@@ -109,12 +109,12 @@ http://github.com/avianflu/hook.io-helloworld
 
   myhook.start();
 
-  myhook.on('i.*', function(event, data){
-    console.log('I am currently getting data on my inputs from: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
+  myhook.on('i.*', function(source, event, data){
+    console.log('I am currently getting data on my inputs from: '.green + source.toString().yellow + ' ' + JSON.stringify(data));
   });
 
   myhook.on('o.*', function(event, data){
-    console.log('I am currently sending data to my ouputs on: '.green + event.toString().yellow + ' ' + JSON.stringify(data).grey);
+    console.log('I am currently sending data to my ouputs on: '.green + event.toString().yellow + ' ' + JSON.stringify(data));
   });
 
   myhook.on('ready', function(){
