@@ -2,8 +2,11 @@ var helpers = require('../helpers');
 
 
 var expected_events = {
-  "basic-output server started" : {
+  "basic-output started" : {
     count: 1
+  },
+  "simple-message-callresponse connected" : {
+    count: 2
   },
   "simple-message-callresponse called" : {
     count: 1
@@ -13,9 +16,6 @@ var expected_events = {
   },
   "simple-message-callresponse responded i.gotResponse.o.gotResponse" : {
     count: 1
-  },
-  "simple-message-callresponse connected" : {
-    count: 2
   }
 };
 
@@ -33,7 +33,7 @@ var Hook = require('hook.io').Hook;
 var hook_basic_output = new Hook({ name: 'basic-output' });
 var colors = require('colors');
 hook_basic_output.listen(5001);
-fired('basic-output server started');
+fired('basic-output started');
 
 
 // Tests the ability to do a call and response to a sibling
