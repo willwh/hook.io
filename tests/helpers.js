@@ -12,8 +12,8 @@ helpers.report = function ( suite, results ) {
   
   // instantiate
   var table = new Table({
-      head: ['Diff', 'Expect', 'Actual', 'Event', 'Action']
-    , colWidths: [8, 8, 8, 42, 12]
+      head: ['Diff', 'Expect', 'Actual', 'Item', 'Action']
+    , colWidths: [8, 8, 8, 42, 38]
   });
   
   var isIsWell = true;
@@ -48,7 +48,7 @@ helpers.fired = function ( event, expected_events ) {
   
   if (expected_events[event]) {
     if (!expected_events[event].actual) { 
-      expected_events[event].actual = 0 
+      expected_events[event].actual = 0;
     }
     expected_events[event].actual++;
   }
