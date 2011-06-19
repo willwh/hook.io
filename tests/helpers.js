@@ -1,32 +1,37 @@
 var helpers = exports;
 
 
+var Table = require('cli-table');
+
+
 helpers.report = function ( suite, results ) {
 
   console.log('_________________________________________________________');
   console.log('\n');
   console.log(suite.magenta + ' has completed, here is the report:' );
-  console.log('\n');
-  console.log('  0'.green + ' means that the EXPECTED amount of events were fired');
-  console.log('< 0'.yellow + ' means that MORE then the expected amount of events were fired');
-  console.log('> 0'.red + ' means that LESS then expected amount of events were fired');
-  console.log('\n');
+  
+  // instantiate
+  var table = new Table({
+      head: ['Diff', 'Expect', 'Actual', 'Event', 'Action']
+    , colWidths: [8, 8, 8, 42, 12]
+  });
   
   var isIsWell = true;
   for (var e in results) {
 
-    if(results[e].count === 0){
-      console.log('  ' + results[e].count.toString().green + ' ' + e.grey );
-    }
-    else if(results[e].count <= 0) {
+    var s = e.split(' ');
+    // table is an Array, so you can `push`, `unshift`, `splice` and friends
+    table.push(
+        [(results[e].expected - results[e].actual), results[e].expected, results[e].actual, s[0], s[1]]
+    );
+
+    if(results[e].actual !== results[e].expected) {
       isIsWell = false;
-      console.log('  ' +  results[e].count.toString().yellow + ' ' + e.grey );
     }
-    else {
-      isIsWell = false;
-      console.log('  ' +  results[e].count.toString().red + ' ' + e.grey );
-    }
+
   }
+
+  console.log(table.toString());
   
   console.log('\n');
   if (!isIsWell) {
@@ -40,14 +45,17 @@ helpers.report = function ( suite, results ) {
 
 helpers.fired = function ( event, expected_events ) {
   
-  try {
-    
-    expected_events[event].count--
-    
-  } catch(err){
+  
+  if (expected_events[event]) {
+    if (!expected_events[event].actual) { 
+      expected_events[event].actual = 0 
+    }
+    expected_events[event].actual++;
+  }
+  else {
     expected_events[event] = {};
-    expected_events[event].count = -1;
-    //console.log('unexpected event fired: ' + event);
+    expected_events[event].expected = 0;
+    expected_events[event].actual   = 1;
   }
   
   return expected_events;

@@ -7,6 +7,7 @@ var spawn = require('child_process').spawn;
 var r = [];
 
 tests.forEach(function(t){
+  
   var arg = ('siblings/' + [t]);
   r[t]    = spawn('node', [arg]);
 

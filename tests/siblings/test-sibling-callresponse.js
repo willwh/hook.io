@@ -3,19 +3,19 @@ var helpers = require('../helpers');
 
 var expected_events = {
   "basic-output started" : {
-    count: 1
+    expected: 1
   },
   "simple-message-callresponse connected" : {
-    count: 2
+    expected: 2
   },
   "simple-message-callresponse called" : {
-    count: 1
+    expected: 1
   },
   "simple-message-callresponse got call" : {
-    count: 1
+    expected: 1
   },
   "simple-message-callresponse responded i.gotResponse.o.gotResponse" : {
-    count: 1
+    expected: 1
   }
 };
 

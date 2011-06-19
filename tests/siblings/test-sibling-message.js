@@ -2,16 +2,16 @@
 
   var expected_events = {
     "basic-output started" : {
-      count: 1
+      expected: 1
     },
     "simple-input-message-handler listening" : {
-      count: 1
+      expected: 1
     },
     "simple-input-to-output-message sent" : {
-      count: 1
+      expected: 1
     },
     "simple-input-to-output-message recieved" : {
-      count: 1
+      expected: 1
     }
   };
 
