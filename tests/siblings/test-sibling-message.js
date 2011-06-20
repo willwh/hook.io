@@ -10,11 +10,9 @@
     "simple-input-handler-listen i.test.o.test" : {
       expected: 1
     },
-    
     "simple-input-caller connected" : {
       expected: 1
     },
-    
     "simple-input-caller-call o.test" : {
       expected: 1
     },
@@ -23,11 +21,9 @@
     }
   };
 
-
-  function fired( event ){
-    expected_events = helpers.fired(event, expected_events);
+  function fired( event , data ){
+    expected_events = helpers.fired(event, expected_events, data);
   };
-
 
   // Test the ability to start up an output hook that other hooks can connect to
   // this output will receive and rebroadcast messages to all its children ( which are siblings to each other )
@@ -50,7 +46,7 @@
       //h(false, expect, data);
     }
     else {
-      fired('simple-input-handler-receive ' + source);
+      fired('simple-input-handler-receive ' + source, data);
     }
     
   });
@@ -63,7 +59,7 @@
   fired('simple-input-caller connected');
   hook_simple_message.on('ready', function(){
     hook_simple_message.emit('o.test', 'hello there!');
-    fired('simple-input-caller-call o.test')
+    fired('simple-input-caller-call o.test', 'hello there!')
   });
 
   // Perform a cleanup and calculate totals after a little while

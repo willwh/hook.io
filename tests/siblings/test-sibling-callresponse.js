@@ -31,8 +31,8 @@ var expected_events = {
 };
 
 
-function fired( event ){
-  expected_events = helpers.fired(event, expected_events);
+function fired( event, data ){
+  expected_events = helpers.fired(event, expected_events, data);
 };
 
 
@@ -59,7 +59,7 @@ simple_input_callrsp.on('i.getSomething.o.getSomething', function(source, event,
   //
   // perfom some logic here
   //
-  fired( 'simple-input-responder-receive ' + source)
+  fired( 'simple-input-responder-receive ' + source, data)
   simple_input_callrsp.emit('o.gotResponse', 'foobar');
   
 });
@@ -76,14 +76,14 @@ fired('simple-input-caller connected');
 
 
 simple_input_callrsp2.on('i.gotResponse.o.gotResponse', function(source, event, data) {
-  fired('simple-input-caller-receive ' + source);
+  fired('simple-input-caller-receive ' + source, data);
 });
 fired( 'simple-input-caller-listen i.gotResponse')
 
 
 simple_input_callrsp2.on('ready', function(){
   simple_input_callrsp2.emit('o.getSomething', 'i need a value please');
-  fired('simple-input-caller-call o.getSomething');
+  fired('simple-input-caller-call o.getSomething', 'i need a value please');
 });
 
 
