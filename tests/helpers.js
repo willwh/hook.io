@@ -20,16 +20,28 @@ helpers.report = function ( suite, results ) {
   for (var e in results) {
 
     var s = e.split(' ');
-    
-    var tally = (results[e].expected - results[e].actual);
-    if(tally == 0) {
-      tally = tally.toString().green;
-    } {
-      tally = tally.toString().red;
+    var event, namespace, actual;
+    var diff = ((results[e].expected || 0)- (results[e].actual || 0));
+     
+    if(diff === 0) {
+      diff = diff.toString().green;
+      namespace = s[0].green;
+      event = s[1].green;
+      actual = (results[e].actual || 0).toString().green;
+    } else if (diff < 0) {
+      diff = diff.toString().yellow;
+      namespace = s[0].yellow;
+      event = s[1].yellow;
+      actual = (results[e].actual || 0).toString().yellow;
+    } else {
+      diff = diff.toString().red;
+      namespace = s[0].red;
+      event = s[1].red;
+      actual = (results[e].actual || 0).toString().red;
     }
     // table is an Array, so you can `push`, `unshift`, `splice` and friends
     table.push(
-        [tally, results[e].expected, results[e].actual, s[0], s[1], (results[e].data || 'null')]
+        [diff, results[e].expected, actual, namespace, event, (results[e].data || 'null')]
     );
 
     if(results[e].actual !== results[e].expected) {
