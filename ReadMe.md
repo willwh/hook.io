@@ -8,7 +8,7 @@
 
     a full featured i/o framework for node.js
     
-# v0.4.2
+# v0.4.3
 
 ## hook.io creates a distributed node.js EventEmitter that works cross-process / cross-platform / cross-browser.
 
