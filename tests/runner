@@ -1,28 +1,30 @@
-var fs    = require('fs');
+// TODO: Build a better runner that uses Hook.spawn instead of this child process stuff
+
+var finder = require('findit').find(__dirname),
+    spawn  = require('child_process').spawn;
+
+var tests = [];
+
+finder.on('file', function (file) {
     
-    
-var tests = fs.readdirSync('./siblings');
+    if(file.search('test-') > 0){
 
-var spawn = require('child_process').spawn;
-var r = [];
+      tests[file] = spawn('node', [file]);
 
-tests.forEach(function(t){
-  
-  var arg = ('siblings/' + [t]);
-  r[t]    = spawn('node', [arg]);
+      tests[file].stdout.on('data', function (data) {
+        console.log(data.toString());
+      });
 
-  r[t].stdout.on('data', function (data) {
-    console.log(data.toString());
-  });
+      tests[file].stderr.on('data', function (data) {
+        console.log(data.toString());
+      });
 
-  r[t].stderr.on('data', function (data) {
-    console.log(data.toString().red);
-  });
+      tests[file].on('exit', function (code) {
+        console.log('child process exited with code ' + code);
+      });
 
-  r[t].on('exit', function (code) {
-    console.log('child process exited with code ' + code);
-  });
-  
-  
+    }
+
 });
+
 

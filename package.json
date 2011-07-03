@@ -22,6 +22,7 @@
   "browserify" : { "base" : "./lib", "main" : "./lib/hookio.js" },
   "devDependencies": {
     "vows": "*",
-    "cli-table": "*"
+    "cli-table": "*",
+    "findit": "*"
   }
 }
