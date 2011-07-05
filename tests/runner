@@ -1,7 +1,8 @@
 // TODO: Build a better runner that uses Hook.spawn instead of this child process stuff
 
 var finder = require('findit').find(__dirname),
-    spawn  = require('child_process').spawn;
+    spawn  = require('child_process').spawn,
+    colors = require('colors');
 
 var tests = [];
 
@@ -20,7 +21,7 @@ finder.on('file', function (file) {
       });
 
       tests[file].on('exit', function (code) {
-        console.log('child process exited with code ' + code);
+        console.log('child process exited with code '.red + code + ' ' + file.grey);
       });
 
     }
