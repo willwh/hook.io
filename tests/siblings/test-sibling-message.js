@@ -16,7 +16,7 @@
     "simple-input-caller-call o.test" : {
       expected: 1
     },
-    "simple-input-handler-receive i.test.o.test" : {
+    "simple-input-handler-receive i.test" : {
       expected: 1
     }
   };
@@ -45,7 +45,7 @@
 
       fired('simple-input connected');
       
-      hook_simple_message_subscriber.on('i.test.o.test', function(source, event, data) {
+      hook_simple_message_subscriber.on('i.test', function(source, event, data) {
         var expect = 'hello there!';
 
         if(data !== expect){

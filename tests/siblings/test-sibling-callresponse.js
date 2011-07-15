@@ -20,10 +20,10 @@ var expected_events = {
   "simple-input-caller-call o.getSomething" : {
     expected: 1
   },
-  "simple-input-responder-receive i.getSomething.o.getSomething" : {
+  "simple-input-responder-receive i.getSomething" : {
     expected: 1
   },
-  "simple-input-caller-receive i.gotResponse.o.gotResponse" : {
+  "simple-input-caller-receive i.gotResponse" : {
     expected: 1
   }
   
@@ -57,7 +57,7 @@ hook_simple_output.on('listening', function(){
 
     fired( 'simple-input-responder connected');
 
-    simple_input_callrsp.on('i.getSomething.o.getSomething', function(source, event, data) {
+    simple_input_callrsp.on('i.getSomething', function(source, event, data) {
 
       //
       // perfom some logic here
@@ -75,7 +75,7 @@ hook_simple_output.on('listening', function(){
     var simple_input_callrsp2 = new Hook({ name: 'simple-input-caller' });
     simple_input_callrsp2.connect({ port: 5001 });
 
-    simple_input_callrsp2.on('i.gotResponse.o.gotResponse', function(source, event, data) {
+    simple_input_callrsp2.on('i.gotResponse', function(source, event, data) {
       fired('simple-input-caller-receive ' + source, data);
     });
     fired( 'simple-input-caller-listen i.gotResponse')
