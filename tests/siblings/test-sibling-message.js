@@ -65,7 +65,7 @@
 
       hook_simple_message.on('connected', function(){
         fired('simple-input-caller connected');
-        hook_simple_message.emit('o.test', 'hello there!');
+        hook_simple_message.emit('*.test', 'hello there!');
         fired('simple-input-caller-call test', 'hello there!')
       });
 

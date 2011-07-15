@@ -17,7 +17,7 @@ var expected_events = {
   "simple-input-caller-listen *.gotResponse" : {
     expected: 1
   },
-  "simple-input-caller-call o.getSomething" : {
+  "simple-input-caller-call *.getSomething" : {
     expected: 1
   },
   "simple-input-responder-receive simple-output.getSomething" : {
@@ -63,7 +63,7 @@ hook_simple_output.on('listening', function(){
       // perfom some logic here
       //
       fired( 'simple-input-responder-receive ' + source, data)
-      simple_input_callrsp.emit('o.gotResponse', 'foobar');
+      simple_input_callrsp.emit('*.gotResponse', 'foobar');
 
     });
     
@@ -84,8 +84,8 @@ hook_simple_output.on('listening', function(){
 
       fired('simple-input-caller connected');
 
-      simple_input_callrsp2.emit('o.getSomething', 'i need a value please');
-      fired('simple-input-caller-call o.getSomething', 'i need a value please');
+      simple_input_callrsp2.emit('*.getSomething', 'i need a value please');
+      fired('simple-input-caller-call *.getSomething', 'i need a value please');
     });
 
     // Perform a cleanup and calculate totals after a little while
