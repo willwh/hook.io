@@ -8,22 +8,22 @@ var expected_events = {
   "simple-input-responder connected" : {
     expected: 1
   },
-  "simple-input-responder-listen i.getSomething" : {
+  "simple-input-responder-listen *.getSomething" : {
     expected: 1
   },
   "simple-input-caller connected" : {
     expected: 1
   },
-  "simple-input-caller-listen i.gotResponse" : {
+  "simple-input-caller-listen *.gotResponse" : {
     expected: 1
   },
   "simple-input-caller-call o.getSomething" : {
     expected: 1
   },
-  "simple-input-responder-receive i.getSomething" : {
+  "simple-input-responder-receive simple-output.getSomething" : {
     expected: 1
   },
-  "simple-input-caller-receive i.gotResponse" : {
+  "simple-input-caller-receive simple-output.gotResponse" : {
     expected: 1
   }
   
@@ -57,7 +57,7 @@ hook_simple_output.on('listening', function(){
 
     fired( 'simple-input-responder connected');
 
-    simple_input_callrsp.on('i.getSomething', function(source, event, data) {
+    simple_input_callrsp.on('*.getSomething', function(source, event, data) {
 
       //
       // perfom some logic here
@@ -67,7 +67,7 @@ hook_simple_output.on('listening', function(){
 
     });
     
-    fired( 'simple-input-responder-listen i.getSomething')
+    fired( 'simple-input-responder-listen *.getSomething')
 
     // Tests the ability to do a call and response to a sibling
     // this input will wait for a sibling to send it a message and then respond back
@@ -75,10 +75,10 @@ hook_simple_output.on('listening', function(){
     var simple_input_callrsp2 = new Hook({ name: 'simple-input-caller' });
     simple_input_callrsp2.connect({ port: 5001 });
 
-    simple_input_callrsp2.on('i.gotResponse', function(source, event, data) {
+    simple_input_callrsp2.on('*.gotResponse', function(source, event, data) {
       fired('simple-input-caller-receive ' + source, data);
     });
-    fired( 'simple-input-caller-listen i.gotResponse')
+    fired( 'simple-input-caller-listen *.gotResponse')
 
     simple_input_callrsp2.on('connected', function(){
 

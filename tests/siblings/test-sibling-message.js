@@ -7,16 +7,16 @@
     "simple-input connected" : {
       expected: 1
     },
-    "simple-input-handler-listen i.test.o.test" : {
+    "simple-input-handler-listen *.test" : {
       expected: 1
     },
     "simple-input-caller connected" : {
       expected: 1
     },
-    "simple-input-caller-call o.test" : {
+    "simple-input-caller-call test" : {
       expected: 1
     },
-    "simple-input-handler-receive i.test" : {
+    "simple-input-handler-receive simple-output.test" : {
       expected: 1
     }
   };
@@ -45,7 +45,7 @@
 
       fired('simple-input connected');
       
-      hook_simple_message_subscriber.on('i.test', function(source, event, data) {
+      hook_simple_message_subscriber.on('*.test', function(source, event, data) {
         var expect = 'hello there!';
 
         if(data !== expect){
@@ -56,7 +56,7 @@
         }
 
       });
-      fired('simple-input-handler-listen i.test.o.test');
+      fired('simple-input-handler-listen *.test');
 
       // Tests the ability to start up a hook input and broadcast a simple message to it's siblings 
       // this input will broadcast a message on ready
@@ -66,7 +66,7 @@
       hook_simple_message.on('connected', function(){
         fired('simple-input-caller connected');
         hook_simple_message.emit('o.test', 'hello there!');
-        fired('simple-input-caller-call o.test', 'hello there!')
+        fired('simple-input-caller-call test', 'hello there!')
       });
 
       // Perform a cleanup and calculate totals after a little while
