@@ -173,7 +173,15 @@ console.log('http webhook server started on port '.green + '9000'.yellow);
 ```
 
 ## Screencasts coming soon...
- 
+
+## Tests
+
+Tests are good.
+
+    node runner
+
+<img src="https://github.com/Marak/hook.io/raw/master/screenshots/testrunner.png"></img>
+
 ## Contributors ( through code and advice )
 
 AvianFlu, Chapel, Substack, Dominic Tarr, Charlie Robbins, h1jinx, Tim Smart, tmpvar, kadir pekel
