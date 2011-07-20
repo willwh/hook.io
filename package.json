@@ -22,8 +22,6 @@
     "main" : "./lib/hookio.js"
   },
   "devDependencies": {
-    "cli-table": "*",
-    "findit": "*",
     "vows": "*"
   }
 }

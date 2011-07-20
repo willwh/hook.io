@@ -1,0 +1,41 @@
+/*
+ * test-sibling-callresponse.js: Tests the ability to do a call and response to a sibling
+ *                               this input will wait for a sibling to send it a message 
+ *                               and then respond back.
+ *
+ * (C) 2011 Marak Squires, Charlie Robbins
+ * MIT LICENCE
+ *
+ */
+
+var vows = require('vows'),
+    assert = require('assert'),
+    Hook = require('../../lib/hookio').Hook,
+    macros = require('../helpers/macros');
+
+vows.describe('hook.io/siblings/call-response').addBatch({
+  "When a hook is listening on 5001": macros.assertListen('simple-server', 5001, {
+    "and another hook attempts to `.connect()`": macros.assertConnect('simple-client-responder', 5001, {
+      "and another hook emits *.getSomething": {
+        topic: function (responder, _, simpleServer) {
+          responder.on('*.getSomething', function (source, event, data) {
+            responder.emit('*.gotResponse', 'foobar');
+          });
+          
+          var caller = new Hook({ name: 'simple-client-caller' });
+          caller.connect({ port: 5001 });
+          caller.on('*.gotResponse', this.callback.bind(this, null));
+          
+          caller.on('connected', function () {
+            caller.emit('*.getSomething', 'i need a value please');
+          });
+        },
+        "the receiving hook should emit *.gotResponse": function (_, source, event, value) {
+          assert.equal('simple-server.gotResponse', source);
+          assert.equal('*.gotResponse', event);
+          assert.equal('foobar', value);
+        }
+      }
+    })
+  })
+}).export(module);
