@@ -37,7 +37,7 @@ function fired( event, data ){
 
 // Test the ability to start up an output hook that other hooks can connect to
 // this output will receive and rebroadcast messages to all its children ( which are siblings to each other )
-var Hook = require('hook.io').Hook;
+var Hook = require('../../lib/hookio').Hook;
 var hook_simple_server = new Hook({ name: 'simple-server' });
 var colors = require('colors');
 hook_simple_server.listen({ port: 5001 });

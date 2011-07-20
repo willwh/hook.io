@@ -10,7 +10,6 @@ var expected_events = {
   "simple-start ready" : {
     expected: 1
   }
-  
 };
 
 
@@ -22,7 +21,7 @@ function fired( event, data ){
 //
 // Create a new hook and then start up a server with hook.listen()
 //
-var Hook = require('hook.io').Hook;
+var Hook = require('../../lib/hookio').Hook;
 var hook_simple_listen = new Hook({ name: 'simple-listen' });
 hook_simple_listen.listen({ port: 5010 });
 
