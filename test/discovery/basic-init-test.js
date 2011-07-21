@@ -16,4 +16,18 @@ vows.describe('hook.io/discovery/basic-init').addBatch({
     "and another hook attempts to `.connect()`": macros.assertConnect('simple-connect', 5010),
     "and another hook attempts to `.start()`": macros.assertReady('simple-start', 5010)
   })
+}).addBatch({
+  "When a Hook is listening on 5010": {
+    "and another hook attempts to `.listen()` on 5010": {
+      topic: function () {
+        var instance = new Hook({ name: 'simple-error' });
+        instance.on('error', this.callback.bind(this, null));
+        instance.listen({ port: 5010 });
+      },
+      "it should fire the `error` event": function (_, event, err) {
+        assert.equal(event, 'error');
+        assert.isObject(err);
+      }
+    }
+  }
 }).export(module);
