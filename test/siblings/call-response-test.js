@@ -18,17 +18,19 @@ vows.describe('hook.io/siblings/call-response').addBatch({
     "and another hook attempts to `.connect()`": macros.assertConnect('simple-client-responder', 5001, {
       "and another hook emits *.getSomething": {
         topic: function (responder, _, simpleServer) {
+          var subscriber = new Hook({ name: 'simple-client-caller' });
+          
+          subscriber.connect({ port: 5001 });
+          subscriber.on('*.gotResponse', this.callback.bind(this, null));
+
           responder.on('*.getSomething', function (source, event, data) {
             responder.emit('*.gotResponse', 'foobar');
           });
           
-          var caller = new Hook({ name: 'simple-client-caller' });
-          caller.connect({ port: 5001 });
-          caller.on('*.gotResponse', this.callback.bind(this, null));
-          
-          caller.on('connected', function () {
-            caller.emit('*.getSomething', 'i need a value please');
+          subscriber.on('connected', function () {
+            subscriber.emit('*.getSomething', 'i need a value please');
           });
+          
         },
         "the receiving hook should emit *.gotResponse": function (_, source, event, value) {
           assert.equal('simple-server.gotResponse', source);
