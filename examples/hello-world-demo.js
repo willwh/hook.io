@@ -1,5 +1,5 @@
 var Hook = require('hook.io').Hook;
-var myhook = new Hook( { name: "helloworld" } );
+var myhook = new Hook( { name: 'helloworld' } );
 
 
 myhook.on('i.*', function(source, event, data){
