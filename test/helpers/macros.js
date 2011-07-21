@@ -7,6 +7,7 @@
  */
 
 var assert = require('assert'),
+    eyes = require('eyes'),
     Hook = require('../../lib/hookio').Hook;
 
 var macros = exports;
@@ -58,6 +59,12 @@ macros.assertReady = function (name, port, vows) {
 
 function extendContext (context, vows) {
   if (vows) {
+    if (vows.topic) {
+      console.log('Cannot include topic at top-level of nested vows:');
+      eyes.inspect(vows, 'vows');
+      process.exit(1);
+    }
+    
     Object.keys(vows).forEach(function (key) {
       context[key] = vows[key];
     });

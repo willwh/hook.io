@@ -22,6 +22,7 @@
     "main" : "./lib/hookio.js"
   },
   "devDependencies": {
+    "eyes": "0.1.x",
     "vows": "*"
   }
 }
