@@ -1,0 +1,21 @@
+{
+  "author": "Marak Squires <marak.squires@gmail.com>",
+  "name": "hook.io-simple",
+  "description": "a simple simple hook for hook.io",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Marak/hook.io-repl.git"
+  },
+  "bin": {
+     "hookio-simple": "bin/simple"
+   },
+  "main" : "lib/simple",
+  "engines": {
+    "node": ">= v0.4.7"
+  },
+  "dependencies": {
+    "hook.io" : "latest"
+  },
+  "devDependencies": {}
+}
