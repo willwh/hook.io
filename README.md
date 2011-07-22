@@ -176,12 +176,19 @@ console.log('http webhook server started on port '.green + '9000'.yellow);
 
 ## Tests
 
-Tests are good.
+Currently all tests require some setup. Eventually they will be compatible with `npat`:
 
-    node runner
+``` bash
+  $ cd /path/to/hook.io
+  $ npm install forever
+  $ [sudo] npm link
+  $ cd /path/to/hook.io-helloworld
+  $ [sudo] npm link
+  $ [sudo] npm link hook.io
+  $ cd /path/to/hook.io
+  $ [sudo] npm link hook.io-helloworld
+  $ vows --spec 
+```
 
-<img src="https://github.com/Marak/hook.io/raw/master/screenshots/testrunner.png"></img>
-
-## Contributors ( through code and advice )
-
+## Contributors (through code and advice)
 AvianFlu, Chapel, Substack, Dominic Tarr, Charlie Robbins, h1jinx, Tim Smart, tmpvar, kadir pekel
