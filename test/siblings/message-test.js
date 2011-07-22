@@ -19,15 +19,15 @@ vows.describe('hook.io/siblings/message').addBatch({
       "and emits *.test": {
         topic: function (subscriber) {
           var that = this;
-          subscriber.once('*.test', that.callback.bind(null, null));
+          subscriber.once('*::test', that.callback.bind(null, null));
 
           var messager = new Hook({ name: 'simple-client-messager' });
           messager.connect({ port: 5002 });
-          messager.once('connected', function () {
-            messager.emit('*.test', 'hello there!');
+          messager.once('hook::connected', function () {
+            messager.emit('*::test', 'hello there!');
           });
         },
-        "the *.test event should be fired correctly": function (_, source, event, data) {
+        "the *::test event should be fired correctly": function (_, source, event, data) {
           assert.equal(data, 'hello there!');
         }
       }

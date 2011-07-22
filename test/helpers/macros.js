@@ -16,11 +16,11 @@ macros.assertListen = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('listening', this.callback.bind(this, null, instance));
+      instance.on('hook::listening', this.callback.bind(this, null, instance));
       instance.listen({ port: port });
     },
-    "it should fire the `listening` event": function (_, hook, name) {
-      assert.equal(name, 'listening');      
+    "it should fire the `hook::listening` event": function (_, hook, name) {
+      assert.equal(name, 'hook::listening');      
     }
   };
   
@@ -31,11 +31,11 @@ macros.assertConnect = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('connected', this.callback.bind(null, null, instance));
+      instance.on('hook::connected', this.callback.bind(null, null, instance));
       instance.connect({ port: port });
     },
-    "should fire the `connected` event": function (_, hook, name) {
-      assert.equal(name, 'connected');
+    "should fire the `hook::connected` event": function (_, hook, name) {
+      assert.equal(name, 'hook::connected');
     }
   };
   
@@ -46,11 +46,11 @@ macros.assertReady = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('ready', this.callback.bind(this, null, instance));
+      instance.on('hook::ready', this.callback.bind(this, null, instance));
       instance.start({ port: port });        
     },
-    "should fire the `ready` event": function (_, hook, name) {
-      assert.equal(name, 'ready');
+    "should fire the `hook::ready` event": function (_, hook, name) {
+      assert.equal(name, 'hook::ready');
     }
   };
   
@@ -99,11 +99,11 @@ macros.assertHelloWorld = function (local) {
   return macros.assertSpawn('helloworld', local, {
     "the parent hook": {
       topic: function (host) {
-        host.on('*.hello', this.callback.bind(null, null));
+        host.on('*::hello', this.callback.bind(null, null));
       },
       "should emit helloworld": function (_, source, ev, message) {
-        assert.equal(source, 'simple-host.hello');
-        assert.equal(ev, '*.hello');
+        assert.equal(source, 'simple-host::hello');
+        assert.equal(ev, '*::hello');
         assert.equal(message, 'Hello, I am helloworld-0');
       }
     }
@@ -117,8 +117,9 @@ macros.assertSpawnExit = function (hooks, vows) {
         hook = new Hook();
       }
       
+      hook.once('child::exit', this.callback.bind(this, null, hook));
+      hook.on('error', function () { });
       hook.spawn(hooks);
-      hook.once('child:exit', this.callback.bind(this, null, hook));
     },
     "it should raise the `child:exit` event": function () {
       assert.isTrue(true);
