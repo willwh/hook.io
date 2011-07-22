@@ -11,31 +11,11 @@ var vows = require('vows'),
     Hook = require('../../lib/hookio').Hook,
     macros = require('../helpers/macros');
 
-var PORT = 5020;
-
-vows.describe('hook.io/discovery/basic-spawn').addBatch({
-  "When a hook is listening on a PORT": macros.assertReady('simple-host', PORT, {
-    "and we ask it to be local and begin spawning" : {
-      topic : function (hook) {
-        var that = this;
-        
-        hook.local = true;
-        hook.spawn('helloworld', this.callback.bind(this, null, hook));
-      },
-      "it should have spawned children" : function (_, hook) {
-        assert.isObject(hook.children);
-      },
-      "that is called simple" : function (_, hook) {
-        assert.isObject(hook.children);
-        assert.isObject(hook.children['hook.io-helloworld']);
-      },
-      "in local mode" : function (_, hook) {
-        assert.isTrue(hook.local);
-      },
-      "without coughing up an error" : function (err, hook) {
-        assert.notEqual(typeof err, 'Error');
-        assert.isNull(err);
-      }
-    }
+vows.describe('hook.io/spawn/basic-spawn').addBatch({
+  "When a hook is listening on a 5020": macros.assertReady('simple-host', 5020, {
+    "and we ask it to be local and begin spawning": macros.assertSpawn('helloworld', true)
+  }),
+  "When a hook is listening on a 5021": macros.assertListen('simple-host', 5021, {
+    "and we ask it to spawn some children" : macros.assertSpawn('helloworld')
   })
 }).export(module);
