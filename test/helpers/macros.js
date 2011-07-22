@@ -65,7 +65,6 @@ macros.assertSpawn = function (hooks, local, vows) {
   
   var context = {
     topic : function (hook) {
-      var that = this;
       hook.local = local;
       hook.spawn(hooks, this.callback.bind(this, null, hook));
     },
@@ -94,7 +93,40 @@ macros.assertSpawn = function (hooks, local, vows) {
   }
   
   return extendContext(context, vows);
-}
+};
+
+macros.assertHelloWorld = function (local) {
+  return macros.assertSpawn('helloworld', local, {
+    "the parent hook": {
+      topic: function (host) {
+        host.on('*.hello', this.callback.bind(null, null));
+      },
+      "should emit helloworld": function (_, source, ev, message) {
+        assert.equal(source, 'simple-host.hello');
+        assert.equal(ev, '*.hello');
+        assert.equal(message, 'Hello, I am helloworld-0');
+      }
+    }
+  });
+};
+
+macros.assertSpawnExit = function (hooks, vows) {
+  var context = {
+    topic : function (hook) {
+      if (!hook) {
+        hook = new Hook();
+      }
+      
+      hook.spawn(hooks);
+      hook.once('child:exit', this.callback.bind(this, null, hook));
+    },
+    "it should raise the `child:exit` event": function () {
+      assert.isTrue(true);
+    }
+  }  
+  
+  return extendContext(context, vows);
+};
 
 function extendContext (context, vows) {
   if (vows) {
