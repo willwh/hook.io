@@ -19,7 +19,7 @@
     "nconf": "0.2.x"
   },
   "scripts": {
-    "test": "npm install forever && vows test/**/*-test.js --spec && npm uninstall forever"
+    "test": "vows test/**/*-test.js --spec"
   },
   "browserify" : { 
     "base" : "./lib", 

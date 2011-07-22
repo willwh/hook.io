@@ -16,28 +16,26 @@ var PORT = 5020;
 vows.describe('hook.io/discovery/basic-spawn').addBatch({
   "When a hook is listening on a PORT": macros.assertReady('simple-host', PORT, {
     "and we ask it to be local and begin spawning" : {
-      topic : function (host) {
-        host.local = true;
-        host.spawn('simple', this.callback.bind(this));
-        //host.spawn(['simple'], this.callback.bind(this));
-        //host.spawn(['simple', 'troll'], this.callback.bind(this));
+      topic : function (hook) {
+        var that = this;
+        
+        hook.local = true;
+        hook.spawn('helloworld', this.callback.bind(this, null, hook));
       },
-      "it should have spawned children" : function (_, host) {
-        assert.isObject(host.children);
+      "it should have spawned children" : function (_, hook) {
+        assert.isObject(hook.children);
       },
-      "that is called simple" : function (_, host) {
-        assert.isObject(host.children);
-        assert.isObject(host.children['hook.io-' +'simple']);
+      "that is called simple" : function (_, hook) {
+        assert.isObject(hook.children);
+        assert.isObject(hook.children['hook.io-helloworld']);
       },
-      "in local mode" : function (_, host) {
-        assert.isTrue(host.local);
+      "in local mode" : function (_, hook) {
+        assert.isTrue(hook.local);
       },
-      "without coughing up an error" : function (err, host) {
+      "without coughing up an error" : function (err, hook) {
         assert.notEqual(typeof err, 'Error');
         assert.isNull(err);
       }
     }
-  }),
-}).addBatch({
-
+  })
 }).export(module);
