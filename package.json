@@ -14,7 +14,7 @@
     "async": "0.1.x",
     "colors": "0.5.x",
     "dnode": "0.6.x",
-    "eventemitter2": "0.x.x",
+    "eventemitter2": "0.2.x",
     "optimist": "0.2.x",
     "nconf": "0.2.x"
   },
@@ -27,8 +27,6 @@
   },
   "devDependencies": {
     "eyes": "0.1.x",
-    "hook.io-helloworld": "0.1.x",
-    "hook.io-webserver": "0.1.x",
     "vows": "0.5.x"
   }
 }
