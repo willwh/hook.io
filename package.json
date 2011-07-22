@@ -1,18 +1,28 @@
 {
   "author": "Marak Squires <marak.squires@gmail.com>",
   "name": "hook.io",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/Marak/hook.io.git"
   },
+  "contributors": [
+    {
+      "name": "Charlie Robbins",
+      "email": "charlie@nodejitsu.com"
+    },
+    {
+      "name": "Jameson Lee",
+      "email": "jameson@nodejitsu.com"
+    }
+  ],
   "main": "./lib/hookio",
   "engines": {
     "node": ">= v0.4.7"
   },
   "dependencies": {
     "async": "0.1.x",
-    "colors": "0.5.x",
+    "colors": "0.x.x",
     "dnode": "0.6.x",
     "eventemitter2": "0.2.x",
     "optimist": "0.2.x",

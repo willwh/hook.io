@@ -8,7 +8,7 @@
 
     a full featured i/o framework for node.js
     
-# v0.4.5
+# v0.5.0
 
 ## hook.io creates a distributed node.js EventEmitter that works cross-process / cross-platform / cross-browser.
 
@@ -40,7 +40,6 @@
   - [hook.io-webhook](http://github.com/marak/hook.io-webhook) - A simple http post / receive hook
   - [hook.io-webserver](http://github.com/marak/hook.io-webserver) - Unreleased
 
-
 **Utility**
 
   - [hook.io-coffeescript](http://github.com/coffeemate/hook.io-coffeescript) - Unreleased
@@ -52,15 +51,6 @@
 
   - [hook.io-insult](http://github.com/marak/hook.io-insult)
 
-## Tests
-
-Tests are good.
-
-    cd test/
-    node runner
-    
-<img src="https://github.com/Marak/hook.io/raw/master/screenshots/testrunner.png"></img>    
-
 'hook.io` is currently self tested, it would be too hard to not do this. I will take patches to improve testing.
 
 ## TODO
@@ -70,7 +60,6 @@ Tests are good.
   - Create Flow Chart explaining architecture
   - Create better system for automatically loading inputs via forever
   - Refactor [kohai](http://github.com/nodejitsu/kohai) bot to use hook.io
-
 
 # Getting Start / Demo
 
@@ -86,22 +75,18 @@ If you want to start logging all these messages simply install `hookio-logger` w
 
     npm install hook.io-logger -g
     
-
 Now run:
 
     hookio-logger
     
 You will now start logging all these messages. 
 
-
 ## Dual-sided hooks
 
 Both the helloworld and logger hooks act as dual-sided hooks by default. The order you run `hookio-logger` and `hookio-helloworld` does not matter.  They can work as both clients or servers ( inputs or outputs ) and will interface seamlessly using hook.io's default settings.
 
-
 ## Basic Hello World Syntax
-http://github.com/avianflu/hook.io-helloworld
-
+http://github.com/hookio/helloworld
 
 ``` js
 #!/usr/bin/env node
@@ -141,7 +126,6 @@ http://github.com/avianflu/hook.io-helloworld
 http://github.com/marak/hook.io-webhook
 
 ``` js
-
 var Hook = require('hook.io').Hook,
     http = require('http');
 
