@@ -22,7 +22,7 @@ vows.describe('hook.io/discovery/basic-init').addBatch({
       topic: function () {
         var instance = new Hook({ name: 'simple-error' });
         instance.on('error', this.callback.bind(this, null));
-        instance.listen({ port: 5010 });
+        instance.listen({ "hook-port": 5010 });
       },
       "it should fire the `error` event": function (_, event, err) {
         assert.equal(event, 'error');

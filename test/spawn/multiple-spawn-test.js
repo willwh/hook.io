@@ -27,12 +27,12 @@ vows.describe('hook.io/spawn/multiple-spawn').addBatch({
 //     {
 //       type: 'webserver',
 //       name: 'webserver-0'
-//       options: { port: 9001 } 
+//       options: { "hook-port": 9001 }
 //     },
 //     {
 //       type: 'webserver',
 //       name: 'webserver-1'
-//       options: { port: 9002 } 
+//       options: { "hook-port": 9002 }
 //     }
 //   ])
 // });

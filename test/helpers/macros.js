@@ -17,7 +17,7 @@ macros.assertListen = function (name, port, vows) {
     topic: function () {
       var instance = new Hook({ name: name });
       instance.on('hook::listening', this.callback.bind(this, null, instance));
-      instance.listen({ port: port });
+      instance.listen({ "hook-port": port });
     },
     "it should fire the `hook::listening` event": function (_, hook, name) {
       assert.equal(name, 'hook::listening');      
@@ -32,7 +32,7 @@ macros.assertConnect = function (name, port, vows) {
     topic: function () {
       var instance = new Hook({ name: name });
       instance.on('hook::connected', this.callback.bind(null, null, instance));
-      instance.connect({ port: port });
+      instance.connect({ "hook-port": port });
     },
     "should fire the `hook::connected` event": function (_, hook, name) {
       assert.equal(name, 'hook::connected');
@@ -47,7 +47,7 @@ macros.assertReady = function (name, port, vows) {
     topic: function () {
       var instance = new Hook({ name: name });
       instance.on('hook::ready', this.callback.bind(this, null, instance));
-      instance.start({ port: port });        
+      instance.start({ "hook-port": port });
     },
     "should fire the `hook::ready` event": function (_, hook, name) {
       assert.equal(name, 'hook::ready');

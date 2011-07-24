@@ -20,7 +20,7 @@ vows.describe('hook.io/siblings/call-response').addBatch({
         topic: function (responder, _, simpleServer) {
           var subscriber = new Hook({ name: 'simple-client-caller' });
           
-          subscriber.connect({ port: 5001 });
+          subscriber.connect({ "hook-port": 5001 });
           subscriber.on('*::gotResponse', this.callback.bind(this, null));
 
           responder.on('*::getSomething', function (source, event, data) {

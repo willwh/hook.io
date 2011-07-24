@@ -22,7 +22,7 @@ vows.describe('hook.io/siblings/message').addBatch({
           subscriber.once('*::test', that.callback.bind(null, null));
 
           var messager = new Hook({ name: 'simple-client-messager' });
-          messager.connect({ port: 5002 });
+          messager.connect({ "hook-port": 5002 });
           messager.once('hook::connected', function () {
             messager.emit('*::test', 'hello there!');
           });
