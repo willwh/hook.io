@@ -130,6 +130,31 @@ webhookServer.start();
 
 ```
 
+## Creating custom Hooks
+
+### Super Simple Hook Logger
+
+Try connecting this to your Helloworld Hook. For a multi-transport logger that supports: File, Console, Redis, Mongo, and Loggly, use: [http://github.com/hookio/logger](http://github.com/hookio/logger)
+
+```javascript
+#!/usr/bin/env node
+
+var Hook    = require('hook.io').Hook,
+    colors  = require('colors');
+        
+var logger = new Hook({ 
+  name: 'logger'
+});
+
+console.log("Note: You can also just set 'debug' mode to true to get a console logger");
+
+logger.start();
+
+logger.on('*::*', function(event, data){
+  console.log('custom log event fired' + event + ' ' + JSON.stringify(data))
+});
+```
+
 ## Screencasts coming soon...
 
 ## Tests
