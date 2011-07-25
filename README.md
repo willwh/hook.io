@@ -143,7 +143,7 @@ var Hook    = require('hook.io').Hook,
     colors  = require('colors');
         
 var logger = new Hook({ 
-  name: 'logger'
+  name: 'the-logger-hook'
 });
 
 console.log("Note: You can also just set 'debug' mode to true to get a console logger");
