@@ -28,16 +28,17 @@
 
 # Available Hooks ( more coming soon )
 
-- [hook.io-helloworld](http://github.com/hookio/helloworld)
-- [hook.io-repl](http://github.com/hookio/repl)
-- [hook.io-webhook](http://github.com/hookio/webhook)
-- [hook.io-cron](http://github.com/hookio/cron)
-- [hook.io-request](http://github.com/hookio/request)
-- [hook.io-twilio](http://github.com/hookio/twilio)
-- [hook.io-mailer](http://github.com/hookio/mailer)
-- [hook.io-logger](http://github.com/hookio/logger)
-- [hook.io-irc](http://github.com/hookio/irc)
-- [hook.io-twitter](http://github.com/hookio/twitter)
+- [cron](http://github.com/hookio/cron)
+- [irc](http://github.com/hookio/irc)
+- [helloworld](http://github.com/hookio/helloworld)
+- [logger](http://github.com/hookio/logger)
+- [mailer](http://github.com/hookio/mailer)
+- [request](http://github.com/hookio/request)
+- [repl](http://github.com/hookio/repl)
+- [twilio](http://github.com/hookio/twilio)
+- [twitter](http://github.com/hookio/twitter)
+- [webhook](http://github.com/hookio/webhook)
+
 
 <!--
 
