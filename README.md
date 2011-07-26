@@ -112,7 +112,7 @@ hello.start();
 ```
 
 ## Basic HTTP post / receive Webhook server
-http://github.com/marak/hook.io-webhook
+http://github.com/hookio/webhook
 
 ``` js
 #! /usr/bin/env node
