@@ -16,11 +16,11 @@ macros.assertListen = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::listening', this.callback.bind(this, null, instance));
+      instance.on('hook::listening', this.callback.bind(instance, null, instance));
       instance.listen({ "hook-port": port });
     },
-    "it should fire the `hook::listening` event": function (_, hook, name) {
-      assert.equal(name, 'hook::listening');      
+    "it should fire the `hook::listening` event": function () {
+      assert.equal(this.event, 'hook::listening');      
     }
   };
   
@@ -31,11 +31,11 @@ macros.assertConnect = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::connected', this.callback.bind(null, null, instance));
+      instance.on('hook::connected', this.callback.bind(instance, null, instance));
       instance.connect({ "hook-port": port });
     },
-    "should fire the `hook::connected` event": function (_, hook, name) {
-      assert.equal(name, 'hook::connected');
+    "should fire the `hook::connected` event": function () {
+      assert.equal(this.event, 'hook::connected');
     }
   };
   

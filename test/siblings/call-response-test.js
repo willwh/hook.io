@@ -21,20 +21,20 @@ vows.describe('hook.io/siblings/call-response').addBatch({
           var subscriber = new Hook({ name: 'simple-client-caller' });
           
           subscriber.connect({ "hook-port": 5001 });
-          subscriber.on('*::gotResponse', this.callback.bind(this, null));
+          subscriber.on('*::gotResponse', this.callback.bind(subscriber, null));
 
           responder.on('*::getSomething', function (source, event, data) {
-            responder.emit('*::gotResponse', 'foobar');
+            responder.emit('gotResponse', 'foobar');
           });
           
           subscriber.on('hook::connected', function () {
-            subscriber.emit('*::getSomething', 'i need a value please');
+            subscriber.emit('getSomething', 'i need a value please');
           });
           
         },
-        "the receiving hook should emit *::gotResponse": function (_, source, event, value) {
-          assert.equal('simple-server::gotResponse', source);
-          assert.equal('*::gotResponse', event);
+        "the receiving hook should emit *::gotResponse": function (_, value) {
+          assert.isTrue(!!~this.event.indexOf('simple-client-responder'));
+          assert.isTrue(!!~this.event.indexOf('gotResponse'));
           assert.equal('foobar', value);
         }
       }
