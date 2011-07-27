@@ -14,6 +14,8 @@
 
 ## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
 
+### Email List: http://groups.google.com/group/hookio
+
 # Features :
 
 - Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
