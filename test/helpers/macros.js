@@ -129,6 +129,40 @@ macros.assertSpawnExit = function (hooks, vows) {
   return extendContext(context, vows);
 };
 
+macros.assertPingPong = function (port, ping, pong) {
+  var pingContext = {},
+      pongContext = {};
+  
+  pongContext = {
+    topic: function (pongHook, _, simpleServer) {
+      var pingHook = new Hook({ name: ping.name });
+
+      pongHook.on('*::' + ping.event, function () {
+        pongHook.emit(pong.event, pong.value);
+      });
+
+      pingHook.on('*::' + pong.event, this.callback.bind(pingHook, null));
+      pingHook.on('hook::connected', function () {
+        pingHook.emit(ping.event, 'i need a value please');
+      });
+
+      pingHook.connect({ "hook-port": port });
+    }
+  };
+  
+  pongContext["the pong hook should fire and ping hook should receive '*::" + pong.event + "'"] = function (_, value) {
+    assert.isTrue(!!~this.event.indexOf(pong.name));
+    assert.isTrue(!!~this.event.indexOf(pong.event));
+    assert.equal(pong.value, value);
+  };
+  
+  pingContext["and a ping hook emits '" + ping.event + "'"] = pongContext;
+  
+  return macros.assertListen('simple-server', port, {
+    "and a hook attempts to `.connect()`": macros.assertConnect(pong.name, port, pingContext)
+  });
+};
+
 function extendContext (context, vows) {
   if (vows) {
     if (vows.topic) {
