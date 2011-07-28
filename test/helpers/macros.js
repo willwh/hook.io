@@ -46,11 +46,11 @@ macros.assertReady = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::ready', this.callback.bind(this, null, instance));
+      instance.on('hook::ready', this.callback.bind(instance, null, instance));
       instance.start({ "hook-port": port });
     },
-    "should fire the `hook::ready` event": function (_, hook, name) {
-      assert.equal(name, 'hook::ready');
+    "should fire the `hook::ready` event": function (_, hook) {
+      assert.equal(this.event, 'hook::ready');
     }
   };
   
