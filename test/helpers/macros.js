@@ -104,24 +104,30 @@ macros.assertHelloWorld = function (local) {
       "should emit helloworld": function (_, message) {
         assert.equal(this.event, 'helloworld-0::hello');
         assert.equal(message, 'Hello, I am helloworld-0');
+        
+        if (this.children['helloworld'].monitor) {
+          this.children['helloworld'].monitor.stop();
+        }
+        
+        this.server.close();
       }
     }
   });
 };
 
-macros.assertSpawnExit = function (hooks, vows) {
+macros.assertSpawnError = function (hooks, vows) {
   var context = {
     topic : function (hook) {
       if (!hook) {
         hook = new Hook();
       }
       
-      hook.once('child::exit', this.callback.bind(this, null, hook));
-      hook.on('error', function () { });
+      hook.once('error::spawn', this.callback.bind(hook, null, hook));
       hook.spawn(hooks);
     },
-    "it should raise the `child:exit` event": function () {
-      assert.isTrue(true);
+    "it should raise the `error::spawn` event": function (_, _, err) {
+      assert.isObject(err);
+      assert.instanceOf(err, Error);
     }
   }  
   
