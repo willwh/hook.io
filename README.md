@@ -157,18 +157,8 @@ logger.on('*::*', function(event, data){
 
 ## Tests
 
-Currently all tests require some setup. Eventually they will be compatible with `npat`:
-
 ``` bash
-  $ cd /path/to/hook.io
-  $ npm install forever
-  $ [sudo] npm link
-  $ cd /path/to/hook.io-helloworld
-  $ [sudo] npm link
-  $ [sudo] npm link hook.io
-  $ cd /path/to/hook.io
-  $ [sudo] npm link hook.io-helloworld
-  $ vows --spec 
+  $ sudo bin/test --spec
 ```
 
 ## Core Hook.io Team
