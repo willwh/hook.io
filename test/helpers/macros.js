@@ -16,11 +16,11 @@ macros.assertListen = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::listening', this.callback.bind(this, null, instance));
+      instance.on('hook::listening', this.callback.bind(instance, null, instance));
       instance.listen({ "hook-port": port });
     },
-    "it should fire the `hook::listening` event": function (_, hook, name) {
-      assert.equal(name, 'hook::listening');      
+    "it should fire the `hook::listening` event": function () {
+      assert.equal(this.event, 'hook::listening');      
     }
   };
   
@@ -31,11 +31,11 @@ macros.assertConnect = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::connected', this.callback.bind(null, null, instance));
+      instance.on('hook::connected', this.callback.bind(instance, null, instance));
       instance.connect({ "hook-port": port });
     },
-    "should fire the `hook::connected` event": function (_, hook, name) {
-      assert.equal(name, 'hook::connected');
+    "should fire the `hook::connected` event": function () {
+      assert.equal(this.event, 'hook::connected');
     }
   };
   
@@ -46,11 +46,11 @@ macros.assertReady = function (name, port, vows) {
   var context = {
     topic: function () {
       var instance = new Hook({ name: name });
-      instance.on('hook::ready', this.callback.bind(this, null, instance));
+      instance.on('hook::ready', this.callback.bind(instance, null, instance));
       instance.start({ "hook-port": port });
     },
-    "should fire the `hook::ready` event": function (_, hook, name) {
-      assert.equal(name, 'hook::ready');
+    "should fire the `hook::ready` event": function (_, hook) {
+      assert.equal(this.event, 'hook::ready');
     }
   };
   
@@ -99,34 +99,73 @@ macros.assertHelloWorld = function (local) {
   return macros.assertSpawn('helloworld', local, {
     "the parent hook": {
       topic: function (host) {
-        host.on('*::hello', this.callback.bind(null, null));
+        host.on('*::hello', this.callback.bind(host, null));
       },
-      "should emit helloworld": function (_, source, ev, message) {
-        assert.equal(source, 'simple-host::hello');
-        assert.equal(ev, '*::hello');
+      "should emit helloworld": function (_, message) {
+        assert.equal(this.event, 'helloworld-0::hello');
         assert.equal(message, 'Hello, I am helloworld-0');
+        
+        if (this.children['helloworld'].monitor) {
+          this.children['helloworld'].monitor.stop();
+        }
+        
+        this.server.close();
       }
     }
   });
 };
 
-macros.assertSpawnExit = function (hooks, vows) {
+macros.assertSpawnError = function (hooks, vows) {
   var context = {
     topic : function (hook) {
       if (!hook) {
         hook = new Hook();
       }
       
-      hook.once('child::exit', this.callback.bind(this, null, hook));
-      hook.on('error', function () { });
+      hook.once('error::spawn', this.callback.bind(hook, null, hook));
       hook.spawn(hooks);
     },
-    "it should raise the `child:exit` event": function () {
-      assert.isTrue(true);
+    "it should raise the `error::spawn` event": function (_, _, err) {
+      assert.isObject(err);
+      assert.instanceOf(err, Error);
     }
   }  
   
   return extendContext(context, vows);
+};
+
+macros.assertPingPong = function (port, ping, pong) {
+  var pingContext = {},
+      pongContext = {};
+  
+  pongContext = {
+    topic: function (pongHook, _, simpleServer) {
+      var pingHook = new Hook({ name: ping.name });
+
+      pongHook.on('*::' + ping.event, function () {
+        pongHook.emit(pong.event, pong.value);
+      });
+
+      pingHook.on('*::' + pong.event, this.callback.bind(pingHook, null));
+      pingHook.on('hook::connected', function () {
+        pingHook.emit(ping.event, 'i need a value please');
+      });
+
+      pingHook.connect({ "hook-port": port });
+    }
+  };
+  
+  pongContext["the pong hook should fire and ping hook should receive '*::" + pong.event + "'"] = function (_, value) {
+    assert.isTrue(!!~this.event.indexOf(pong.name));
+    assert.isTrue(!!~this.event.indexOf(pong.event));
+    assert.equal(pong.value, value);
+  };
+  
+  pingContext["and a ping hook emits '" + ping.event + "'"] = pongContext;
+  
+  return macros.assertListen('simple-server', port, {
+    "and a hook attempts to `.connect()`": macros.assertConnect(pong.name, port, pingContext)
+  });
 };
 
 function extendContext (context, vows) {

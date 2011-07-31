@@ -12,10 +12,11 @@ var vows = require('vows'),
     macros = require('../helpers/macros');
 
 vows.describe('hook.io/spawn/bad-spawn').addBatch({
-  "When a hook has been created, but is not listening": {
-    "and we ask it to spawn some children (out of process)": macros.assertSpawnExit('helloworld')
+  "When a hook is listening on 5021": macros.assertListen('simple-host', 5020, {
+    "and we ask it to spawn a bad hook (out of process)": macros.assertSpawnError('hellbadspawn')
     //
     // TODO: Check edge case for bad spawn in process.
     //
-  }
+  }),
+  "When we attempt to spawn a child on a hook that is not listening": macros.assertSpawnError('helloworld')
 }).export(module);
