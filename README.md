@@ -8,9 +8,13 @@
 
     a full featured i/o framework for node.js
     
+# v0.6.0
+
 ## hook.io creates a distributed node.js EventEmitter that works cross-process / cross-platform / cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
 
 ## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
+
+### Email List: [http://groups.google.com/group/hookio](http://groups.google.com/group/hookio)
 
 # Features :
 
@@ -26,37 +30,17 @@
 
 # Available Hooks ( more coming soon )
 
-- [hook.io-helloworld](http://github.com/hookio/helloworld)
-- [hook.io-repl](http://github.com/hookio/repl)
-- [hook.io-webhook](http://github.com/hookio/webhook)
-- [hook.io-cron](http://github.com/hookio/cron)
-- [hook.io-request](http://github.com/hookio/request)
-
-
-<!--
-
-**Core**
-
-
-**Web**
-  
-  - [hook.io-irc](http://github.com/marak/hook.io-irc) - Unreleased
-  - [hook.io-twitter](http://github.com/marak/hook.io-twitter) - Unreleased
-  - [hook.io-webserver](http://github.com/marak/hook.io-webserver) - Unreleased
-
-**Utility**
-
-  - [hook.io-coffeescript](http://github.com/coffeemate/hook.io-coffeescript) - Unreleased
-  - [hook.io-levenshtein](https://github.com/AvianFlu/hook.io-levenshtein) - Unreleased
-  - [hook.io-logger](http://github.com/marak/hook.io-logger) - a simple hook logger
-  - [hook.io-jsdom](http://github.com/tmpvar/hook.io-jsdom) - Unreleased
-  
-**Humor**
-
-  - [hook.io-insult](http://github.com/marak/hook.io-insult)
-
--->
-
+- [cron](http://github.com/hookio/cron)
+- [irc](http://github.com/hookio/irc)
+- [helloworld](http://github.com/hookio/helloworld)
+- [logger](http://github.com/hookio/logger)
+- [mailer](http://github.com/hookio/mailer)
+- [pinger](http://github.com/hookio/pinger)
+- [request](http://github.com/hookio/request)
+- [repl](http://github.com/hookio/repl)
+- [twilio](http://github.com/hookio/twilio)
+- [twitter](http://github.com/hookio/twitter)
+- [webhook](http://github.com/hookio/webhook)
 
 # Getting Start / Demo
 
@@ -66,7 +50,10 @@ Now run:
 
      hookio-helloworld
      
-Spawn up as many as you want. The first one becomes an `output` ( server ), the rest will become `inputs` ( clients ). Each helloworld input will emit a hello on an interval. Now watch the i/o party!     
+Spawn up as many as you want. The first one becomes a server, the rest will become clients. Each helloworld hook emits a hello on an interval. Now watch the i/o party go!     
+
+
+
 
 <!-- 
 If you want to start logging all these messages simply install `hookio-logger` with:
@@ -85,7 +72,7 @@ You will now start logging all these messages.
 
 Both the helloworld and logger hooks act as dual-sided hooks by default. The order you run `hookio-logger` and `hookio-helloworld` does not matter.  They can work as both clients or servers ( inputs or outputs ) and will interface seamlessly using hook.io's default settings.
 
--->
+
 
 ## Basic Hello World Syntax
 http://github.com/hookio/helloworld
@@ -105,7 +92,7 @@ hello.start();
 ```
 
 ## Basic HTTP post / receive Webhook server
-http://github.com/marak/hook.io-webhook
+http://github.com/hookio/webhook
 
 ``` js
 #! /usr/bin/env node
@@ -155,10 +142,22 @@ logger.on('*::*', function(event, data){
 
 ## Screencasts coming soon...
 
+-->
+
 ## Tests
 
+Currently all tests require some setup. Eventually they will be compatible with `npat`:
+
 ``` bash
-  $ sudo bin/test --spec
+  $ cd /path/to/hook.io
+  $ npm install forever
+  $ [sudo] npm link
+  $ cd /path/to/hook.io-helloworld
+  $ [sudo] npm link
+  $ [sudo] npm link hook.io
+  $ cd /path/to/hook.io
+  $ [sudo] npm link hook.io-helloworld
+  $ vows --spec 
 ```
 
 ## Core Hook.io Team
