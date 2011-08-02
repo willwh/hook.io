@@ -30,18 +30,17 @@
 
 # Available Hooks ( more coming soon )
 
-- [cron](http://github.com/hookio/cron)
-- [irc](http://github.com/hookio/irc)
+- [cron](http://github.com/hookio/cron): Execute Hook Events as Tasks
+- [irc](http://github.com/hookio/irc): Full IRC bindings
 - [helloworld](http://github.com/hookio/helloworld)
-- [logger](http://github.com/hookio/logger)
-- [mailer](http://github.com/hookio/mailer)
-- [pinger](http://github.com/hookio/pinger)
-- [request](http://github.com/hookio/request)
-- [repl](http://github.com/hookio/repl)
-- [twilio](http://github.com/hookio/twilio)
-- [twitter](http://github.com/hookio/twitter)
-- [webhook](http://github.com/hookio/webhook)
-
+- [logger](http://github.com/hookio/logger): Multi-transport Logger ( Console, File, Redis, Mongo, Loggly )
+- [mailer](http://github.com/hookio/mailer): Sends emails
+- [pinger](http://github.com/hookio/pinger): Pings URLS on intervals ( useful for monitoring )
+- [request](http://github.com/hookio/request): Simple wrapper for [http://github.com/mikeal/request](http://github.com/mikeal/request)
+- [repl](http://github.com/hookio/repl): Rainbow Powered REPL
+- [twilio](http://github.com/hookio/twilio): Make calls and send SMS through [Twilio][10]
+- [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
+- [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as Events ( with optional JSON-RPC 1.0 Support )
 
 # Getting Start / Demo
 
@@ -54,6 +53,9 @@ Now run:
 Spawn up as many as you want. The first one becomes a server, the rest will become clients. Each helloworld hook emits a hello on an interval. Now watch the i/o party go!     
 
 
+# Blog Posts
+
+[http://blog.nodejitsu.com/distribute-nodejs-apps-with-hookio](http://blog.nodejitsu.com/distribute-nodejs-apps-with-hookio)
 
 
 <!-- 
