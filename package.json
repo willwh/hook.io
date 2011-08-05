@@ -39,6 +39,8 @@
     "eyes": "0.1.x",
     "forever": "0.6.x",
     "vows": "0.5.x",
-    "hook.io-helloworld" : "0.2.x"
+    "hook.io-helloworld" : "0.2.x",
+    "browserify": "1.3.0",
+    "shimify": "0.0.0"
   }
 }
