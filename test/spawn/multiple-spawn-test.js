@@ -12,27 +12,35 @@ var vows = require('vows'),
     macros = require('../helpers/macros');
 
 vows.describe('hook.io/spawn/multiple-spawn').addBatch({
+  "When implementing something new" : {
+    topic: function () {
+      var hook = new Hook();
+      hook.once('hook::listening', this.callback.bind(null, null, hook));
+      hook.listen();
+    },
+    "hook will be listening" : function (ign, hook, port) { 
+      assert.equal(hook['hook-port'], port);
+    },
+    "and you do some stuff" : {
+      topic: function (hook, port) {
+        hook.local = true;
+        hook.spawn([
+          {
+            type: 'helloworld',
+            name: 'helloworld-0',
+            port: port
+          },
+          {
+            type: 'helloworld',
+            name: 'helloworld-1',
+            port: port
+          }
+        ], this.callback.bind(null, null, hook));
+      },
+      "should be able to kill the children" : function (ign, hook) {
+        assert.isTrue(!!hook.children['helloworld-0']);
+        assert.isTrue(!!hook.children['helloworld-1']);
+      }
+    }
+  }
 }).export(module);
-
-//
-// Remark: This is not currently possible in hook.io, 
-// but it should be!!
-//
-// var hook = new hookio.Hook();
-// 
-// hook.listen();
-// 
-// hook.on('hook::listening', function () {
-//   hook.spawn([
-//     {
-//       type: 'webserver',
-//       name: 'webserver-0'
-//       options: { "hook-port": 9001 }
-//     },
-//     {
-//       type: 'webserver',
-//       name: 'webserver-1'
-//       options: { "hook-port": 9002 }
-//     }
-//   ])
-// });
