@@ -99,10 +99,10 @@ macros.assertHelloWorld = function (local) {
   return macros.assertSpawn('helloworld', local, {
     "the parent hook": {
       topic: function (host) {
-        host.on('*::hello', this.callback.bind(host, null));
+        host.on('helloworld-0::*::hello', this.callback.bind(host, null));
       },
       "should emit helloworld": function (_, message) {
-        assert.equal(this.event, 'helloworld-0::hello');
+        assert.equal(this.event, 'helloworld-0::*::hello');
         assert.equal(message, 'Hello, I am helloworld-0');
         
         if (this.children['helloworld'].monitor) {
