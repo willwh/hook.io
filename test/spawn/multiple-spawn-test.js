@@ -14,7 +14,7 @@ var vows = require('vows'),
 vows.describe('hook.io/spawn/multiple-spawn').addBatch({
   "When implementing something new" : {
     topic: function () {
-      var hook = new Hook();
+      var hook = new Hook({ "port": 5013 });
       hook.once('hook::listening', this.callback.bind(null, null, hook));
       hook.listen();
     },
@@ -27,19 +27,19 @@ vows.describe('hook.io/spawn/multiple-spawn').addBatch({
         hook.spawn([
           {
             type: 'helloworld',
-            name: 'helloworld-0',
+            name: 'a',
             port: port
           },
           {
             type: 'helloworld',
-            name: 'helloworld-1',
+            name: 'b',
             port: port
           }
         ], this.callback.bind(null, null, hook));
       },
       "should be able to kill the children" : function (ign, hook) {
-        assert.isTrue(!!hook.children['helloworld-0']);
-        assert.isTrue(!!hook.children['helloworld-1']);
+        assert.isTrue(!!hook.children['a']);
+        assert.isTrue(!!hook.children['b']);
       }
     }
   }
