@@ -1,4 +1,3 @@
-
      __    __    ______     ______    __  ___         __    ______   
     |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
     |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
@@ -35,7 +34,7 @@
 - [helloworld](http://github.com/hookio/helloworld)
 - [logger](http://github.com/hookio/logger): Multi-transport Logger (Console, File, Redis, Mongo, Loggly)
 - [mailer](http://github.com/hookio/mailer): Sends emails
-- [pinger](http://github.com/hookio/pinger): Pings URLS on intervals (useful for monitoring)
+- [sitemonitor](http://github.com/hookio/sitemonitor): A low level Hook for monitoring web-sites.
 - [request](http://github.com/hookio/request): Simple wrapper for [http://github.com/mikeal/request](http://github.com/mikeal/request)
 - [repl](http://github.com/hookio/repl): Rainbow Powered REPL
 - [twilio](http://github.com/hookio/twilio): Make calls and send SMS through [Twilio][5]
