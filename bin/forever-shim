@@ -8,6 +8,6 @@ var keys = Object.keys(Hook);
 
 var hookClass = keys[0];
 
-var hook = new Hook[hookClass]();
+var hook = new Hook[hookClass](argv);
 
 hook.start();
