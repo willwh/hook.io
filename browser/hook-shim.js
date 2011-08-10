@@ -61,8 +61,7 @@ Hook.prototype.connect = function () {
           }, 3000)
         });
         
-        self.emit('hook::ready');
-        self.emit('hook::listening');
+        self.emit('browser::ready');
         
     });
   }
