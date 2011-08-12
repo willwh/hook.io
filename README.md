@@ -63,7 +63,8 @@ All tests are written with [vows][7] and require that you link hook.io to itself
 ``` bash
   $ cd /path/to/hook.io
   $ [sudo] npm link
-  $ sudo bin/test --spec 
+  $ [sudo] npm link hook.io
+  $ npm test
 ```
 
 ## Core Hook.io Team

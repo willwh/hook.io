@@ -29,20 +29,20 @@
     "nconf": "0.2.x"
   },
   "scripts": {
-    "test": "./bin/test --spec"
+    "test": "vows test/**/*-test.js --isolate --spec"
   },
   "browserify" : { 
     "base" : "./lib", 
     "main" : "./lib/hookio.js"
   },
   "devDependencies": {
-    "eyes": "0.1.x",
-    "forever": "0.6.x",
-    "vows": "0.5.x",
-    "findit": "0.x.x",
-    "winston": "0.3.x",
-    "hook.io-helloworld" : "0.3.x",
     "browserify": "1.3.0",
-    "shimify": "0.0.0"
+    "eyes": "0.1.x",
+    "findit": "0.x.x",
+    "forever": "0.6.x",
+    "hook.io-helloworld" : "0.3.x",
+    "shimify": "0.0.0",
+    "winston": "0.3.x",
+    "vows": "0.5.x >=0.5.10"
   }
 }
