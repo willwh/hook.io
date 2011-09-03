@@ -17,6 +17,9 @@
     }
   ],
   "main": "./lib/hookio",
+  "bin": {
+     "hookio": "./bin/hookio"
+   },
   "engines": {
     "node": ">= v0.4.7"
   },
