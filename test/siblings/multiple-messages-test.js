@@ -55,7 +55,7 @@ macro.multipleSubscriber = function(prefix, count) {
   var context = {},
       test = count;
 
-  context["and another hook connects to listen *::test::**"] = {
+  context["to listen with wildcard mapping"] = {
     topic: function() {
       var listener = new Hook({ name: 'simple-listener' }),
           self = this,
@@ -64,17 +64,16 @@ macro.multipleSubscriber = function(prefix, count) {
       listener.connect({ 'hook-port': 5002 });
       listener.on('*::test::*::*', function log () {
         if(--length === 0) self.callback();
-        console.log('    ', this.event.red.bold, length);
       });
     },
 
-    "should be cool": function() {
+    "should be able to listen each of the emitted event": function() {
       assert.ok(true);
     }
   };
 
   while(--test) {
-    context["and another hook connects to emit *::" + prefix + test] = macro(prefix + test, 5002);
+    context["to emit *::" + prefix + test] = macro(prefix + test, 5002);
   }
 
   return context;
@@ -83,6 +82,8 @@ macro.multipleSubscriber = function(prefix, count) {
 
 // Start the batch with a with a predefined number of cycles
 vows.describe('hook.io/siblings/multiple-message').addBatch({
-  "When a hook is listening on 5050": macros.assertListen('simple-server', 5002, macro.multipleSubscriber('test::foo::', 12))
+  "When a hook is listening on 5050": macros.assertListen('simple-server', 5002, {
+    "and another hooks connects": macro.multipleSubscriber('test::foo::', 10)
+  })
 }).export(module);
 
