@@ -15,6 +15,8 @@
 
 ### Email List: [http://groups.google.com/group/hookio][0]
 
+### 20 Video lessons available at: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) and [http://github.com/hookio/tutorials](http://github.com/hookio/tutorials)
+
 # Features :
 
 - Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
