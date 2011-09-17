@@ -75,7 +75,7 @@ All tests are written with [vows][7] and require that you link hook.io to itself
 Marak Squires, Charlie Robbins, Jameson Lee
 
 ## Contributors (through code and advice)
-Substack, h1jinx, AvianFlu, Chapel, Dominic Tarr, Tim Smart, tmpvar, kadir pekel, perezd, mklabs
+Substack, h1jinx, AvianFlu, Chapel, Dominic Tarr, Tim Smart, tmpvar, kadir pekel, perezd, mklabs, tesma
 
 [0]: http://groups.google.com/group/hookio
 [1]: http://socket.io
