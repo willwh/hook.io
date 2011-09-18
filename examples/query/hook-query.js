@@ -1,10 +1,9 @@
 /*
- * Creates a helloworld hook, then spawns three helloworld children
+ * Creates a hook, spawns up three custom hooks, then queries the hook cloud for information
  */
 
 var Hook = require('../../lib/hookio').Hook;
 
-var pingPongModule = require('../../test/fixtures/pingPongModule.js');
 
 var hook1 = new Hook({ 
   name: "server-hook"
@@ -13,15 +12,6 @@ var hook1 = new Hook({
 hook1.on('hook::ready', function(){
 
   hook1.on('children::ready', function(){
-    
-    
-    /*
-    hook1.query({ "type":"hook" }, function(err, result){
-      
-      console.log(err, result);
-      
-    });
-    */
     
     //
     // Remark: Get all hooks of generic type "hook" with a callback
@@ -41,6 +31,10 @@ hook1.on('hook::ready', function(){
 
   });
 
+  //
+  //  Remark: Spawn up three child hooks with custom options
+  //
+  
   hook1.spawn([
      {
        type: 'hook',
