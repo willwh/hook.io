@@ -72,10 +72,10 @@ vows.describe('hook.io/discovery/client-details').addBatch({
             host : '127.0.0.1'
           }, this.callback);
       }, ['server','client', 'another-client']),
-      "about all hooks on host *localhost*": checkMultipleDetails(function (err, server, client, client2) {
+      "about all hooks on host *127.0.0.1*": checkMultipleDetails(function (err, server, client, client2) {
           var self = this;
           client.emit('query', {
-            host : 'localhost'
+            host : '127.0.0.1'
           }, this.callback);
       }, ['server','client', 'another-client'])
     },
