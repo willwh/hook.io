@@ -16,7 +16,7 @@ var hook2 = new Hook({
 });
 
 
-hook2.on('hello', function(data, callback){
+hook2.on('*::hello', function(data, callback){
   //
   // callback is the callback for this event,
   // should it exist
@@ -39,7 +39,7 @@ hook1.on('hook::ready', function(){
     // Event with data
     // event, data, callback
     //
-    hook2.emit('hello', 'data1', function(err, data){
+    hook1.emit('hello', 'data1', function(err, data){
       console.log('callback1 ', err, data);
     });
 
