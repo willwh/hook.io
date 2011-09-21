@@ -6,12 +6,12 @@ var Hook = require('../../../lib/hookio').Hook;
 
 
 var hook1 = new Hook({ 
-  name: "server-hook",
+  name: "a",
   debug: true
 });
 
 var hook2 = new Hook({ 
-  name: "callback-hook",
+  name: "b",
   debug: true
 });
 
