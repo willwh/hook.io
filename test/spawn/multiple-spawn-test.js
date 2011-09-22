@@ -14,7 +14,7 @@ var vows = require('vows'),
 vows.describe('hook.io/spawn/multiple-spawn').addBatch({
   "When implementing something new" : {
     topic: function () {
-      var hook = new Hook({ "port": 5013 });
+      var hook = new Hook({ "hook-port": 5013 });
       hook.once('hook::listening', this.callback.bind(null, null, hook));
       hook.listen();
     },
