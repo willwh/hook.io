@@ -57,7 +57,8 @@ Spawn up as many as you want. The first one becomes a server, the rest will beco
 
 # Blog Posts
 
-Distribute Node.js Apps with Hook.io: [http://blog.nodejitsu.com/distribute-nodejs-apps-with-hookio][6]
+hook.io for dummies: [http://ejeklint.github.com/tutorial/2011/09/23/hook.io-for-dummies-part-1-overview/](http://ejeklint.github.com/tutorial/2011/09/23/hook.io-for-dummies-part-1-overview/)
+Distribute Node.js Apps with hook.io: [http://blog.nodejitsu.com/distribute-nodejs-apps-with-hookio][6]
 
 ## Tests
 
