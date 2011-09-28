@@ -9,7 +9,7 @@ var hook1 = new Hook({
   debug: true
 });
 
-hook1.on('hello', function(data, callback){
+hook1.on('hello', function (data, callback) {
   //
   // callback is the callback for this event,
   // should it exist
@@ -22,14 +22,14 @@ hook1.on('hello', function(data, callback){
 
 })
 
-hook1.on('hook::ready', function(){
+hook1.on('hook::ready', function () {
   
 
     //
     // Event with data
     // event, data, callback
     //
-    hook1.emit('hello', 'data1', function(err, data){
+    hook1.emit('hello', 'data1', function (err, data) {
       console.log('callback1 ', err, data);
     });
 
@@ -37,7 +37,7 @@ hook1.on('hook::ready', function(){
     // Event with data
     // event, data, callback
     //
-    hook1.emit('hello', {"foo":"bar"}, function(err, data){
+    hook1.emit('hello', {"foo":"bar"}, function (err, data) {
       console.log('callback2 ', err, data);
     });
 
@@ -45,7 +45,7 @@ hook1.on('hook::ready', function(){
     // Event with no data
     // event, callback
     //
-    hook1.emit('hello', function(err, data){
+    hook1.emit('hello', function (err, data) {
       console.log('callback3 ', err, data);
     });
 

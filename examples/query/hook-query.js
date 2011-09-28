@@ -9,21 +9,21 @@ var hook1 = new Hook({
   name: "server-hook"
 });
 
-hook1.on('hook::ready', function(){
+hook1.on('hook::ready', function () {
 
-  hook1.on('children::ready', function(){
+  hook1.on('children::ready', function () {
     
     //
     // Remark: Get all hooks of generic type "hook" with a callback
     //
-    hook1.emit('query', { "type": "hook" }, function(err, result){
+    hook1.emit('query', { "type": "hook" }, function (err, result) {
       console.log('hook query result:'.green.bold.underline + ' ' + JSON.stringify(result, true, 2).grey);
     });
 
     //
     // Remark: Get all hooks of generic type "hook" with an emitter
     //
-    hook1.on('query::out', function(result){
+    hook1.on('query::out', function (result) {
       console.log('hook query result:'.green.bold.underline + ' ' + JSON.stringify(result, true, 2).grey);
     });
 

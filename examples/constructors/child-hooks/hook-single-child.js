@@ -6,7 +6,7 @@ var hook = new Hook({
   hooks: ["helloworld"]
 });
 
-hook.on('hook::ready', function(){
+hook.on('hook::ready', function () {
   console.log('hook ready');
 });
 

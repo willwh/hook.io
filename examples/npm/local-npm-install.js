@@ -6,9 +6,9 @@ var Hook = require('hook.io').Hook;
 
 var myHello = new Hook({ name: "the-hook", debug: true });
 
-myHello.on('hook::ready', function(){
-   myHello.npm.install('hook.io-helloworld', function(err, result){
-     if(err){
+myHello.on('hook::ready', function () {
+   myHello.npm.install('hook.io-helloworld', function (err, result) {
+     if (err) {
        return myHello.emit('npm::install::error', err);
      }
      myHello.emit('npm::installed', result);

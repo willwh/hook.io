@@ -13,7 +13,7 @@ var vows = require('vows'),
 
 vows.describe('hook.io/discovery/client-details').addBatch({
   "When a Hook is listening on port 5011 with 2 client hooks": {
-    topic : function() {
+    topic : function () {
 
       var server = new Hook({
         name:'server',
@@ -22,7 +22,7 @@ vows.describe('hook.io/discovery/client-details').addBatch({
 
       var self = this;
 
-      server.on('hook::listening', function() {
+      server.on('hook::listening', function () {
 
         var client1 = new Hook({
           name: 'client',
@@ -127,17 +127,17 @@ function checkMultipleDetails (topic, targets) {
       assert.strictEqual(multipleDetails.length, targets.length );
     },
     "details should contain the name": function (err, multipleDetails, client) {
-      multipleDetails.forEach(function(details) {
+      multipleDetails.forEach(function (details) {
         assert.isString(details.name);
       });
     },
     "details should contain the type": function (err, multipleDetails, client) {
-      multipleDetails.forEach(function(details) {
+      multipleDetails.forEach(function (details) {
         assert.isString(details.type);
       });
     },
     "details should contain the host": function (err, multipleDetails, client) {
-      multipleDetails.forEach(function(details) {
+      multipleDetails.forEach(function (details) {
         assert.isString(details.remote.host);
       });
     }

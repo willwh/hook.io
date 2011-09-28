@@ -6,7 +6,7 @@ var Helloworld = require('hook.io-helloworld').Helloworld;
 
 var myHello = new Helloworld({ name: "helloworld" });
 
-myHello.on('hook::ready', function(){
+myHello.on('hook::ready', function () {
 
    // 
    // This will spawn up three more "helloworld" hooks with auto-configuration
