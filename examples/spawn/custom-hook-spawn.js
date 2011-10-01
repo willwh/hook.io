@@ -10,7 +10,7 @@ var myHello = new Helloworld({
   debug: true
 });
 
-myHello.on('hook::ready', function(){
+myHello.on('hook::ready', function () {
 
   myHello.spawn([
      {

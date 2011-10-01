@@ -10,7 +10,7 @@ var myHook = new Hook({
   name: "event-map-hook",
   eventMap: {
     "*::ping" : pingPongModule.ping,
-    "*::customPing" : function(msg) {
+    "*::customPing" : function (msg) {
       console.log('custom ping');
       msg = 'foo ' + msg;
       pingPongModule.ping(msg);
@@ -18,7 +18,7 @@ var myHook = new Hook({
   }
 });
 
-myHook.on('hook::ready', function(){
+myHook.on('hook::ready', function () {
   console.log('ready');
 });
 

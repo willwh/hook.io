@@ -26,13 +26,13 @@ var fixture = "foobar";
 
 // create a local macro
 // TODO: see if it's better to put this in helpers/macros
-var macro = function(event, port){
+var macro = function (event, port) {
 
   var context = {
-    topic: function(server, data) {
+    topic: function (server, data) {
       var messager = new Hook({ name: 'simple-client-messager' });
 
-      server.once('*::' + event, function(data) {
+      server.once('*::' + event, function (data) {
         server.emit('foo::response.' + event, data);
       });
 
@@ -46,7 +46,7 @@ var macro = function(event, port){
     }
   };
 
-  context["the *::" + event + " should be fired correctly"] = function(data) {
+  context["the *::" + event + " should be fired correctly"] = function (data) {
     assert.equal(data.content, fixture);
   };
 
@@ -54,24 +54,24 @@ var macro = function(event, port){
 };
 
 // creates a context with a preder 
-macro.multipleSubscriber = function(prefix, count) {
+macro.multipleSubscriber = function (prefix, count) {
   var context = {},
       test = count;
 
   context["to listen with wildcard mapping"] = {
-    topic: function() {
+    topic: function () {
       var listener = new Hook({ name: 'simple-listener' }),
           self = this,
           length = count - 1;
 
       listener.on('*::test::*::*', function log () {
-        if(--length === 0) self.callback();
+        if (--length === 0) self.callback();
       });
       listener.connect({ 'hook-port': 5052 });
 
     },
 
-    "should be able to listen each of the emitted event": function() {
+    "should be able to listen each of the emitted event": function () {
       assert.ok(true);
     }
   };

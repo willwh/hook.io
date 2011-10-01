@@ -9,7 +9,7 @@ var hook1 = new Hook({
   debug: true 
 });
 
-hook1.on('hook::ready', function(){
+hook1.on('hook::ready', function () {
   
   var hook2 = new Hook({ 
     name: "hook2", 
@@ -18,7 +18,7 @@ hook1.on('hook::ready', function(){
   
   hook2.start();
   
-  hook2.on('hook::ready', function(){
+  hook2.on('hook::ready', function () {
     hook1.emit('install', 'hook.io-helloworld');
   });
   

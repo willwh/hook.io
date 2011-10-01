@@ -16,9 +16,9 @@ var hook2 = new Hook({
 });
 
 
-hook1.on('hook::ready', function(){
+hook1.on('hook::ready', function () {
   console.log('hook1 is ready');
-  hook2.on('hook::ready', function(){
+  hook2.on('hook::ready', function () {
     console.log('hook2 is ready');
   });
   hook2.start();

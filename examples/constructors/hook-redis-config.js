@@ -23,7 +23,7 @@ var hook = new Hook({
   });
 */
 
-hook.on('hook::ready', function(){
+hook.on('hook::ready', function () {
   console.log('hook ready');
 });
 
