@@ -23,7 +23,7 @@ hook1.on('hook::ready', function () {
     //
     // Remark: Get all hooks of generic type "hook" with an emitter
     //
-    hook1.on('query::out', function (result) {
+    hook1.on('query::result', function (result) {
       console.log('hook query result:'.green.bold.underline + ' ' + JSON.stringify(result, true, 2).grey);
     });
 
