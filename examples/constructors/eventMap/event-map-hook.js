@@ -2,9 +2,9 @@
  * Creates a helloworld hook, then spawns three helloworld children
  */
 
-var Hook = require('../lib/hookio').Hook;
+var Hook = require('../../../lib/hookio').Hook;
 
-var pingPongModule = require('../test/fixtures/pingPongModule.js');
+var pingPongModule = require('../../../test/fixtures/pingPongModule.js');
 
 var myHook = new Hook({ 
   name: "event-map-hook",

@@ -2,7 +2,7 @@
  *  Creates `hook1` and `hook2`. `hook1` then remotely installs a NPM package on `hook2`
  */
 
-var Hook = require('../lib/hookio').Hook;
+var Hook = require('../../lib/hookio').Hook;
 
 var hook1 = new Hook({ 
   name: "hook1", 
