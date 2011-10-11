@@ -2,7 +2,7 @@
  * Creates a hook and spawns a helloworld child both with an additional CouchDB transport
  */
 
-var Hook = require('../lib/hookio').Hook;
+var Hook = require('../../lib/hookio').Hook;
 
 
 var myHook = new Hook({ 

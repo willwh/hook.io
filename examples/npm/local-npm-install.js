@@ -2,7 +2,7 @@
  * Creates a hook, then installs the `helloworld` hook from npm
  */
 
-var Hook = require('hook.io').Hook;
+var Hook = require('../../lib/hookio').Hook;
 
 var myHello = new Hook({ name: "the-hook", debug: true });
 

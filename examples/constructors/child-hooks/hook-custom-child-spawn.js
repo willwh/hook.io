@@ -1,4 +1,4 @@
-var Hook = require('hook.io').Hook;
+var Hook = require('../../../lib/hookio').Hook;
 
 var hook = new Hook({ 
   name: "hook",
