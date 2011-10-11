@@ -7,14 +7,14 @@ var vows = require('vows'),
 var emptyFn = function() {};
 
 vows.describe('hook.io/registry/complex-test').addBatch({
-  "When a hook is listening on 5002": {
+  "When a hook is listening on 5013": {
     topic: function() {
       var self = this, server = new Hook({ name: 'server', debug:true });
       
       server.once('hook::ready', self.callback.bind(server, null, server));
       server.on('eventBeforeStart', emptyFn);
       
-      server.listen({ "hook-port": 5002 });
+      server.listen({ "hook-port": 5013 });
     },
     "and another hook connects": {
       topic: function(server) {
@@ -29,7 +29,7 @@ vows.describe('hook.io/registry/complex-test').addBatch({
         client.on('eventBeforeStart', emptyFn);
         client.on('eventToBeDestroyed', emptyFn);
         
-        client.connect({ "hook-port": 5002 });
+        client.connect({ "hook-port": 5013 });
       },
       "when my hook registers an event": {
         topic: function(server, client) {
@@ -49,7 +49,7 @@ vows.describe('hook.io/registry/complex-test').addBatch({
             var self = this;
             client.stop(function(err) {
               assert.ifError(err);
-              client.connect({ "hook-port": 5002 }, self.callback.bind(self, null, server));
+              client.connect({ "hook-port": 5013 }, self.callback.bind(self, null, server));
             });
           },
           "then I have a the good events on the server": function(server) {

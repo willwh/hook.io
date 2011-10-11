@@ -6,17 +6,17 @@ var vows = require('vows'),
 var emptyFn = function() {};
 
 vows.describe('hook.io/registry/simple-test').addBatch({
-  "When a hook is listening on 5002": {
+  "When a hook is listening on 5014": {
     topic: function() {
       var server = new Hook({ name: 'server', debug:true });
       server.on('hook::ready', this.callback.bind(server, null, server));
       server.on('serverTestEvent', emptyFn);
-      server.listen({ "hook-port": 5002 });
+      server.listen({ "hook-port": 5014 });
     },
     "and another hook connects": {
       topic: function(server) {
         var client = new Hook({ name: 'client', debug:true });
-        client.connect({ "hook-port": 5002 }, this.callback.bind(client, null, server, client));
+        client.connect({ "hook-port": 5014 }, this.callback.bind(client, null, server, client));
       },
       "when my hook registers an event": {
         topic: function(server, client) {
