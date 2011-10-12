@@ -1,5 +1,5 @@
 /*
- * Creates a server hook, 2 client hooks, one client stops listening to the server
+ * Creates a server hook, spawn a client hook, kill the spawned client
  */
 
 var Hook = require('../../lib/hookio').Hook;
