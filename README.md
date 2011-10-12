@@ -43,7 +43,8 @@
 - [twilio](http://github.com/hookio/twilio): Make calls and send SMS through [Twilio][5]
 - [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
 - [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as hook.io events (with optional JSON-RPC 1.0 Support)
-
+- [wget](http://github.com/scottyapp/hook.io-wget): Downloads files using HTTP. Based on the http-get module by Stefan Rusu
+ 
 # Getting Start / Demo
 
      npm install hook.io-helloworld -g
