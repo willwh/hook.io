@@ -14,17 +14,17 @@ myHello.on('hook::ready', function () {
 
   myHello.spawn([
      {
-       src: '../../test/fixtures/HelloWorld',
+       type: 'helloworld',
        name: 'b',
        foo: "bar"
      },
      {
-       src: '../../test/fixtures/HelloWorld',
+       type: 'helloworld',
        name: 'c',
        beep: "boop"
      },
      {
-       src: '../../test/fixtures/HelloWorld',
+       type: 'helloworld',
        name: 'd'
      }
    ]);
