@@ -3,10 +3,7 @@ var assert = require('assert'),
     Hook = require('../../../lib/hookio').Hook,
     macros = require('../../helpers/macros');
 
-var testData = {
-  nodejitsu: 'hello, I know nodejitsu',
-  answer: 42
-};
+var testData = macros.testData;
 
 vows.describe('hook.io/messaging/local/emit-test').addBatch({
   'When a hook is started on port 5100': macros.assertReady('test-hook', 5100, {

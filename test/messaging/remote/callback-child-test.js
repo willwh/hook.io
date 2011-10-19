@@ -3,10 +3,7 @@ var assert = require('assert'),
     Hook = require('../../../lib/hookio').Hook,
     macros = require('../../helpers/macros');
 
-var testData = {
-  nodejitsu: 'hello, I know nodejitsu',
-  answer: 42
-};
+var testData = macros.testData;
 
 vows.describe('hook.io/messaging/remote/callback-child-test').addBatch({
   'When a hook is listening on 5070': {
