@@ -6,7 +6,7 @@ var assert = require('assert'),
 var testData = macros.testData;
 
 vows.describe('hook.io/messaging/remote/callback-child-hookname-test').addBatch({
-  'When a hook is listening on 5070': {
+  'When a hook is listening on 5071': {
     topic: function () {
       var hook = new Hook({ name: 'hook', debug: true });
       hook.on('hook::ready', this.callback.bind(hook, null, hook));
@@ -17,9 +17,9 @@ vows.describe('hook.io/messaging/remote/callback-child-hookname-test').addBatch(
         callback(null, data);
       });
 
-      hook.listen({ 'hook-port': 5070 });
+      hook.listen({ 'hook-port': 5071 });
     },
-    'and another hook connects': macros.assertConnect('client-hook', 5070, {
+    'and another hook connects': macros.assertConnect('client-hook', 5071, {
       'and it emits a test event': {
         'with data': {
           topic: function (hook) {
