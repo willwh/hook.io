@@ -12,6 +12,11 @@ var assert = require('assert'),
 
 var macros = exports;
 
+macros.testData = {
+  nodejitsu: 'hello, I know nodejitsu',
+  answer: 42
+};
+
 macros.assertListen = function (name, port, vows) {
   var context = {
     topic: function () {

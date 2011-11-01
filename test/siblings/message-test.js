@@ -32,6 +32,5 @@ vows.describe('hook.io/siblings/message').addBatch({
       }
     })
   })
-}).addBatch({
-  
 }).export(module);
+
