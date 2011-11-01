@@ -62,17 +62,29 @@ macro.multipleSubscriber = function (prefix, count) {
     topic: function () {
       var listener = new Hook({ name: 'simple-listener-'+test }),
           self = this,
-          length = count - 1;
+          length = count - 1,
+          timeouts = [];
 
-      // This test hangs unless this is uncommented.
+      // This test fails unless this is uncommented.
       //listener.on('*::test::*::*', function log () {
       //  return;
       //});
 
       for (var i = 1; i <= count; i++) {
-        listener.on('simple-client-messager-'+test+ '::test::*::*', function log () {
-          if (--length === 0) self.callback();
-        });
+        (function () {
+          // If this timeout occurs it means the test failed.
+          timeouts[i] = setTimeout(function () {
+            // I suspect that there's a better way to do this.
+            throw new Error("simple-client-messager-"+test+" never fired.");
+          }, 5000);
+
+          listener.on('simple-client-messager-'+test+ '::test::*::*', function log () {
+            // Ensures the callback fired.
+            clearTimeout(timeouts[i]);
+
+            if (--length === 0) self.callback();
+          });
+        })();
       }
       listener.connect({ 'hook-port': 5053 });
 
