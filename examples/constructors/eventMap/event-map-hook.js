@@ -8,7 +8,7 @@ var pingPongModule = require('../../../test/fixtures/pingPongModule.js');
 
 var myHook = new Hook({ 
   name: "event-map-hook",
-  eventMap: {
+  events: {
     "*::ping" : pingPongModule.ping,
     "*::customPing" : function (msg) {
       console.log('custom ping');
