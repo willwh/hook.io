@@ -78,18 +78,11 @@ At this point, you've got 3 nodes talking to each other, and an interactive repl
 - [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
 - [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as hook.io events (with optional JSON-RPC 1.0 Support)
 - [wget](http://github.com/scottyapp/hook.io-wget): Downloads files using HTTP. Based on the http-get module by Stefan Rusu
+- [tar](https://github.com/scottyapp/hook.io.tar): A hook to wrap around tar
+- [gzbz2](https://github.com/scottyapp/hook.io-gzbz2): A hook for compressing and uncompressing files
+- [mock](https://github.com/scottyapp/hook.io-mock): A hook that mocks messages. Useful for hook.io related development. 
+
  
-# Getting Start / Demo
-
-     npm install hook.io-helloworld -g
-
-Now run:
-
-     hookio-helloworld
-     
-Spawn up as many as you want. The first one becomes a server, the rest will become clients. Each helloworld hook emits a hello on an interval. Now watch the i/o party go!     
-
-
 ## Tests
 
 All tests are written with [vows][7] and require that you link hook.io to itself:
@@ -101,12 +94,35 @@ All tests are written with [vows][7] and require that you link hook.io to itself
   $ npm test
 ```
 
-## Core Hook.io Team
 
-Marak Squires, Charlie Robbins, Jameson Lee
+## Core Contributors ( https://github.com/hookio/hook.io/contributors )
 
-## Contributors (through code and advice)
-Substack, h1jinx, AvianFlu, Chapel, Dominic Tarr, Tim Smart, tmpvar, kadir pekel, perezd, mklabs, temsa
+ - Marak (Marak Squires)
+ - indexzero (Charlie Robbins)
+ - jamesonjlee (Jameson)
+ - AvianFlu (Charlie McConnell)
+ - jesusabdullah (Joshua Holbrook)
+ - temsa
+ - mmalecki (Maciej Małecki)
+ - pkumar (Pavan Kumar Sunkara)
+ - Marsup (Nicolas Morel)
+ - mklabs (Mickael Daniel)
+ - Tim-Smart (Tim)
+ - stolsma (Sander Tolsma)
+ - ejeklint (Per Ejeklint)
+ - thejh (Jann Horn)
+ - perezd (Derek Perez)
+ - mwawrusch (Martin Wawrusch)
+
+## MIT License
+
+Copyright (c) Nodejitsu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [0]: http://groups.google.com/group/hookio
 [1]: http://socket.io
