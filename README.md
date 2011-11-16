@@ -9,7 +9,7 @@
     
 # v0.8.0
 
-## hook.io is a distributed EventEmitter built on node.js. In addition to providing a minimalistic event framework, hook.io also provides a rich network of hook libraries for managing all sorts of input and output.
+## hook.io is a distributed EventEmitter built on node.js. In addition to providing a minimalistic event framework, hook.io also provides a rich network of [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries) for managing all sorts of input and output.
 
 ## "hooks" provide a very simple and light way to extend an application to seamlessly communicate with other "hook" enabled devices. By design, extending legacy applications to communicate with hook.io is *very* easy.
 
