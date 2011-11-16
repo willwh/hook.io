@@ -82,6 +82,41 @@ At this point, you've got 3 nodes talking to each other, and an interactive repl
 - [gzbz2](https://github.com/scottyapp/hook.io-gzbz2): A hook for compressing and uncompressing files
 - [mock](https://github.com/scottyapp/hook.io-mock): A hook that mocks messages. Useful for hook.io related development. 
 
+## Using hook.io programmatically
+
+**Note:** This is only one, small, example.
+
+*see [examples](https://github.com/hookio/hook.io/tree/master/examples) folder for extensive example code*
+
+*to see all other supported types of hook messaging ( including EventEmitter and Callback style ), see: [https://github.com/hookio/hook.io/tree/master/examples/messaging](https://github.com/hookio/hook.io/tree/master/examples/messaging)*
+
+```js
+var Hook = require('hook.io').Hook;
+
+var hookA = new Hook({
+  name: "a"
+});
+
+hookA.on('*::sup', function(data){
+  // outputs b::sup::dog
+  console.log(this.event + ' ' + data);
+});
+
+// Hook.start defaults to localhost
+// it can accept dnode constructor options ( for remote connections )
+// these hooks can be started on diffirent machines / networks / devices
+hookA.start();
+
+var hookB = new Hook({
+  name: "b"
+});
+
+hookB.on('hook::ready', function(){
+  hookB.emit('sup', 'dog');
+});
+
+hookB.start();
+```
  
 ## Tests
 
