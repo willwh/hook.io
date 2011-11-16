@@ -66,6 +66,10 @@ At this point, you've got 3 nodes talking to each other, and an interactive repl
 
 # Available Hooks (more coming soon)
 
+Hook Library wiki: [https://github.com/hookio/hook.io/wiki/Hook.io-Libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries)
+
+You can also search [http://search.npmjs.org/](http://search.npmjs.org/) for "hook.io" ( although there are so many matches already, the search interface can't display them all.. )
+
 - [cron](http://github.com/hookio/cron): Adds and removes jobs that emit hook.io events on a schedule
 - [couch](http://github.com/hookio/couch): Emit hook.io events based on your CouchDB _changes feed
 - [irc](http://github.com/hookio/irc): Full IRC bindings
