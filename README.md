@@ -31,6 +31,10 @@
  - Email List: [http://groups.google.com/group/hookio][0]
  - Video Lessons: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) ( [mirror](https://github.com/hookio/tutorials) )
  - Wiki Pages [https://github.com/hookio/hook.io/wiki/_pages](https://github.com/hookio/hook.io/wiki/_pages) 
+ - [hook.io for dummies](http://ejeklint.github.com/2011/09/23/hook.io-for-dummies-part-1-overview/)
+ - [Distribute Node.js Apps with hook.io: ][6]
+ - #nodejitsu on irc.freenode.net
+ 
 
 ### Installation
 
@@ -58,7 +62,7 @@ This is the most minimal hook.io application you can have. It does nothing. No c
 
 ### Extending your hook.io mesh
 
-At this point, you've got 3 nodes talking to each other, and an interactive repl to run `hook.emit` and `hook.on` commands. Now you can extend your network of hooks using any of the existing hook libraries, or by extending from the base `Hook` object. You can now fire messages cross-process, cross-platform, and cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
+At this point, you've got 3 nodes talking to each other, and an interactive repl to run `hook.emit` and `hook.on` commands. Now you can extend your network of hooks using any of the existing hook libraries, or by extending from the base `Hook` object. You can now fire messages cross-process, cross-platform, and cross-browser.
 
 # Available Hooks (more coming soon)
 
@@ -85,11 +89,6 @@ Now run:
      
 Spawn up as many as you want. The first one becomes a server, the rest will become clients. Each helloworld hook emits a hello on an interval. Now watch the i/o party go!     
 
-
-# Blog Posts
-
-hook.io for dummies: [http://ejeklint.github.com/2011/09/23/hook.io-for-dummies-part-1-overview/](http://ejeklint.github.com/2011/09/23/hook.io-for-dummies-part-1-overview/)
-Distribute Node.js Apps with hook.io: [http://blog.nodejitsu.com/distribute-nodejs-apps-with-hookio][6]
 
 ## Tests
 
