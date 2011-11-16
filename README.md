@@ -120,7 +120,7 @@ hookB.start();
  
 ## Tests
 
-All tests are written with [vows][7] and require that you link hook.io to itself:
+All tests are written with [vows](http:://vowsjs.org) and require that you link hook.io to itself:
 
 ``` bash
   $ cd /path/to/hook.io
