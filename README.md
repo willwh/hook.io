@@ -7,7 +7,7 @@
 
     a way to enable i/o for your node.js application
     
-# v0.8.0pre
+# v0.8.0
 
 ## hook.io is a distributed EventEmitter built on node.js. In addition to providing a minimalistic event framework, hook.io also provides a rich network of hook libraries for managing all sorts of input and output.
 
