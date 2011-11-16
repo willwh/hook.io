@@ -9,13 +9,28 @@
     
 # v0.8.0pre
 
-## hook.io is a distributed EventEmitter built on node.js
+## hook.io is a distributed EventEmitter built on node.js In addition to providing a minimalistic event framework, hook.io also provides a rich network of hook libraries for managing all sorts of input and output.
 
-## "hooks" provide a very simple and light way to extend an application to seamlessly communicate with other "hook" enabled devices.
+## "hooks" provide a very simple and light way to extend an application to seamlessly communicate with other "hook" enabled devices. By design, extending legacy applications to communicate with hook.io is *very* easy.
 
 ## hook.io applications are usually built by combining together several smaller "hooks" to compose new functionality in a distributed and organized way. 
 
-## In addition to providing this minimalistic i/o framework, hook.io also provides a rich network of hook libraries for managing all sorts of web input and output.
+
+# Features :
+
+- Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
+- Create hooks on ANY device that supports JavaScript (cross-browser support via [socket.io][1])
+- Spawning and Daemonizing of processes handled with [Forever][4]
+- Messaging API inherits and mimics Node's native EventEmitter API (with the help of EventEmitter2)
+- Interprocess Message Publishing and Subscribing done through [EventEmitter2][2] and [dnode][3]
+- Easily scale any tcp based messaging infrastructure (such as clustering socket.io chat rooms in memory) 
+- Easily connect / disconnect hooks "hot" without affecting other services
+
+### Additional Resources
+
+ - Email List: [http://groups.google.com/group/hookio][0]
+ - Video Lessons: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) ( [mirror](https://github.com/hookio/tutorials) )
+ - Wiki Pages [https://github.com/hookio/hook.io/wiki/_pages](https://github.com/hookio/hook.io/wiki/_pages) 
 
 ### Installation
 
@@ -35,27 +50,15 @@
 
 This is the most minimal hook.io application you can have. It does nothing. No cruft, no extra baggage.
 
+### Connect another hook! With a REPL!
+
+    hookio --repl
+
+*you now have three hooks connected to each other*
+
 ### Extending your hook.io mesh
 
-that works cross-process / cross-platform / cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
-
-## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
-
-### Email List: [http://groups.google.com/group/hookio][0]
-
-### 20 Video lessons available at: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) and [http://github.com/hookio/tutorials](http://github.com/hookio/tutorials)
-
-# Features :
-
-- Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
-- Create hooks on ANY device that supports JavaScript (cross-browser support via [socket.io][1])
-- Throw any block of sync or async code on a new process with a callback
-- Easily scale any tcp based messaging infrastructure (such as clustering socket.io chat rooms in memory) 
-- Interprocess Message Publishing and Subscribing done through [EventEmitter2][2] and [dnode][3]
-- Messaging API inherits and mimics Node's native EventEmitter API (with the help of EventEmitter2)
-- Spawning and Daemonizing of processes handled with [Forever][4]
-- Easily connect / disconnect hooks "hot" without affecting other services
-- Core library currently checking in at about ~450 lines of code
+At this point, you've got 3 nodes talking to each other, and an interactive repl to run `hook.emit` and `hook.on` commands. Now you can extend your network of hooks using any of the existing hook libraries, or by extending from the base `Hook` object. You can now fire messages cross-process, cross-platform, and cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
 
 # Available Hooks (more coming soon)
 
@@ -67,7 +70,6 @@ that works cross-process / cross-platform / cross-browser. Think of it like a re
 - [mailer](http://github.com/hookio/mailer): Sends emails
 - [sitemonitor](http://github.com/hookio/sitemonitor): A low level Hook for monitoring web-sites.
 - [request](http://github.com/hookio/request): Simple wrapper for [http://github.com/mikeal/request](http://github.com/mikeal/request)
-- [repl](http://github.com/hookio/repl): Rainbow Powered REPL
 - [twilio](http://github.com/hookio/twilio): Make calls and send SMS through [Twilio][5]
 - [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
 - [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as hook.io events (with optional JSON-RPC 1.0 Support)
