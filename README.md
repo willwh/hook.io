@@ -71,6 +71,7 @@ At this point, you've got 3 nodes talking to each other, and an interactive repl
 - [irc](http://github.com/hookio/irc): Full IRC bindings
 - [helloworld](http://github.com/hookio/helloworld)
 - [logger](http://github.com/hookio/logger): Multi-transport Logger (Console, File, Redis, Mongo, Loggly)
+- [hook.js](https://github.com/hookio/hook.js): Build web apps / use hook.io in any browser
 - [mailer](http://github.com/hookio/mailer): Sends emails
 - [sitemonitor](http://github.com/hookio/sitemonitor): A low level Hook for monitoring web-sites.
 - [request](http://github.com/hookio/request): Simple wrapper for [http://github.com/mikeal/request](http://github.com/mikeal/request)
