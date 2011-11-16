@@ -3,9 +3,7 @@
 var Hook = require('../lib/hookio').Hook;
 
 var hook = new Hook( {
-  name: 'the-hook',
-  debug: true
+  name: 'the-hook'
 });
-
 
 hook.start();
