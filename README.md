@@ -5,11 +5,39 @@
     |  |  |  | |  `--'  | |  `--'  | |  .  \    __   |  | |  `--'  | 
     |__|  |__|  \______/   \______/  |__|\__\  (__)  |__|  \______/  
 
-    a full featured i/o framework for node.js
+    a way to enable i/o for your node.js application
     
-# v0.7.8
+# v0.8.0pre
 
-## hook.io creates a distributed node.js EventEmitter that works cross-process / cross-platform / cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
+## hook.io is a distributed EventEmitter built on node.js
+
+## "hooks" provide a very simple and light way to extend an application to seamlessly communicate with other "hook" enabled devices.
+
+## hook.io applications are usually built by combining together several smaller "hooks" to compose new functionality in a distributed and organized way. 
+
+## In addition to providing this minimalistic i/o framework, hook.io also provides a rich network of hook libraries for managing all sorts of web input and output.
+
+### Installation
+
+     [sudo] npm install hook.io -g
+     
+### Start a hook
+
+    hookio
+    
+*auto-discovery will now create a hook server if this is your only running hook*
+
+### Connect another hook
+
+    hookio
+
+*you now have two hooks connected to each other*
+
+This is the most minimal hook.io application you can have. It does nothing. No cruft, no extra baggage.
+
+### Extending your hook.io mesh
+
+that works cross-process / cross-platform / cross-browser. Think of it like a real-time event bus that works anywhere JavaScript is supported.
 
 ## You create custom i/o scenarios by picking and choosing from an extensive library of tiny, independent, autonomous "hooks" that seamlessly work together.
 
