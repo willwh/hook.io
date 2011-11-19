@@ -6,4 +6,7 @@ var hook = new Hook( {
   name: 'the-hook'
 });
 
-hook.start();
+// We don't need to start a hook if we're generating a scaffold.
+if (!hook.init) {
+  hook.start();
+}
