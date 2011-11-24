@@ -1,8 +1,8 @@
 {
   "author": "Marak Squires <marak.squires@gmail.com>",
   "name": "hook.io-scaffold",
-  "description": "a simple hook.io hook for creating hook.io hooks",
-  "version": "0.1.0",
+  "description": "a hook.io hook generated with hookio init",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/hookio/scaffold.git"
