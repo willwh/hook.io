@@ -34,7 +34,8 @@
     "pkginfo": "0.2.x",
     "mkdirp": "0.2.x",
     "semver": "1.0.x",
-    "prompt": "0.1.x"
+    "prompt": "0.1.x",
+    "portfinder": "0.2.x"
   },
   "scripts": {
     "test": "vows test/**/*-test.js --isolate --spec"
