@@ -107,8 +107,8 @@ macros.assertHelloWorld = function (local) {
         host.on('*::hello', this.callback.bind(host, null));
       },
       "should emit helloworld": function (_, message) {
-        assert.equal(this.event, 'hook::hello');
-        assert.equal(message, 'Hello, I am hook');
+        assert.equal(this.event, 'no-name::hello');
+        assert.equal(message, 'Hello, I am no-name');
         
         if (this.children['hook'].monitor) {
           this.children['hook'].monitor.stop();
