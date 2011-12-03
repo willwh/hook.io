@@ -34,12 +34,11 @@
     "mkdirp": "0.2.x",
     "semver": "1.0.x",
     "prompt": "0.1.x",
-    "portfinder": "0.2.x"
+    "portfinder": "0.2.x",
+    "dnode": "0.9.1",
+    "weak": "0.1.1",
+    "traverse": "0.5.2"
   },
-  "bundleDependencies": [
-    "dnode",
-    "dnode-protocol"
-  ],
   "scripts": {
     "test": "vows test/**/*-test.js --isolate --spec"
   },
