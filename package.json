@@ -1,7 +1,7 @@
 {
   "author": "Marak Squires <marak.squires@gmail.com>",
   "name": "hook.io",
-  "version": "0.8.4-4",
+  "version": "0.8.4-5",
   "repository": {
     "type": "git",
     "url": "git://github.com/hookio/hook.io.git"
@@ -35,9 +35,7 @@
     "semver": "1.0.x",
     "prompt": "0.1.x",
     "portfinder": "0.2.x",
-    "dnode": "0.9.1",
-    "weak": "0.1.1",
-    "traverse": "0.5.2"
+    "weak": "0.1.1"
   },
   "scripts": {
     "test": "vows test/**/*-test.js --isolate --spec"
