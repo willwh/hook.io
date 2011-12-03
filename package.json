@@ -1,7 +1,7 @@
 {
   "author": "Marak Squires <marak.squires@gmail.com>",
   "name": "hook.io",
-  "version": "0.8.4-2",
+  "version": "0.8.4-3",
   "repository": {
     "type": "git",
     "url": "git://github.com/hookio/hook.io.git"
@@ -26,8 +26,6 @@
   "dependencies": {
     "async": "0.1.x",
     "colors": "0.x.x",
-    "dnode": "0.9.1",
-    "dnode-protocol": "0.1.1",
     "eventemitter2": "0.4.x",
     "optimist": "0.2.x",
     "nconf": "0.3.x",
@@ -38,6 +36,10 @@
     "prompt": "0.1.x",
     "portfinder": "0.2.x"
   },
+  "bundleDependencies": [
+    "dnode",
+    "dnode-protocol"
+  ],
   "scripts": {
     "test": "vows test/**/*-test.js --isolate --spec"
   },
