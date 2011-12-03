@@ -3,7 +3,7 @@
  *                            to demonstrate some heavier network usage.
  *
  *                            This test suite init and start a server hook with a predefined number
- *                            of clients, emiting back and fourth the content of browser/hook.js (150kb).
+ *                            of clients, emiting back and fourth data
  *
  * (C) 2011 Marak Squires, Charlie Robbins
  * MIT LICENCE
@@ -22,7 +22,10 @@ var vows = require('vows'),
 //
 //  TODO: Update fixture with a large binary file, or something
 //
-var fixture = "foobar";
+var fixture = '', i;
+for (i = 0; i < 5000; i++) {
+  fixture += '#';
+}
 
 // create a local macro
 // TODO: see if it's better to put this in helpers/macros

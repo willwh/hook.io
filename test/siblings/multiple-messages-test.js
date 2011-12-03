@@ -22,7 +22,10 @@ var vows = require('vows'),
 //
 //  TODO: Update fixture with a large binary file, or something
 //
-var fixture = "foobar";
+var fixture = '', i;
+for (i = 0; i < 5000; i++) {
+  fixture += '#';
+}
 
 // create a local macro
 // TODO: see if it's better to put this in helpers/macros

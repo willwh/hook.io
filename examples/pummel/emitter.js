@@ -1,12 +1,13 @@
 var Hook = require('../../lib/hookio').Hook;
 var util = require('util');
 
+var fixture = '', i;
+for (i = 0; i < 5000; i++) {
+  fixture += '#';
+}
+
 var RealMessage = function () {
-  this.bigData = "";
-  var i=0;
-  for (;i<1000;i++) {
-    this.bigData += "Some simulation of data";
-  }
+  this.bigData = fixture;
 }
 
 var Slave = exports.Slave = function (options) {
