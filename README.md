@@ -81,7 +81,7 @@ You can also search [http://search.npmjs.org/](http://search.npmjs.org/) for "ho
 - [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
 - [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as hook.io events (with optional JSON-RPC 1.0 Support)
 - [wget](http://github.com/scottyapp/hook.io-wget): Downloads files using HTTP. Based on the http-get module by Stefan Rusu
-- [tar](https://github.com/scottyapp/hook.io.tar): A hook to wrap around tar
+- [tar](https://github.com/scottyapp/hook.io-tar): A hook to wrap around tar
 - [gzbz2](https://github.com/scottyapp/hook.io-gzbz2): A hook for compressing and uncompressing files
 - [mock](https://github.com/scottyapp/hook.io-mock): A hook that mocks messages. Useful for hook.io related development. 
 
