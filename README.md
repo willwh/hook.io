@@ -14,7 +14,7 @@
 ## hook.io applications are usually built by combining together several smaller "hooks" to compose new functionality in a distributed and organized way. 
 
 
-# Features :
+## Features :
 
 - Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
 - Create hooks on ANY device that supports JavaScript (cross-browser support via [socket.io][1])
@@ -24,7 +24,7 @@
 - Easily scale any tcp based messaging infrastructure (such as clustering socket.io chat rooms in memory) 
 - Easily connect / disconnect hooks "hot" without affecting other services
 
-### Additional Resources
+## Additional Resources
 
  - Email List: [http://groups.google.com/group/hookio][0]
  - Video Lessons: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) ( [mirror](https://github.com/hookio/tutorials) )
@@ -34,17 +34,17 @@
  - #nodejitsu on irc.freenode.net
  
 
-### Installation
+# Installation
 
      [sudo] npm install hook.io -g
      
-### Start a hook
+## Start a hook
 
     hookio
     
 *auto-discovery will now create a hook server if this is your only running hook*
 
-### Connect another hook
+## Connect another hook
 
     hookio
 
@@ -52,15 +52,34 @@
 
 This is the most minimal hook.io application you can have. It does nothing. No cruft, no extra baggage.
 
-### Connect another hook! With a REPL!
+## Connect another hook! With a REPL!
 
     hookio --repl
 
 *you now have three hooks connected to each other*
 
-### Extending your hook.io mesh
+## Extending your hook.io mesh
 
 At this point, you've got 3 nodes talking to each other, and an interactive repl to run `hook.emit` and `hook.on` commands. Now you can extend your network of hooks using any of the existing hook libraries, or by extending from the base `Hook` object. You can now fire messages cross-process, cross-platform, and cross-browser.
+
+# How about Unix Pipes?
+
+## Pipe STDIN to hookio
+
+    tail foo.txt -f | hookio 
+    
+**hook.io will now emit STDIN data as separate hook.io events**
+
+    
+## Pipe hook.io events to STDOUT
+
+    hookio -p | less
+
+Using the `-p` option, hook.io will stream events to STDOUT as `\n` delimited JSON documents. Each document represents a single hook.io event.
+
+**example STDOUT:**
+
+    {"name":"the-hook","event":"the-hook::sup","data":{"foo":"bar"}}
 
 # Available Hooks (more coming soon)
 
