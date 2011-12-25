@@ -154,22 +154,26 @@ All tests are written with [vows](http:://vowsjs.org) and require that you link 
 
 ## Core Contributors ( https://github.com/hookio/hook.io/contributors )
 
- - Marak (Marak Squires)
- - indexzero (Charlie Robbins)
- - jamesonjlee (Jameson)
- - AvianFlu (Charlie McConnell)
- - jesusabdullah (Joshua Holbrook)
- - temsa
- - mmalecki (Maciej Małecki)
- - pkumar (Pavan Kumar Sunkara)
- - Marsup (Nicolas Morel)
- - mklabs (Mickael Daniel)
- - Tim-Smart (Tim)
- - stolsma (Sander Tolsma)
- - ejeklint (Per Ejeklint)
- - thejh (Jann Horn)
- - perezd (Derek Perez)
- - mwawrusch (Martin Wawrusch)
+  - Marak (Marak Squires)
+  - indexzero (Charlie Robbins)
+  - jesusabdullah (Joshua Holbrook)
+  - temsa (Florian Traverse)
+  - mmalecki (Maciej Małecki)
+  - jamesonjlee (Jameson)
+  - pksunkara (Pavan Kumar Sunkara)
+  - Marsup (Nicolas Morel)
+  - mklabs (Mickael Daniel)
+  - Tim-Smart (Tim)
+  - stolsma (Sander Tolsma)
+  - sergeyksv
+  - thejh (Jann Horn)
+  - booyaa (Mark Sta Ana)
+  - perezd (Derek Perez)
+  - ejeklint (Per Ejeklint)
+  - emilisto
+  - vns
+  - mwawrusch (Martin Wawrusch)
+  - AvianFlu (Charlie McConnell)
 
 ## MIT License
 
