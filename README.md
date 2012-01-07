@@ -170,7 +170,7 @@ All tests are written with [vows](http:://vowsjs.org) and require that you link 
   - booyaa (Mark Sta Ana)
   - perezd (Derek Perez)
   - ejeklint (Per Ejeklint)
-  - emilisto
+  - emilisto (Emil Stenqvist)
   - vns
   - mwawrusch (Martin Wawrusch)
   - AvianFlu (Charlie McConnell)
