@@ -42,7 +42,8 @@
     "traverse" : "0.4.x",
     "dnode-protocol" : "0.1.x",
     "traverse" : "0.5.x",
-    "jsonify" : "0.0.x"
+    "jsonify" : "0.0.x",
+    "mdns": ">=0.0.4"
   },
   "scripts": {
     "test": "vows test/**/*-test.js --isolate --spec"
