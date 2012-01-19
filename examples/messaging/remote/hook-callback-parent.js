@@ -1,9 +1,4 @@
-/*
- * Creates a helloworld hook, then spawns three helloworld children
- */
-
 var Hook = require('../../../lib/hookio').Hook;
-
 
 var hook1 = new Hook({ 
   name: "a",
