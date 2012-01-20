@@ -1,5 +1,5 @@
 /*
- * Creates a server hook, a client hook, kills the client hook
+ * Creates a server hook, a client hook, stops the client hook, starts it up again
  */
 
 var Hook = require('../../lib/hookio').Hook;
@@ -25,10 +25,14 @@ var hook2 = new Hook({
 hook2.on('hook::ready', function() {
   var counter = 0;
   hook2.on('*::hello', function(){
-    console.log('got hello');
     counter++;
     if (counter >= 3) {
-      hook2.kill();
+      hook2.stop();
+      console.log('stopping hook...')
+      setTimeout(function(){
+        console.log('resuming hook...');
+        hook2.start();
+      }, 5000)
     }
   });
 });

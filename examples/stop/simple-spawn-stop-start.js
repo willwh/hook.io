@@ -2,6 +2,11 @@
  * Creates a server hook, spawn a client hook, kill the spawned client
  */
 
+//
+// WARN: Currently experiencing a race condition when using this example, 
+// this means that there is a flaw somewhere in the start / stop / kill logic
+//
+
 var Hook = require('../../lib/hookio').Hook;
 
 var hook1 = new Hook({
@@ -24,14 +29,16 @@ hook1.on('hook::ready', function() {
     counter++;
     if (counter >= 3) {
       hook1.kill('client-hook', function(err){
+        
         if (err) {
           console.log(err);
         }
+        setTimeout(function(){
+          hook1.start();
+        }, 5000);
       });
     }
   });
-  
-  
   
 });
 
