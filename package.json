@@ -58,7 +58,6 @@
     "findit": "0.x.x",
     "forever": "0.6.x",
     "hook.io-helloworld" : "0.3.x",
-    "winston": "0.3.x",
     "vows": "0.5.x >=0.5.10"
   }
 }
