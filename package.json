@@ -29,7 +29,7 @@
     "eventemitter2": "0.4.x",
     "optimist": "0.2.x",
     "nconf": "0.3.x",
-    "npm": "1.0.x",
+    "npm": "~1.1.x",
     "pkginfo": "0.2.x",
     "mkdirp": "0.2.x",
     "semver": "1.0.x",
@@ -43,7 +43,6 @@
     "dnode-protocol" : "0.1.x",
     "traverse" : "0.5.x",
     "jsonify" : "0.0.x",
-    "mdns": ">=0.0.4",
     "winston": ">= 0.5.9"
   },
   "scripts": {
@@ -58,6 +57,7 @@
     "findit": "0.x.x",
     "forever": "0.6.x",
     "hook.io-helloworld" : "0.3.x",
-    "vows": "0.5.x >=0.5.10"
+    "vows": "0.5.x >=0.5.10",
+    "mdns": ">=0.0.4"
   }
 }
