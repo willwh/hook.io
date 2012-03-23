@@ -46,7 +46,8 @@
     "winston": "0.5.9"
   },
   "scripts": {
-    "test": "vows test/**/*-test.js --isolate --spec"
+    "test": "vows test/**/*-test.js --isolate --spec",
+    "postinstall": "npm link hook.io"
   },
   "browserify" : { 
     "base" : "./lib", 
@@ -57,7 +58,9 @@
     "findit": "0.x.x",
     "forever": "0.6.x",
     "hook.io-helloworld" : "0.3.x",
-    "vows": "0.5.x >=0.5.10",
+    "vows": "0.5.x >=0.5.10"
+  },
+  "optionalDependencies": {
     "mdns": "0.0.x"
   }
 }
