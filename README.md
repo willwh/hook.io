@@ -81,6 +81,38 @@ Using the `-p` option, hook.io will stream events to STDOUT as `\n` delimited JS
 
     {"name":"the-hook","event":"the-hook::sup","data":{"foo":"bar"}}
 
+
+# Multicast DNS ( mdns )
+
+[Multicast DNS (mdns)](http://en.wikipedia.org/wiki/Multicast_DNS) is a way of using [DNS](http://en.wikipedia.org/wiki/Domain_Name_System) programming interfaces, packet formats and operating semantics on a small network where no DNS server is running. The mDNS protocol is used by Apple's <a href="http://en.wikipedia.org/wiki/Bonjour_(software)">Bonjour<a/> and Linux <a href="http://en.wikipedia.org/wiki/Avahi_(software)">Avahi<a/> service discovery systems. mdns is an easy way to help networked devices find each other without any prior configuration.
+
+hook.io has built-in experimental mdns support. This is intended to work on all operating systems and is intented for a way to provide<a href="http://en.wikipedia.org/wiki/Zeroconf">zero configuration networking</a> discovery and connection of hooks over a [Local Area Network](http://en.wikipedia.org/wiki/Local_area_network) ( LAN )
+
+**IMPORTANT**
+
+Before you can use the mdns feature, you will need to install a few additional dependencies.
+
+     npm install mdns@0.0.4
+
+MacOS and Windows should work out of the box. If you are running Linux, you may need to install the following libraries.
+
+     apt-get install libavahi-compat-libdnssd-dev
+
+**using mdns**
+
+Computer 1
+
+     hookio -m
+
+
+Computer 2
+
+    hookio -m
+
+Now these two computers ( connected over a LAN, with no central DNS server ) will automatically discovery each other and begin to transmit messages. Think of the possibilities!
+
+
+
 # Available Hooks (more coming soon)
 
 Hook Library wiki: [https://github.com/hookio/hook.io/wiki/Hook.io-Libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries)
