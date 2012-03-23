@@ -46,7 +46,8 @@
     "winston": "0.5.9"
   },
   "scripts": {
-    "test": "vows test/**/*-test.js --isolate --spec"
+    "test": "vows test/**/*-test.js --isolate --spec",
+    "postinstall": "npm link hook.io"
   },
   "browserify" : { 
     "base" : "./lib", 
