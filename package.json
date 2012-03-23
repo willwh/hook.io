@@ -43,10 +43,10 @@
     "dnode-protocol" : "0.1.x",
     "traverse" : "0.5.x",
     "jsonify" : "0.0.x",
-    "winston": "0.5.9"
+    "winston": "0.5.10"
   },
   "scripts": {
-    "test": "vows test/**/*-test.js --isolate --spec"
+    "test": "vows test/**/*-test.js --spec"
   },
   "browserify" : { 
     "base" : "./lib", 
