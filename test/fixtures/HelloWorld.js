@@ -11,7 +11,7 @@ var Helloworld = exports.Helloworld = function (options) {
   var self = this;
   Hook.call(this, options);
   
-  console.log(options);
+  //console.log(options);
   
   this.on('hook::ready', function () {
     self.on('*::hello', function(data){
