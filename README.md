@@ -1,11 +1,5 @@
-     __    __    ______     ______    __  ___         __    ______   
-    |  |  |  |  /  __  \   /  __  \  |  |/  /        |  |  /  __  \  
-    |  |__|  | |  |  |  | |  |  |  | |  '  /         |  | |  |  |  | 
-    |   __   | |  |  |  | |  |  |  | |    <          |  | |  |  |  | 
-    |  |  |  | |  `--'  | |  `--'  | |  .  \    __   |  | |  `--'  | 
-    |__|  |__|  \______/   \______/  |__|\__\  (__)  |__|  \______/  
+<img src="http://i.imgur.com/S2rgr.png"></img>
 
-    a way to enable i/o for your node.js application
     
 ## hook.io is a distributed EventEmitter built on node.js. In addition to providing a minimalistic event framework, hook.io also provides a rich network of [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries) for managing all sorts of input and output.
 
