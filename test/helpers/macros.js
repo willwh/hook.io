@@ -125,10 +125,10 @@ macros.assertSpawnError = function (hooks, vows) {
         hook = new Hook();
       }
       
-      hook.once('error::spawn', this.callback.bind(hook, null, hook));
+      hook.once('spawn::error', this.callback.bind(hook, null, hook));
       hook.spawn(hooks);
     },
-    "it should raise the `error::spawn` event": function (_, _, err) {
+    "it should raise the `spawn::error` event": function (_, _, err) {
       assert.isObject(err);
       assert.instanceOf(err, Error);
     }
