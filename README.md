@@ -152,7 +152,7 @@ hookA.on('*::sup', function(data){
 
 // Hook.start defaults to localhost
 // it can accept dnode constructor options ( for remote connections )
-// these hooks can be started on diffirent machines / networks / devices
+// these hooks can be started on different machines / networks / devices
 hookA.start();
 
 var hookB = new Hook({
