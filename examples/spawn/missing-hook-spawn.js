@@ -3,7 +3,9 @@ var hookio = require('../../lib/hookio');
 var master = hookio.createHook({ 
   "name": "master-hook", 
   "hooks": [
-   { "type" : "twitter" }
+   { "type" : "request" },
+   { "type" : "none-exist" },
+
   ]
 });
 
