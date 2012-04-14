@@ -1,82 +1,137 @@
 <img src="http://i.imgur.com/S2rgr.png"></img>
 
     
-## hook.io is a distributed EventEmitter built on node.js. In addition to providing a minimalistic event framework, hook.io also provides a rich network of [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries) for managing all sorts of input and output.
+## hook.io is a versatile distributed event emitter built with node.js
 
-## "hooks" provide a very simple and light way to extend an application to seamlessly communicate with other "hook" enabled devices. By design, extending legacy applications to communicate with hook.io is *very* easy.
+## hooks are nodes which can seamlessly work together across any device or network to create self-healing meshes of i/o
 
-## hook.io applications are usually built by combining together several smaller "hooks" to compose new functionality in a distributed and organized way. 
+## hooks are light-weight and simple nodes
+
+## hook.io applications are usually built by combining together several small hooks to compose new functionality in a distributed and organized way
+
+## legacy applications can easily be extended to work with hook.io
+
+## hook.io has a rich community and network of user-created [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries) for interacting with many common types of i/o
+
+
 
 
 ## Features :
 
-- Build large, decoupled, distributed, and fault tolerant I/O heavy applications in node.js
-- Create hooks on ANY device that supports JavaScript (cross-browser support via [socket.io][1])
-- Spawning and Daemonizing of processes handled with [Forever][4]
-- Messaging API inherits and mimics Node's native EventEmitter API (with the help of EventEmitter2)
-- Interprocess Message Publishing and Subscribing done through [EventEmitter2][2] and [dnode][3]
-- Easily scale any tcp based messaging infrastructure (such as clustering socket.io chat rooms in memory) 
-- Easily connect / disconnect hooks "hot" without affecting other services
+- **Enables Rapid Development of large, decoupled, distributed, and fault tolerant systems in node.js**
+- **Built-in auto-discovery systems using http, tcp, mdns, and [hnet](http://github.com/hookio/hnet)**
+- **Hooks can exist on any device that supports JavaScript (cross-browser support via [socket.io][1])**
+- **Seamlessly manages the spawning and daemonizing nodes**
+- **Dead simple Interprocess Communication API built on node's native [EventEmitter][2]**
 
-## Additional Resources
-
- - Email List: [http://groups.google.com/group/hookio][0]
- - Video Lessons: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) ( [mirror](https://github.com/hookio/tutorials) )
- - Wiki Pages [https://github.com/hookio/hook.io/wiki/_pages](https://github.com/hookio/hook.io/wiki/_pages) 
- - [hook.io for dummies](http://ejeklint.github.com/2011/09/23/hook.io-for-dummies-part-1-overview/)
- - [Distribute Node.js Apps with hook.io: ][6]
- - #nodejitsu on irc.freenode.net
- 
 
 # Installation
 
      [sudo] npm install hook.io -g
      
-## Start a hook
 
-    hookio
+# Usage
+
+If you are impatient and wish to jump straight to code, we have hundreds of code examples available here: [https://github.com/hookio/hook.io/tree/master/examples](https://github.com/hookio/hook.io/tree/master/examples)
+
+- [using hook.io as a node.js script or as the hook binary](#script-versus-binary)
+- [hook.io repl](#hook-repl)
+- [hook configuration / construction](#basic-config-construct)
+- [auto-discovery](#auto-discover)
+- [messaging](#basic-messaging)
+- [using PIPES](#hook-pipes)
+- [using mdns](#hook-mdns)
+- [enabling autohealing meshes](#hook-autoheal)
+- [tapping into the hook.io library network](#hook-libraries)
+
+<a name="script-versus-binary"></a>
+## How to use hook.io as a node.js script or as the `hook` binary
+
+hook.io works well as both the `hook` binary or required and used programmatically through node.js 
+
+To use the `hook` binary simple type this on your terminal:
+
+     hook
+
+This will start up your first hook!
+
+To execute this same action programtically we would create a myhook.js file that contained: 
+
+```
+var hookio = require('hook.io'),
+      hook     = createHook();
+hook.start();
+
+```
+<a name="hook-repl"></a>
+## hook repl
+
+The hook repl provides an easy way to interact with a live hook.io mesh.
+
+Simply type:
+
+     hook --repl
+
+**repl img here**
+
+<a name="hook-config-construct"></a>
+## hook configuration
+
+<a name="hook-messaging"></a>
+## hook messaging 
+
+**Note:** This is only one, small, example.
+
+To see all other supported types of hook messaging ( including EventEmitter and Callback style ), see: [https://github.com/hookio/hook.io/tree/master/examples/messaging](https://github.com/hookio/hook.io/tree/master/examples/messaging)
+
+**hook a**
+
+``` js
+var hookio = require('hook.io');
+
+var hookA = hookio.createHook({
+  name: "a"
+});
+hookA.on('*::sup', function(data){
+  // outputs b::sup::dog
+  console.log(this.event + ' ' + data);
+});
+hookA.start();
+```
+
+**hook b**
+``` js
+var hookB = hookio.createHook({
+  name: "b"
+});
+hookB.on('hook::ready', function(){
+  hookB.emit('sup', 'dog');
+});
+hookB.start();
+```
+
+<a name="hook-pipes"></a>
+## piping stdout and stdin through unix pipes
+
+### pipe stdin to hookio
+
+    tail foo.txt -f | hook 
     
-*auto-discovery will now create a hook server if this is your only running hook*
-
-## Connect another hook
-
-    hookio
-
-*you now have two hooks connected to each other*
-
-This is the most minimal hook.io application you can have. It does nothing. No cruft, no extra baggage.
-
-## Connect another hook! With a REPL!
-
-    hookio --repl
-
-*you now have three hooks connected to each other*
-
-## Extending your hook.io mesh
-
-At this point, you've got 3 nodes talking to each other, and an interactive repl to run `hook.emit` and `hook.on` commands. Now you can extend your network of hooks using any of the existing hook libraries, or by extending from the base `Hook` object. You can now fire messages cross-process, cross-platform, and cross-browser.
-
-# How about Unix Pipes?
-
-## Pipe STDIN to hookio
-
-    tail foo.txt -f | hookio 
-    
-**hook.io will now emit STDIN data as separate hook.io events**
+**hook.io will now emit stdin data as separate hook events**
 
     
-## Pipe hook.io events to STDOUT
+### pipe hook.io events to stdout
 
-    hookio -p | less
+    hook -p | less
 
-Using the `-p` option, hook.io will stream events to STDOUT as `\n` delimited JSON documents. Each document represents a single hook.io event.
+Using the `-p` option, hook.io will stream events to stdout as `\n` delimited JSON documents. Each document represents a single hook event.
 
-**example STDOUT:**
+**example stdout:**
 
     {"name":"the-hook","event":"the-hook::sup","data":{"foo":"bar"}}
 
-
-# Multicast DNS ( mdns )
+<a name="hook-mdns"></a>
+## multicast dns ( mdns )
 
 [Multicast DNS (mdns)](http://en.wikipedia.org/wiki/Multicast_DNS) is a way of using [DNS](http://en.wikipedia.org/wiki/Domain_Name_System) programming interfaces, packet formats and operating semantics on a small network where no DNS server is running. The mDNS protocol is used by Apple's <a href="http://en.wikipedia.org/wiki/Bonjour_(software)">Bonjour<a/> and Linux <a href="http://en.wikipedia.org/wiki/Avahi_(software)">Avahi<a/> service discovery systems. mdns is an easy way to help networked devices find each other without any prior configuration.
 
@@ -105,7 +160,7 @@ Computer 2
 
 Now these two computers ( connected over a LAN, with no central DNS server ) will automatically discovery each other and begin to transmit messages. Think of the possibilities!
 
-
+<a name="hook-libraries"></a>
 
 # Available Hooks (more coming soon)
 
@@ -130,41 +185,7 @@ You can also search [http://search.npmjs.org/](http://search.npmjs.org/) for "ho
 - [gzbz2](https://github.com/scottyapp/hook.io-gzbz2): A hook for compressing and uncompressing files
 - [mock](https://github.com/scottyapp/hook.io-mock): A hook that mocks messages. Useful for hook.io related development. 
 
-## Using hook.io programmatically
 
-**Note:** This is only one, small, example.
-
-*see [examples](https://github.com/hookio/hook.io/tree/master/examples) folder for extensive example code*
-
-*to see all other supported types of hook messaging ( including EventEmitter and Callback style ), see: [https://github.com/hookio/hook.io/tree/master/examples/messaging](https://github.com/hookio/hook.io/tree/master/examples/messaging)*
-
-```js
-var Hook = require('hook.io').Hook;
-
-var hookA = new Hook({
-  name: "a"
-});
-
-hookA.on('*::sup', function(data){
-  // outputs b::sup::dog
-  console.log(this.event + ' ' + data);
-});
-
-// Hook.start defaults to localhost
-// it can accept dnode constructor options ( for remote connections )
-// these hooks can be started on different machines / networks / devices
-hookA.start();
-
-var hookB = new Hook({
-  name: "b"
-});
-
-hookB.on('hook::ready', function(){
-  hookB.emit('sup', 'dog');
-});
-
-hookB.start();
-```
  
 ## Tests
 
@@ -176,30 +197,18 @@ All tests are written with [vows](http:://vowsjs.org) and require that you link 
   $ [sudo] npm link hook.io
   $ npm test
 ```
+## Additional Resources
 
+ - Email List: [http://groups.google.com/group/hookio][0]
+ - Video Lessons: [http://youtube.com/maraksquires](http://youtube.com/maraksquires) ( [mirror](https://github.com/hookio/tutorials) )
+ - Wiki Pages [https://github.com/hookio/hook.io/wiki/_pages](https://github.com/hookio/hook.io/wiki/_pages) 
+ - [hook.io for dummies](http://ejeklint.github.com/2011/09/23/hook.io-for-dummies-part-1-overview/)
+ - [Distribute Node.js Apps with hook.io: ][6]
+ - #nodejitsu on irc.freenode.net
+ 
 
 ## Core Contributors ( https://github.com/hookio/hook.io/contributors )
 
-  - Marak (Marak Squires)
-  - indexzero (Charlie Robbins)
-  - jesusabdullah (Joshua Holbrook)
-  - temsa (Florian Traverse)
-  - mmalecki (Maciej Małecki)
-  - jamesonjlee (Jameson)
-  - pksunkara (Pavan Kumar Sunkara)
-  - Marsup (Nicolas Morel)
-  - mklabs (Mickael Daniel)
-  - Tim-Smart (Tim)
-  - stolsma (Sander Tolsma)
-  - sergeyksv
-  - thejh (Jann Horn)
-  - booyaa (Mark Sta Ana)
-  - perezd (Derek Perez)
-  - ejeklint (Per Ejeklint)
-  - emilisto (Emil Stenqvist)
-  - vns
-  - mwawrusch (Martin Wawrusch)
-  - AvianFlu (Charlie McConnell)
 
 ## MIT License
 
