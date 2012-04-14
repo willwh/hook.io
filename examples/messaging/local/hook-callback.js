@@ -2,9 +2,9 @@
  * Creates a helloworld hook, then spawns three helloworld children
  */
 
-var Hook = require('../../../lib/hookio').Hook;
+var hookio = require('../../../lib/hookio');
 
-var hook1 = new Hook({ 
+var hook1 = hookio.createHook({ 
   name: "server-hook",
   debug: true
 });
