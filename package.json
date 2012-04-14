@@ -18,6 +18,7 @@
   ],
   "main": "./lib/hookio",
   "bin": {
+     "hook": "./bin/hookio",
      "hookio": "./bin/hookio"
    },
   "engines": {
