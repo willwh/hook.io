@@ -44,6 +44,10 @@
     "jsonify" : "0.0.x",
     "winston": "0.5.10"
   },
+  "optionalDependencies": {
+    "union": "0.3.x",
+    "ecstatic": "0.1.x"
+  },
   "scripts": {
     "test": "vows test/**/*-test.js --spec"
   },
