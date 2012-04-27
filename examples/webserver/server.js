@@ -12,6 +12,7 @@ var server = hookio.createWebServer({
 server.start();
 
 server.on('*::ping', function (data, cb) {
+  console.log('ping');
   var place = function () {
 
     var item = places.shift();
