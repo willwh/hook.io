@@ -8,7 +8,7 @@ var client = hookio.createWebClient({
   name: 'hook.io-webclient'
 });
 
-client.start('localhost:8080');
+client.start('http://localhost:8080');
 
 client.on('hook::ready', function() {
 
