@@ -4,7 +4,7 @@ var hookio = require('../../lib/hookio'),
 
 var public = path.resolve(__dirname, 'public');
 
-var server = hookio.createWebserver({
+var server = hookio.createWebServer({
   name: 'hook.io-webserver',
   webroot: public
 });
