@@ -23,10 +23,12 @@ dnode.prototype.connect = function () {
     var self = this;
     var params = protocol.parseArgs(arguments);
     var client = self.proto.create();
-    
+
     var proto = (params.proto || window.location.protocol)
         .replace(/:.*/, '') + '://';
-    
+
+    var connectTo = proto + (params.host || window.location.host);
+
     var sock = client.socketio = io.connect(
         proto + (params.host || window.location.host),
         params
