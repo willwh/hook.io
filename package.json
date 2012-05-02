@@ -60,6 +60,7 @@
     "hook.io-helloworld" : "0.3.x",
     "vows": "0.5.x >=0.5.10",
     "browserify": "1.10.x",
+    "dnode": "0.9.11",
     "shimify": "0.0.x"
   }
 }
