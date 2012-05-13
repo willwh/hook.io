@@ -138,7 +138,7 @@ var Session = exports.Session = function (id, wrapper) {
         if (typeof methods != 'object') {
             methods = {};
         }
-        
+
         // copy since assignment discards the previous refs
         Object.keys(self.remote).forEach(function (key) {
             delete self.remote[key];
