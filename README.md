@@ -59,8 +59,9 @@ To execute this same action programtically we would create a myhook.js file that
 
 ```
 var hookio = require('hook.io'),
-      hook     = createHook();
-hook.start();
+    hook   = hookio.createHook();
+
+    hook.start();
 
 ```
 <a name="hook-repl"></a>
