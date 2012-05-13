@@ -1,3 +1,4 @@
+
 <img src="http://i.imgur.com/S2rgr.png"></img>
 
     
@@ -5,30 +6,21 @@
 
 ## hooks are nodes which can seamlessly work together across any device or network to create self-healing meshes of i/o
 
-## hooks are light-weight and simple nodes
-
-## hook.io applications are usually built by combining together several small hooks to compose new functionality in a distributed and organized way
-
-## legacy applications can easily be extended to work with hook.io
-
-## hook.io has a rich community and network of user-created [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries) for interacting with many common types of i/o
-
-
-
-
 ## Features :
 
-- **Enables Rapid Development of large, decoupled, distributed, and fault tolerant systems in node.js**
+- **Build applications intelligently by combining together small hook actors**
+- **Rapidly compose new functionality in a distributed and organized way**
+- **Dead simple Inter Process Communication built on-top of node's native [EventEmitter][2] class**
+- **Supports a large amount of common i/o sources out of the box**
+- **Additional i/o support from a rich community and network of user-created [hook libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries)**
 - **Built-in auto-discovery systems using http, tcp, mdns, and [hnet](http://github.com/hookio/hnet)**
 - **Hooks can exist on any device that supports JavaScript (cross-browser support via [socket.io][1])**
-- **Seamlessly manages the spawning and daemonizing nodes**
-- **Dead simple Interprocess Communication API built on node's native [EventEmitter][2]**
-
+- **Seamlessly manages the spawning and daemonizing additional hooks**
+- **Legacy applications can easily be extended to work with hook.io**
 
 # Installation
 
      [sudo] npm install hook.io -g
-     
 
 # Usage
 
@@ -163,31 +155,12 @@ Now these two computers ( connected over a LAN, with no central DNS server ) wil
 
 <a name="hook-libraries"></a>
 
-# Available Hooks (more coming soon)
+# Hook Libraries
 
-Hook Library wiki: [https://github.com/hookio/hook.io/wiki/Hook.io-Libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries)
+Wiki: [https://github.com/hookio/hook.io/wiki/Hook.io-Libraries](https://github.com/hookio/hook.io/wiki/Hook.io-Libraries)
 
 You can also search [http://search.npmjs.org/](http://search.npmjs.org/) for "hook.io" ( although there are so many matches already, the search interface can't display them all.. )
 
-- [cron](http://github.com/hookio/cron): Adds and removes jobs that emit hook.io events on a schedule
-- [couch](http://github.com/hookio/couch): Emit hook.io events based on your CouchDB _changes feed
-- [irc](http://github.com/hookio/irc): Full IRC bindings
-- [helloworld](http://github.com/hookio/helloworld)
-- [logger](http://github.com/hookio/logger): Multi-transport Logger (Console, File, Redis, Mongo, Loggly)
-- [hook.js](https://github.com/hookio/hook.js): Build web apps / use hook.io in any browser
-- [mailer](http://github.com/hookio/mailer): Sends emails
-- [sitemonitor](http://github.com/hookio/sitemonitor): A low level Hook for monitoring web-sites.
-- [request](http://github.com/hookio/request): Simple wrapper for [http://github.com/mikeal/request](http://github.com/mikeal/request)
-- [twilio](http://github.com/hookio/twilio): Make calls and send SMS through [Twilio][5]
-- [twitter](http://github.com/hookio/twitter): Wrapper to Twitter API
-- [webhook](http://github.com/hookio/webhook): Emits received HTTP requests as hook.io events (with optional JSON-RPC 1.0 Support)
-- [wget](http://github.com/scottyapp/hook.io-wget): Downloads files using HTTP. Based on the http-get module by Stefan Rusu
-- [tar](https://github.com/scottyapp/hook.io-tar): A hook to wrap around tar
-- [gzbz2](https://github.com/scottyapp/hook.io-gzbz2): A hook for compressing and uncompressing files
-- [mock](https://github.com/scottyapp/hook.io-mock): A hook that mocks messages. Useful for hook.io related development. 
-
-
- 
 ## Tests
 
 All tests are written with [vows](http:://vowsjs.org) and require that you link hook.io to itself:
