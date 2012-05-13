@@ -36,7 +36,7 @@
     "semver": "1.0.x",
     "prompt": "0.1.x",
     "portfinder": "0.2.x",
-    "weak": "0.2.x",
+    "weak": "*",
     "socket.io" : "0.8.6",
     "socket.io-client" : "https://github.com/substack/socket.io-client/tarball/master",
     "lazy" : ">=1.0.5 <1.1",
