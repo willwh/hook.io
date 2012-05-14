@@ -38,7 +38,7 @@ myHook.on('hook::ready', function () {
     ]
   }]);
   
-  myHook.on('children::ready', function () {
+  myHook.on('hook::children::ready', function () {
 
     //
     // Remark: Since we have set couch as an transport,

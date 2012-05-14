@@ -21,11 +21,11 @@ vows.describe('hook.io/discovery/basic-init').addBatch({
     "and another hook attempts to `.listen()` on 5010": {
       topic: function () {
         var instance = new Hook({ name: 'simple-error' });
-        instance.once('error::*', this.callback.bind(instance, null));
+        instance.once('hook::error::*', this.callback.bind(instance, null));
         instance.listen({ "hook-port": 5010, debug:true });
       },
       "it should fire the `error` event": function (_, data) {
-        assert.equal(this.event, 'error::bind');
+        assert.equal(this.event, 'hook::error::bind');
         assert.equal(data, '5010');
       }
     }

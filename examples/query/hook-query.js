@@ -11,7 +11,7 @@ var hook1 = new Hook({
 
 hook1.on('hook::ready', function () {
 
-  hook1.on('children::ready', function () {
+  hook1.on('hook::children::ready', function () {
     
     //
     // Remark: Get all hooks of generic type "hook" with a callback
