@@ -4,12 +4,12 @@ var hookio = require('../../lib/hookio'),
 
 var public = path.resolve(__dirname, 'public');
 
-var server = hookio.createWebServer({
+var server = hookio.createHook({
   name: 'hook.io-webserver',
   webroot: public
 });
 
-server.start();
+server.listen();
 
 server.on('*::ping', function (data, cb) {
   console.log('ping');
@@ -34,3 +34,7 @@ var places = [
   "computer",
   "hook.io"
 ];
+
+server.on('**', function () {
+  console.log(this.event);
+});

@@ -2,13 +2,11 @@
 var hookio = require('../../lib/hookio'),
     path = require('path');
 
-var public = path.resolve(__dirname, 'public');
-
-var client = hookio.createWebClient({
+var client = hookio.createHook({
   name: 'hook.io-webclient'
 });
 
-client.start('http://localhost:8080');
+client.start();
 
 client.on('hook::ready', function() {
 
@@ -22,4 +20,8 @@ client.on('hook::ready', function() {
     cb(null, 'I\'m '+client.name+' and you ponged me ?')
   })
 
+});
+
+client.on('**', function () {
+  console.log(this.event);
 });
